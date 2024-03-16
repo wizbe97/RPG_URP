@@ -666,6 +666,7 @@ GameObject:
   - component: {fileID: 5412118180829295857}
   - component: {fileID: 1857944388080211180}
   - component: {fileID: 3015426108040769319}
+  - component: {fileID: 7631762631440974444}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -759,6 +760,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7631762631440974444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3415536088658567317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6295f7a1f67ce654f859441d2380f20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStackedItems: 10
+  inventorySlots:
+  - {fileID: 1015602859568226156}
+  - {fileID: 9172753889463993075}
+  - {fileID: 2426794686970452108}
+  - {fileID: 2477830256475986650}
+  - {fileID: 8211705509294295727}
+  - {fileID: 4948353400868599284}
+  - {fileID: 4685342001518218118}
+  - {fileID: 1212559504514454856}
+  - {fileID: 5502265529645261420}
+  - {fileID: 1943933287229753798}
+  - {fileID: 2892950421328492028}
+  - {fileID: 2595343094163325366}
+  - {fileID: 6674881471840487978}
+  - {fileID: 2392875782299633339}
+  - {fileID: 515341081156350189}
+  - {fileID: 8041812611452579490}
+  inventoryItemPrefab: {fileID: 2740056780323247060, guid: 5d2138900ebac4f40aa05c1058902dd9, type: 3}
 --- !u!1 &3714595508218950064
 GameObject:
   m_ObjectHideFlags: 0
