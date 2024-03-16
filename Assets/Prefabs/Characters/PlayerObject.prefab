@@ -188,12 +188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc8edafe2b4a34ea67ec0539b40a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHitPoints: 80
+  startingHitPoints: 100
   maxHitPoints: 100
   characterCategory: 0
   hitPoints: {fileID: 11400000, guid: f5c7593b0aae9a14abeaf3588725f746, type: 2}
   healthBarPrefab: {fileID: 7422304651374352738, guid: f502ccf4bbf154b45b2fb5ac4721cdd8, type: 3}
-  inventoryPrefab: {fileID: 2459118984583675082, guid: 3475a5d83357df042af2d53b412317d0, type: 3}
+  inventoryPrefab: {fileID: 7631762631440974444, guid: f6f1f1de18f6c134dab26a41d82691fd, type: 3}
 --- !u!114 &1045256185546379943
 MonoBehaviour:
   m_ObjectHideFlags: 0
