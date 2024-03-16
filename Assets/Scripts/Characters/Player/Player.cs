@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class Player : Character
 {
-    private InventoryManager inventoryManager;
 
     public HitPoints hitPoints;
 
     public HealthBar healthBarPrefab;
-    HealthBar healthBar;
+    private HealthBar healthBar;
+
+    public InventoryManager inventoryPrefab;
+    private InventoryManager inventoryManager;
     private void Start()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
@@ -45,7 +47,6 @@ public class Player : Character
 
                 if (shouldDisappear)
                 {
-                    //collision.gameObject.SetActive(false);
                     Destroy(collision.gameObject);
                 }
             }
@@ -94,6 +95,7 @@ public class Player : Character
     public override void ResetCharacter()
     {
         healthBar = Instantiate(healthBarPrefab);
+        inventoryManager = Instantiate(inventoryPrefab);
         healthBar.character = this;
         hitPoints.value = startingHitPoints;
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3029405647580869370}
   - component: {fileID: 4771741839974286281}
   m_Layer: 0
-  m_Name: RPGCameraManager
+  m_Name: CameraManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
