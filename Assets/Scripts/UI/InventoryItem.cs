@@ -17,10 +17,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
     bool isDragging = false; // Track if dragging is occurring
-    public Inventory inventory;
+    private Inventory inventory;
 
     public int InventorySlotIndex;
 
+    private void Start()
+    {
+        inventory = FindObjectOfType<Inventory>(); // Find the Inventory in the scene
+    }
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
@@ -80,20 +84,20 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             InventoryItem targetItem = targetObject ? targetObject.GetComponent<InventoryItem>() : null;
 
             //This is a fix for when eventData.pointerEnter points to a slot rather than an item
-            if(targetItem == null)
+            if (targetItem == null)
                 targetItem = targetObject?.GetComponent<InventorySlot>()?.Item;
 
             if (targetItem != null)
             {
-                if (targetItem != this && item == targetItem.item && item.stackable)
+                if (targetItem != this && item == targetItem.item && item.stackable && (count + targetItem.count <= inventory.maxStackedItems))
                 {
                     // Snap the dragged item onto the target item slot
-                    transform.SetParent(targetItem.transform.parent);
-                    transform.position = targetItem.transform.position;
-                    transform.SetAsLastSibling(); // Ensure the dragged item is rendered on top
+                    //transform.SetParent(targetItem.transform.parent);
+                    //transform.position = targetItem.transform.position;
+                    //transform.SetAsLastSibling(); // Ensure the dragged item is rendered on top
 
                     // Merge the dragged item with the target item
-                    targetItem.MergeWith(this);
+                    this.MergeWith(targetItem);
                 }
                 else
                 {
