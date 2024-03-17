@@ -193,7 +193,7 @@ MonoBehaviour:
   characterCategory: 0
   hitPoints: {fileID: 11400000, guid: f5c7593b0aae9a14abeaf3588725f746, type: 2}
   healthBarPrefab: {fileID: 7422304651374352738, guid: f502ccf4bbf154b45b2fb5ac4721cdd8, type: 3}
-  inventoryPrefab: {fileID: 7631762631440974444, guid: f6f1f1de18f6c134dab26a41d82691fd, type: 3}
+  inventoryPrefab: {fileID: -3428646450097662223, guid: f6f1f1de18f6c134dab26a41d82691fd, type: 3}
 --- !u!114 &1045256185546379943
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
-    public InventoryManager inventoryManager;
+    public Inventory inventory;
     public Item[] itemsToPickup;
 
     void Start()
     {
-        inventoryManager = FindAnyObjectByType<InventoryManager>();
+        inventory = FindAnyObjectByType<Inventory>();
     }
 
     private void OnUseItem()
     {
-        Item currentItem = inventoryManager.GetSelectedItem(false);
+        Item currentItem = inventory.GetSelectedItem(false);
         if (currentItem != null)
         {
             Debug.Log("Current item: " + currentItem);
@@ -27,7 +27,7 @@ public class Action : MonoBehaviour
 
     private void OnDropItem()
     {
-        Item currentItem = inventoryManager.GetSelectedItem(true);
+        Item currentItem = inventory.GetSelectedItem(true);
         if (currentItem != null)
         {
             Debug.Log("Current item: " + currentItem);

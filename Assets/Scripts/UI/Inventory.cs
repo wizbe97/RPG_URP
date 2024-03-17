@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    public static InventoryManager Instance;
+    public static Inventory Instance;
 
     public int maxStackedItems = 250;
     public InventorySlot[] inventorySlots;
