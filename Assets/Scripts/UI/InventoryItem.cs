@@ -17,14 +17,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
     bool isDragging = false; // Track if dragging is occurring
-    private InventoryManager inventoryManager;
+    public Inventory inventory;
 
     public int InventorySlotIndex;
 
-    private void Start()
-    {
-        inventoryManager = FindObjectOfType<InventoryManager>(); // Find the InventoryManager in the scene
-    }
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
@@ -101,15 +97,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 }
                 else
                 {
-                    InventoryManager.Instance.SwitchItemSlots(this, targetItem);
+                    Inventory.Instance.SwitchItemSlots(this, targetItem);
                 }
             }
             else
             {
                 InventorySlot targetSlot = targetObject?.GetComponent<InventorySlot>();
                 if (targetSlot == null)
-                    targetSlot = InventoryManager.Instance.inventorySlots[InventorySlotIndex]; //Use index to return it to original slot
-                InventoryManager.Instance.ChangeItemSlot(this, targetSlot.Index);
+                    targetSlot = Inventory.Instance.inventorySlots[InventorySlotIndex]; //Use index to return it to original slot
+                Inventory.Instance.ChangeItemSlot(this, targetSlot.Index);
             }
 
             countText.raycastTarget = true;
@@ -122,7 +118,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void MergeWith(InventoryItem otherItem)
     {
         int totalItemsCount = otherItem.count + count;
-        if (totalItemsCount <= inventoryManager.maxStackedItems)
+        if (totalItemsCount <= inventory.maxStackedItems)
         {
             // If the total count of items in the stack doesn't exceed the maximum stack size,
             // merge the stacks completely
@@ -133,13 +129,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         else
         {
             // If the target slot can't accommodate the entire stack, partially merge them
-            int spaceLeftInStack = inventoryManager.maxStackedItems - otherItem.count;
+            int spaceLeftInStack = inventory.maxStackedItems - otherItem.count;
             otherItem.count += spaceLeftInStack;
             otherItem.RefreshCount();
             count -= spaceLeftInStack;
             RefreshCount();
         }
     }
-
-
 }

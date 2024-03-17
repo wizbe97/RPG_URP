@@ -9,11 +9,11 @@ public class Player : Character
     public HealthBar healthBarPrefab;
     private HealthBar healthBar;
 
-    public InventoryManager inventoryPrefab;
-    private InventoryManager inventoryManager;
+    public Inventory inventoryPrefab;
+    private Inventory inventoryManager;
     private void Start()
     {
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        inventoryManager = FindObjectOfType<Inventory>();
         ResetCharacter();
     }
 
