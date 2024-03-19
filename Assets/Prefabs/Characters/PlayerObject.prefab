@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1648615207545544847}
   - component: {fileID: 8418841744619551669}
   - component: {fileID: 1045256185546379943}
+  - component: {fileID: -3604236888178394875}
   - component: {fileID: 8400025653179552194}
   - component: {fileID: 2256841804960756383}
   - component: {fileID: 929484657668223764}
@@ -208,6 +209,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   moveInput: {x: 0, y: 0}
+--- !u!114 &-3604236888178394875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801228689619027253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05da88dc663cc0447af73367d934d0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  itemsToPickup: []
 --- !u!114 &8400025653179552194
 MonoBehaviour:
   m_ObjectHideFlags: 0
