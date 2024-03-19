@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Action : MonoBehaviour
 {
-    public Inventory inventory;
-    public Item[] itemsToPickup;
-
+    private Inventory inventory;
     void Start()
     {
         inventory = FindAnyObjectByType<Inventory>();
