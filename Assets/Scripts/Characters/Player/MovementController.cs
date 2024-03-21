@@ -7,18 +7,23 @@ using UnityEngine.InputSystem;
 public class MovementController : MonoBehaviour
 {
     UpdateAnimationState animationState;
+    private Inventory inventory;
 
     public float movementSpeed = 3.0f;
+    public Item currentItem;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
+    public bool isHoldingGun = false;
+
 
     Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animationState = GetComponent<UpdateAnimationState>();
+        inventory = Inventory.Instance;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (!animationState.stateLock)
         {
@@ -28,47 +33,31 @@ public class MovementController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+        animationState.UpdateCharacterAnimationState(moveInput);
     }
 
+    private void Update() {
+        CurrentItem();
+    }
 
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        animationState.UpdateCharacterAnimationState(moveInput);
+    }
+    private void CurrentItem()
+    {
+        Debug.Log("Inventory.Instance is: " + (Inventory.Instance != null ? "not null" : "null"));
 
-        // if (currentStateValue != PlayerStates.ATTACK)
-        // {
-        if (moveInput != Vector2.zero)
+        currentItem = Inventory.Instance.GetSelectedItem(false);
+        if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
         {
-            if (movementSpeed <= 3.01)
-            {
-                animationState.currentState = UpdateAnimationState.PlayerStates.WALK;
-                PlayerFaceMovementDirection();
-            }
-            else
-            {
-                animationState.currentState = UpdateAnimationState.PlayerStates.RUN;
-                PlayerFaceMovementDirection();
-            }
+            isHoldingGun = true;
         }
         else
         {
-            animationState.currentState = UpdateAnimationState.PlayerStates.IDLE;
+            isHoldingGun = false;
         }
-        // }
-
     }
 
-    void PlayerFollowMouse()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 playerToMouse = (mousePosition - (Vector2)transform.position).normalized;
-        animationState.animator.SetFloat("mouseX", playerToMouse.x);
-        animationState.animator.SetFloat("mouseY", playerToMouse.y);
-    }
-
-    void PlayerFaceMovementDirection()
-    {
-        animationState.animator.SetFloat("xMove", moveInput.x);
-        animationState.animator.SetFloat("yMove", moveInput.y);
-    }
 }

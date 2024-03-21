@@ -109,8 +109,6 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-
-
     void SpawnNewItem(Item item, int slotIndex)
     {
         InventorySlot slot = inventorySlots[slotIndex];
