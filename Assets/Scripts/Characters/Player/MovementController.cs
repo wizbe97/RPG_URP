@@ -34,11 +34,9 @@ public class MovementController : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
         animationState.UpdateCharacterAnimationState(moveInput);
-    }
-
-    private void Update() {
         CurrentItem();
     }
+
 
     private void OnMove(InputValue value)
     {
