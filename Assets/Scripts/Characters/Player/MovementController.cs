@@ -35,6 +35,7 @@ public class MovementController : MonoBehaviour
         }
         animationState.UpdateCharacterAnimationState(moveInput);
         CurrentItem();
+
     }
 
 
@@ -45,17 +46,22 @@ public class MovementController : MonoBehaviour
     }
     private void CurrentItem()
     {
-        Debug.Log("Inventory.Instance is: " + (Inventory.Instance != null ? "not null" : "null"));
-
-        currentItem = Inventory.Instance.GetSelectedItem(false);
-        if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
+        if (Inventory.Instance != null)
         {
-            isHoldingGun = true;
+            currentItem = Inventory.Instance.GetSelectedItem(false);
+            if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
+            {
+                isHoldingGun = true;
+            }
+            else
+            {
+                isHoldingGun = false;
+            }
         }
         else
         {
-            isHoldingGun = false;
+            Debug.LogWarning("Inventory instance is null!");
         }
-    }
 
+    }
 }

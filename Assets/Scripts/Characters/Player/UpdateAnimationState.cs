@@ -22,7 +22,7 @@ public class UpdateAnimationState : MonoBehaviour
         DIE
     }
 
-    public void Start()
+    public void Awake()
     {
         movementController = GetComponent<MovementController>();
     }
