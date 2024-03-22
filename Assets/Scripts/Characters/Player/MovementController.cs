@@ -13,10 +13,12 @@ public class MovementController : MonoBehaviour
     public Item currentItem;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
     public bool isHoldingGun = false;
+    public GameObject shotgunPrefab;
+    private GameObject instantiatedShotgun;
 
 
     Rigidbody2D rb;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animationState = GetComponent<UpdateAnimationState>();
@@ -35,7 +37,6 @@ public class MovementController : MonoBehaviour
         }
         animationState.UpdateCharacterAnimationState(moveInput);
         CurrentItem();
-
     }
 
 
@@ -52,16 +53,31 @@ public class MovementController : MonoBehaviour
             if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
             {
                 isHoldingGun = true;
+                // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
+                if (instantiatedShotgun == null && shotgunPrefab != null)
+                {
+                    instantiatedShotgun = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
+                    instantiatedShotgun.transform.parent = transform; // Set player as parent
+                }
+                // If instantiated, set active
+                if (instantiatedShotgun != null)
+                {
+                    instantiatedShotgun.SetActive(true);
+                }
             }
             else
             {
                 isHoldingGun = false;
+                // If instantiated, set inactive
+                if (instantiatedShotgun != null)
+                {
+                    instantiatedShotgun.SetActive(false);
+                }
             }
         }
         else
         {
             Debug.LogWarning("Inventory instance is null!");
         }
-
     }
 }

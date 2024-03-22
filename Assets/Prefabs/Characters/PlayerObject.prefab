@@ -208,7 +208,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  currentItem: {fileID: 0}
   moveInput: {x: 0, y: 0}
+  isHoldingGun: 0
+  shotgunPrefab: {fileID: 5798261277511035805, guid: fb61993b70c859847b133cdfcf02301b, type: 3}
 --- !u!114 &-3604236888178394875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05da88dc663cc0447af73367d934d0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  itemsToPickup: []
 --- !u!114 &8400025653179552194
 MonoBehaviour:
   m_ObjectHideFlags: 0
