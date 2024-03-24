@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public int damageStrength;
+    public GameObject floatingDamage;
     Coroutine damageCoroutine;
 
     float hitPoints;
@@ -24,7 +25,8 @@ public class Enemy : Character
         {
             StartCoroutine(FlickerCharacter());
             hitPoints -= damage;
-
+            GameObject damageNumber = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
+            damageNumber.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
             if (hitPoints <= 0)
             {
                 KillCharacter();
