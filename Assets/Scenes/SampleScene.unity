@@ -692,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 8917528825447284023, guid: e256f7714aee2724aaea3f80e2bd9588, type: 3}
     - target: {fileID: 631456100455342219, guid: 64d9a5a5c32b7cf47a86aeb7832b0be8, type: 3}
       propertyPath: repeatInterval
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7321910557727646875, guid: 64d9a5a5c32b7cf47a86aeb7832b0be8, type: 3}
       propertyPath: m_LocalPosition.x

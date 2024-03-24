@@ -4,7 +4,6 @@ using UnityEngine;
 public class Enemy : Character
 {
     public int damageStrength;
-
     Coroutine damageCoroutine;
 
     float hitPoints;
@@ -17,6 +16,11 @@ public class Enemy : Character
     public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
+    }
+
+    private void Update()
+    {
+        Debug.Log(hitPoints);
     }
 
     public override IEnumerator DamageCharacter(int damage, float interval)
@@ -43,6 +47,8 @@ public class Enemy : Character
         }
     }
 
+
+    // Damage Player
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -69,9 +75,11 @@ public class Enemy : Character
         }
     }
 
+    // Kill Character (Enemy)
     public override void KillCharacter()
     {
         base.KillCharacter();
         // Perform any additional actions specific to enemy's death, such as dropping items, triggering animations, etc.
     }
+
 }
