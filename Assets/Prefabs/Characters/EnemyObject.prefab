@@ -187,6 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 318943654536686117}
+  camera: {fileID: 0}
+  target: {fileID: 1048367848266617679}
+  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &6929633412389882365
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +658,7 @@ MonoBehaviour:
   maxHitPoints: 100
   characterCategory: 1
   damageStrength: 25
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5373686297968119114}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
 --- !u!114 &4596066384708057104
 MonoBehaviour:
