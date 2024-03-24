@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7fc23e0139696b4887eff306461cb48
+guid: 00ad0c418f83379498eb8ee895108b20
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,7 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,169 +123,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NOARMALLANGLE_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 336
-        width: 18
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13d6d52cf83c92940b0c8cc91b0b390b
-      internalID: -2047595389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NOARMALLANGLE_1
+      name: Shotgun animation X_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
-        width: 16
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cba1e83f6a783a4086f01e0c1cd63b6
-      internalID: 1353021652
+      spriteID: 61862105a341d794386ddf29802bc8ea
+      internalID: 1670146019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_2
+      name: Shotgun animation X_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 240
-        width: 15
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aac41d3c0241d345898ac0f014da991
-      internalID: 565067032
+      spriteID: 2f916ea0c590f5d4196935b5584ce44e
+      internalID: -1158112698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_3
+      name: Shotgun animation X_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
-        width: 16
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b8fc8d752679654293c6c03f866ea60
-      internalID: 938651451
+      spriteID: 9a25fc06f94354649b5a065100209e06
+      internalID: -1788311809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_4
+      name: Shotgun animation X_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 18
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7adc4dbb326b1d94b8cc8f1cc2b4f0a2
-      internalID: 854215291
+      spriteID: 38fc9a0f0ea7dc340a7913cb290d4ce8
+      internalID: -871657747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_5
+      name: Shotgun animation X_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aff982fa2e4094d43987b78e750dcb23
-      internalID: 1072529776
+      spriteID: a1b6ca6a5651f5647a27fbbf8c807066
+      internalID: 2121428532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_6
+      name: Shotgun animation X_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 400
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 289590678cd616240b9e74620d4889ac
-      internalID: 312268034
+      spriteID: ebff9e552429ada47a73bcf9c9b82477
+      internalID: 272818571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NOARMALLANGLE_7
+      name: Shotgun animation X_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 15
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 480
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ed4891c5b1b089419a922c8c0ac2596
-      internalID: 1394486617
+      spriteID: 4d7d86a1d892ea2419f7a9b02de59b4c
+      internalID: 1378768006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun animation X_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186e6c2bb905aaf4b9545490f0f7c321
+      internalID: -1860664882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun animation X_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c926abafa6844409675714556913aa
+      internalID: -145511927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun animation X_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4b87d38b2d51c47a72b3c7d5cd045d
+      internalID: -2079021043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shotgun animation X_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 80
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3726721, y: 0.8138133}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17585374f6250cd48b3b56a8c38ae0fd
+      internalID: -36582314
       vertices: []
       indices: 
       edges: []
@@ -301,14 +364,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NOARMALLANGLE_0: -2047595389
-      NOARMALLANGLE_1: 1353021652
-      NOARMALLANGLE_2: 565067032
-      NOARMALLANGLE_3: 938651451
-      NOARMALLANGLE_4: 854215291
-      NOARMALLANGLE_5: 1072529776
-      NOARMALLANGLE_6: 312268034
-      NOARMALLANGLE_7: 1394486617
+      Shotgun animation X_0: 1670146019
+      Shotgun animation X_1: -1158112698
+      Shotgun animation X_10: -36582314
+      Shotgun animation X_2: -1788311809
+      Shotgun animation X_3: -871657747
+      Shotgun animation X_4: 2121428532
+      Shotgun animation X_5: 272818571
+      Shotgun animation X_6: 1378768006
+      Shotgun animation X_7: -1860664882
+      Shotgun animation X_8: -145511927
+      Shotgun animation X_9: -2079021043
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 585738143
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d47ef57a75aa117498ddc2bb84f0032a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 585738143
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1340583383, guid: b65bb586996ec1c4d87581d414747cb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -262,7 +262,7 @@ MonoBehaviour:
   startingHitPoints: 100
   maxHitPoints: 100
   characterCategory: 1
-  damageStrength: 5
+  damageStrength: 25
 --- !u!114 &4596066384708057104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,9 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44fc2360a085c4f4692b34fc9f01425b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursuitSpeed: 1.5
-  wanderSpeed: 0.8
-  directionChangeInterval: 3
+  pursuitSpeed: 2.8
+  wanderSpeed: 1.5
+  directionChangeInterval: 10
   followPlayer: 1
 --- !u!58 &579845575038050725
 CircleCollider2D:
@@ -311,9 +311,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04404068}
+  m_Offset: {x: 0, y: 0.31950188}
   serializedVersion: 2
-  m_Radius: 5.152169
+  m_Radius: 13.961403
 --- !u!95 &8655013891526077390
 Animator:
   serializedVersion: 5

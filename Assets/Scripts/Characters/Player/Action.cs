@@ -5,17 +5,49 @@ using UnityEngine;
 public class Action : MonoBehaviour
 {
     private Inventory inventory;
+    public bool isHoldingGun = false;
+    public GameObject shotgunPrefab;
+    private GameObject instantiatedShotgun;
+    public Item currentItem;
+    private Shotgun shotgun;
+
     void Start()
     {
         inventory = FindAnyObjectByType<Inventory>();
     }
 
+    void FixedUpdate()
+    {
+        CurrentItem();
+    }
+
     private void OnUseItem()
     {
-        Item currentItem = inventory.GetSelectedItem(false);
         if (currentItem != null)
         {
-            Debug.Log("Current item: " + currentItem);
+            shotgun = FindAnyObjectByType<Shotgun>();
+            if (currentItem.itemType == Item.ItemType.GUN)
+            {
+                if (shotgun.isShooting != true)
+                {
+                    shotgun.Shoot();
+                }
+            }
+        }
+
+        else
+        {
+            Debug.Log("No item in slot");
+        }
+    }
+
+
+    private void OnDropItem()
+    {
+        currentItem = inventory.GetSelectedItem(true);
+        if (currentItem != null)
+        {
+            Debug.Log("Dropping item: " + currentItem);
         }
         else
         {
@@ -23,16 +55,44 @@ public class Action : MonoBehaviour
         }
     }
 
-    private void OnDropItem()
+    private void CurrentItem()
     {
-        Item currentItem = inventory.GetSelectedItem(true);
-        if (currentItem != null)
+        if (Inventory.Instance != null)
         {
-            Debug.Log("Current item: " + currentItem);
+            currentItem = Inventory.Instance.GetSelectedItem(false);
+            if (currentItem != null)
+            {
+                {
+                    if (currentItem.objectName == "shotgun")
+                    {
+                        isHoldingGun = true;
+                        // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
+                        if (instantiatedShotgun == null && shotgunPrefab != null)
+                        {
+                            instantiatedShotgun = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
+                            instantiatedShotgun.transform.parent = transform; // Set player as parent
+                        }
+                        // If instantiated, set active
+                        if (instantiatedShotgun != null)
+                        {
+                            instantiatedShotgun.SetActive(true);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                isHoldingGun = false;
+                // If instantiated, set inactive
+                if (instantiatedShotgun != null)
+                {
+                    instantiatedShotgun.SetActive(false);
+                }
+            }
         }
         else
         {
-            Debug.Log("No item in slot");
+            Debug.LogWarning("Inventory instance is null!");
         }
     }
 }
