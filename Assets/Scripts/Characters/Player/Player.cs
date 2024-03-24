@@ -11,6 +11,7 @@ public class Player : Character
 
     public Inventory inventoryPrefab;
     private Inventory inventoryManager;
+    
     private void Start()
     {
         inventoryManager = FindObjectOfType<Inventory>();

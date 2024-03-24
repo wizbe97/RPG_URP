@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pursuitSpeed: 2.8
   wanderSpeed: 1.5
-  directionChangeInterval: 5
+  directionChangeInterval: 10
   followPlayer: 1
 --- !u!58 &579845575038050725
 CircleCollider2D:
@@ -311,9 +311,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04404068}
+  m_Offset: {x: 0, y: 0.31950188}
   serializedVersion: 2
-  m_Radius: 5.152169
+  m_Radius: 13.961403
 --- !u!95 &8655013891526077390
 Animator:
   serializedVersion: 5

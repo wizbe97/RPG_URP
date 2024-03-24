@@ -9,7 +9,7 @@ public class UpdateAnimationState : MonoBehaviour
     public Animator animator;
     private MovementController movementController;
     private Action action;
-
+    private Player player;
     public PlayerStates currentStateValue;
     public enum PlayerStates
     {
@@ -27,6 +27,7 @@ public class UpdateAnimationState : MonoBehaviour
     {
         movementController = GetComponent<MovementController>();
         action = GetComponent<Action>();
+        player = GetComponent<Player>();
     }
     public PlayerStates currentState
     {
@@ -73,7 +74,6 @@ public class UpdateAnimationState : MonoBehaviour
         bool isMoving = moveInput != Vector2.zero;
 
         int stateIdentifier;
-
         if (isMoving)
         {
             if (action.isHoldingGun == true) // Check if the player is holding a gun
@@ -124,6 +124,7 @@ public class UpdateAnimationState : MonoBehaviour
                 currentState = PlayerStates.IDLE;
                 break;
         }
+
     }
     void PlayerFollowMouse()
     {

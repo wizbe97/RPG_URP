@@ -18,11 +18,6 @@ public class Enemy : Character
         hitPoints = startingHitPoints;
     }
 
-    private void Update()
-    {
-        Debug.Log(hitPoints);
-    }
-
     public override IEnumerator DamageCharacter(int damage, float interval)
     {
         while (true)
