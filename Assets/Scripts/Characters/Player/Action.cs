@@ -47,7 +47,7 @@ public class Action : MonoBehaviour
         currentItem = inventory.GetSelectedItem(true);
         if (currentItem != null)
         {
-            Debug.Log("Current item: " + currentItem);
+            Debug.Log("Dropping item: " + currentItem);
         }
         else
         {

@@ -30,15 +30,12 @@ public class Player : Character
                 switch (hitObject.itemType)
                 {
                     case Item.ItemType.COIN:
-                        Debug.Log("Coin picked up!");
                         shouldDisappear = inventoryManager.AddItem(hitObject);
                         break;
                     case Item.ItemType.HEALTH:
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);
-                        Debug.Log("Health picked up!");
                         break;
                     case Item.ItemType.GUN:
-                        Debug.Log("Gun picked up!");
                         shouldDisappear = inventoryManager.AddItem(hitObject);
                         break;
                     default:
