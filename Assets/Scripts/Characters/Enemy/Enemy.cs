@@ -24,15 +24,15 @@ public class Enemy : Character
         while (true)
         {
             StartCoroutine(FlickerCharacter());
-            hitPoints = hitPoints - damage;
+            hitPoints -= damage;
 
-            if (hitPoints <= float.Epsilon)
+            if (hitPoints <= 0)
             {
                 KillCharacter();
                 break;
             }
 
-            if (interval > float.Epsilon)
+            if (interval > 0)
             {
                 yield return new WaitForSeconds(interval);
             }
@@ -45,11 +45,11 @@ public class Enemy : Character
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
-            // only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
+            // Only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
             if (damageCoroutine == null)
             {
                 damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 1.0f));
@@ -67,5 +67,11 @@ public class Enemy : Character
                 damageCoroutine = null;
             }
         }
+    }
+
+    public override void KillCharacter()
+    {
+        base.KillCharacter();
+        // Perform any additional actions specific to enemy's death, such as dropping items, triggering animations, etc.
     }
 }

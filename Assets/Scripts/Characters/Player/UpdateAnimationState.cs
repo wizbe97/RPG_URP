@@ -8,6 +8,7 @@ public class UpdateAnimationState : MonoBehaviour
     [HideInInspector] public bool stateLock = false;
     public Animator animator;
     private MovementController movementController;
+    private Action action;
 
     public PlayerStates currentStateValue;
     public enum PlayerStates
@@ -25,6 +26,7 @@ public class UpdateAnimationState : MonoBehaviour
     public void Awake()
     {
         movementController = GetComponent<MovementController>();
+        action = GetComponent<Action>();
     }
     public PlayerStates currentState
     {
@@ -74,7 +76,7 @@ public class UpdateAnimationState : MonoBehaviour
 
         if (isMoving)
         {
-            if (movementController.isHoldingGun == true) // Check if the player is holding a gun
+            if (action.isHoldingGun == true) // Check if the player is holding a gun
             {
                 // If holding a gun, check if the movement speed is greater than or equal to 3
                 stateIdentifier = movementController.movementSpeed >= 3 ? 1 : 2;
@@ -88,7 +90,7 @@ public class UpdateAnimationState : MonoBehaviour
         else
         {
             // If not moving, check if holding a gun
-            stateIdentifier = movementController.isHoldingGun ? 5 : 6;
+            stateIdentifier = action.isHoldingGun ? 5 : 6;
         }
 
         switch (stateIdentifier)
