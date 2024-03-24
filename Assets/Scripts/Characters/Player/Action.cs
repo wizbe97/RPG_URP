@@ -41,7 +41,6 @@ public class Action : MonoBehaviour
         }
     }
 
-
     private void OnDropItem()
     {
         currentItem = inventory.GetSelectedItem(true);

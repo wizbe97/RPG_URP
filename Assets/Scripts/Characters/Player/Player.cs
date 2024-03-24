@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class Player : Character
 {
-
     public HitPoints hitPoints;
-
     public HealthBar healthBarPrefab;
     private HealthBar healthBar;
 
