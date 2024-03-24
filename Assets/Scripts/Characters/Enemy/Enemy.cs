@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public int damageStrength;
+    [SerializeField] private FloatingHealthBar healthBar;
     public GameObject floatingDamage;
     Coroutine damageCoroutine;
 
@@ -17,6 +18,9 @@ public class Enemy : Character
     public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
+
     }
 
     public override IEnumerator DamageCharacter(int damage, float interval)
@@ -25,6 +29,7 @@ public class Enemy : Character
         {
             StartCoroutine(FlickerCharacter());
             hitPoints -= damage;
+            healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
             GameObject damageNumber = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
             damageNumber.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
             if (hitPoints <= 0)
