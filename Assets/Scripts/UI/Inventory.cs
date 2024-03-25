@@ -3,7 +3,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
-
     public int maxStackedItems = 250;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
@@ -36,22 +35,28 @@ public class Inventory : MonoBehaviour
     }
     void ChangeSelectedSlot(int newValue)
     {
-        // Deselect the previously selected slot
-        if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
+        // Check if any gun is shooting before changing the selected slot
+        if (!Gun.IsAnyGunShooting())
         {
-            inventorySlots[selectedSlot].Deselect();
-        }
-
-        // Find the slot with the specified index in the parent's list of children
-        for (int i = 0; i < inventorySlots.Length; i++)
-        {
-            if (inventorySlots[i].transform.GetSiblingIndex() == newValue)
+            if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
             {
-                // Select the found slot
-                inventorySlots[i].Select();
-                selectedSlot = i;
-                break;
+                inventorySlots[selectedSlot].Deselect();
             }
+            // Find the slot with the specified index in the parent's list of children
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                if (inventorySlots[i].transform.GetSiblingIndex() == newValue)
+                {
+                    // Select the found slot
+                    inventorySlots[i].Select();
+                    selectedSlot = i;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Cannot change slot while a gun is shooting!");
         }
     }
 

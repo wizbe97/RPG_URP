@@ -23,23 +23,24 @@ public class Action : MonoBehaviour
 
     private void OnUseItem()
     {
-        if (currentItem != null)
+        if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
         {
-            shotgun = FindAnyObjectByType<Shotgun>();
-            if (currentItem.itemType == Item.ItemType.GUN)
+            shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
+            if (shotgun != null && !Gun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
             {
-                if (shotgun.isShooting != true)
-                {
-                    shotgun.Shoot();
-                }
+                shotgun.Shoot();
+            }
+            else
+            {
+                Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
             }
         }
-
         else
         {
-            Debug.Log("No item in slot");
+            Debug.Log("No gun item in slot");
         }
     }
+
 
     private void OnDropItem()
     {

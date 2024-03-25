@@ -40,21 +40,27 @@ public class UpdateAnimationState : MonoBehaviour
                 {
                     case PlayerStates.IDLE:
                         animator.Play("Idle");
+                        stateLock = false;
                         break;
                     case PlayerStates.IDLE_HOLDING_GUN:
                         animator.Play("Idle_Holding_Gun");
+                        stateLock = false;
                         break;
                     case PlayerStates.WALK:
                         animator.Play("Walk");
+                        stateLock = false;
                         break;
                     case PlayerStates.WALK_HOLDING_GUN:
                         animator.Play("Walk_Holding_Gun");
+                        stateLock = false;
                         break;
                     case PlayerStates.RUN:
                         animator.Play("Run");
+                        stateLock = false;
                         break;
                     case PlayerStates.RUN_HOLDING_GUN:
                         animator.Play("Run_Holding_Gun");
+                        stateLock = false;
                         break;
                     case PlayerStates.ATTACK:
                         animator.Play("Attack");
