@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -14,6 +13,7 @@ public class Bullet : MonoBehaviour
     protected virtual void Start()
     {
         spawnPosition = transform.position;
+        StartCoroutine(DestroyAfterDelay(destroyBulletDelay)); // Start coroutine to destroy the bullet after delay
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

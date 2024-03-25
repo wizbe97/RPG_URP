@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333f290d50cdf9a4194ab3857268b585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTravelDistance: 10
-  destroyBulletDelay: 1
+  maxTravelDistance: 1
+  destroyBulletDelay: 3
   minimumBulletDamage: 5
   maximumBulletDamage: 55

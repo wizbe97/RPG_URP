@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
     public Animator animator;
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireForce = 20f;
+    public float fireForce;
     protected AudioSource audioSource;
     private bool isShooting;
 
