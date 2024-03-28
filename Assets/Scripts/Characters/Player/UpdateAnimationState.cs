@@ -7,7 +7,7 @@ public class UpdateAnimationState : MonoBehaviour
 
     [HideInInspector] public bool stateLock = false;
     public Animator animator;
-    private MovementController movementController;
+    private PlayerController playerController;
     private Action action;
     private Player player;
     public PlayerStates currentStateValue;
@@ -25,7 +25,7 @@ public class UpdateAnimationState : MonoBehaviour
 
     public void Awake()
     {
-        movementController = GetComponent<MovementController>();
+        playerController = GetComponent<PlayerController>();
         action = GetComponent<Action>();
         player = GetComponent<Player>();
     }
@@ -77,20 +77,18 @@ public class UpdateAnimationState : MonoBehaviour
 
     public void UpdateCharacterAnimationState(Vector2 moveInput)
     {
-        bool isMoving = moveInput != Vector2.zero;
-
         int stateIdentifier;
-        if (isMoving)
+        if (playerController.isMoving)
         {
             if (action.isHoldingGun == true) // Check if the player is holding a gun
             {
                 // If holding a gun, check if the movement speed is greater than or equal to 3
-                stateIdentifier = movementController.movementSpeed >= 3 ? 1 : 2;
+                stateIdentifier = playerController.movementSpeed >= 3 ? 1 : 2;
             }
             else
             {
                 // If not holding a gun, check if the movement speed is greater than or equal to 3
-                stateIdentifier = movementController.movementSpeed >= 3 ? 3 : 4;
+                stateIdentifier = playerController.movementSpeed >= 3 ? 3 : 4;
             }
         }
         else
@@ -142,7 +140,7 @@ public class UpdateAnimationState : MonoBehaviour
 
     void PlayerFaceMovementDirection()
     {
-        animator.SetFloat("xMove", movementController.moveInput.x);
-        animator.SetFloat("yMove", movementController.moveInput.y);
+        animator.SetFloat("xMove", playerController.moveInput.x);
+        animator.SetFloat("yMove", playerController.moveInput.y);
     }
 }
