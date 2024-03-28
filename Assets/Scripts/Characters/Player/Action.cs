@@ -62,21 +62,28 @@ public class Action : MonoBehaviour
             currentItem = Inventory.Instance.GetSelectedItem(false);
             if (currentItem != null)
             {
+                if (currentItem.objectName == "shotgun")
                 {
-                    if (currentItem.objectName == "shotgun")
+                    isHoldingGun = true;
+                    // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
+                    if (instantiatedShotgun == null && shotgunPrefab != null)
                     {
-                        isHoldingGun = true;
-                        // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
-                        if (instantiatedShotgun == null && shotgunPrefab != null)
-                        {
-                            instantiatedShotgun = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
-                            instantiatedShotgun.transform.parent = transform; // Set player as parent
-                        }
-                        // If instantiated, set active
-                        if (instantiatedShotgun != null)
-                        {
-                            instantiatedShotgun.SetActive(true);
-                        }
+                        instantiatedShotgun = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
+                        instantiatedShotgun.transform.parent = transform; // Set player as parent
+                    }
+                    // If instantiated, set active
+                    if (instantiatedShotgun != null)
+                    {
+                        instantiatedShotgun.SetActive(true);
+                    }
+                }
+                else
+                {
+                    isHoldingGun = false;
+                    // If instantiated, set inactive
+                    if (instantiatedShotgun != null)
+                    {
+                        instantiatedShotgun.SetActive(false);
                     }
                 }
             }
@@ -95,4 +102,5 @@ public class Action : MonoBehaviour
             Debug.LogWarning("Inventory instance is null!");
         }
     }
+
 }
