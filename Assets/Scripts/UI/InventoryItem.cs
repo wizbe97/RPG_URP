@@ -18,12 +18,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     bool isDragging = false; // Track if dragging is occurring
     private Inventory inventory;
+    private Gun gun;
 
     public int InventorySlotIndex;
 
     private void Start()
     {
-        inventory = FindObjectOfType<Inventory>(); // Find the Inventory in the scene
+        inventory = FindObjectOfType<Inventory>();
+        gun = FindObjectOfType<Gun>();
     }
     public void InitialiseItem(Item newItem)
     {
@@ -66,6 +68,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (isDragging)
         {
             transform.position = Mouse.current.position.ReadValue();
+            foreach (Gun gun in FindObjectsOfType<Gun>())
+            {
+                Debug.Log("SET SHOOTING TO FALSE");
+                gun.isShooting = false;
+            }
         }
     }
 
