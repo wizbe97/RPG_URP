@@ -31,12 +31,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveDrag = 15f;
     [SerializeField] private float stopDrag = 25f;
+    [SerializeField] private float dashForce = 10f;
     public bool isMoving = false;
     private bool canMove = true;
 
     public float movementSpeed = 1250f;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
-    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         MoveCharacter();
     }
 
@@ -67,6 +67,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             IsMoving = false;
+        }
+    }
+
+    private void OnDash()
+    {
+        if (moveInput.magnitude > 0)
+        {
+            Debug.Log("Dashing");
+
+            Vector2 dashDirection = moveInput.normalized;
+            rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
         }
     }
 }
