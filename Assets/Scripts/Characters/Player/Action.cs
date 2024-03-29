@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Action : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Action : MonoBehaviour
 
     private void OnUseItem()
     {
+        // Check if the pointer is over UI before proceeding
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
         if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
         {
             shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
@@ -40,7 +44,6 @@ public class Action : MonoBehaviour
             Debug.Log("No gun item in slot");
         }
     }
-
 
     private void OnDropItem()
     {
@@ -102,5 +105,6 @@ public class Action : MonoBehaviour
             Debug.LogWarning("Inventory instance is null!");
         }
     }
+
 
 }

@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public float fireForce;
     protected AudioSource audioSource;
-    private bool isShooting;
+    public bool isShooting;
 
     protected virtual void Start()
     {
