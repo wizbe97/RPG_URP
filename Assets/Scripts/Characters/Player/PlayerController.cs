@@ -80,4 +80,13 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
         }
     }
+
+    private void OnOpenInventory()
+    {
+        Inventory inventory = Inventory.Instance;
+
+        GameObject backpack = inventory.transform.Find("Backpack").gameObject;
+
+        backpack.SetActive(!backpack.activeSelf);
+    }
 }
