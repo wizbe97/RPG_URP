@@ -11,37 +11,49 @@ public class Action : MonoBehaviour
     private GameObject instantiatedShotgun;
     public Item currentItem;
     private Shotgun shotgun;
+    private bool overUI;
 
     void Start()
     {
         inventory = FindAnyObjectByType<Inventory>();
     }
 
-    void FixedUpdate()
+    void Update()
+    {
+        overUI = IsPointerOverUI();
+    }
+
+    void LateUpdate()
     {
         CurrentItem();
     }
 
+    private bool IsPointerOverUI()
+    {
+        // Check if the pointer is over a UI element
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
     private void OnUseItem()
     {
-        // Check if the pointer is over UI before proceeding
-        if (EventSystem.current.IsPointerOverGameObject()) return;
-
-        if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
+        if (overUI != true)
         {
-            shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
-            if (shotgun != null && !Gun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
+            if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
             {
-                shotgun.Shoot();
+                shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
+                if (shotgun != null && !Gun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
+                {
+                    shotgun.Shoot();
+                }
+                else
+                {
+                    Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
+                }
             }
             else
             {
-                Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
+                Debug.Log("No gun item in slot");
             }
-        }
-        else
-        {
-            Debug.Log("No gun item in slot");
         }
     }
 
