@@ -170,7 +170,8 @@ MonoBehaviour:
   animator: {fileID: -2822319440538414711}
   bulletPrefab: {fileID: 5556698250833213186, guid: a97d4881aa5491d418c7680d46af1401, type: 3}
   firePoint: {fileID: 5593825063538871715}
-  fireForce: 10
+  fireForce: 30
+  isShooting: 0
 --- !u!82 &4160471982219836962
 AudioSource:
   m_ObjectHideFlags: 0

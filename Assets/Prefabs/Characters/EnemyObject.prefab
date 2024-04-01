@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 16304209492445930}
   - component: {fileID: 7826277975328122318}
-  m_Layer: 0
-  m_Name: shadow
+  m_Layer: 7
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6606272820172502019}
   - component: {fileID: 318943654536686117}
   - component: {fileID: 5373686297968119114}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,9 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 318943654536686117}
-  camera: {fileID: 0}
-  target: {fileID: 1048367848266617679}
-  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &6929633412389882365
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +198,7 @@ GameObject:
   - component: {fileID: 7112316842758433597}
   - component: {fileID: 7363726025639389780}
   - component: {fileID: 9173142493226171816}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +274,7 @@ GameObject:
   - component: {fileID: 2769724398603259688}
   - component: {fileID: 4442935470515386565}
   - component: {fileID: 8509012975078315090}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 46270452784266042}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +411,7 @@ GameObject:
   - component: {fileID: 1182334249015624480}
   - component: {fileID: 2863376314284954304}
   - component: {fileID: 1510633344626678648}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +491,7 @@ GameObject:
   - component: {fileID: 4596066384708057104}
   - component: {fileID: 579845575038050725}
   - component: {fileID: 8655013891526077390}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: EnemyObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}

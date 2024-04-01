@@ -9,7 +9,8 @@ public abstract class Character : MonoBehaviour
     public enum CharacterCategory
     {
         PLAYER,
-        ENEMY
+        RANGED_ENEMY,
+        MELEE_ENEMY
     }
 
     public CharacterCategory characterCategory;

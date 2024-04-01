@@ -6,7 +6,7 @@ public class UpdateAnimationState : MonoBehaviour
 {
 
     [HideInInspector] public bool stateLock = false;
-    public Animator animator;
+    private Animator animator;
     private PlayerController playerController;
     private Action action;
     private Player player;
@@ -26,6 +26,7 @@ public class UpdateAnimationState : MonoBehaviour
     public void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
         action = GetComponent<Action>();
         player = GetComponent<Player>();
     }
