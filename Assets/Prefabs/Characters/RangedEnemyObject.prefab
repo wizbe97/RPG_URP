@@ -472,9 +472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
-  lineOfSight: 5
-  retreatDistance: 3
-  startTimeBetweenShots: 2
+  lineOfSight: 7
+  retreatDistance: 4
+  fireRate: 1
   fireForce: 3
   firePoint: {fileID: 4556347962535324056}
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
@@ -538,8 +538,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11, y: -0.015728474}
-  m_Size: {x: 1.1840796, y: 2.1878486}
+  m_Offset: {x: -0.022016048, y: -0.0016509295}
+  m_Size: {x: 1.0081117, y: 1.8359125}
   m_Direction: 0
 --- !u!1 &8413939304740412566
 GameObject:

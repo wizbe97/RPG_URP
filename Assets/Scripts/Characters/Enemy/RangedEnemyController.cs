@@ -1,154 +1,98 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class RangedEnemyController : MonoBehaviour
 {
+    // Public variables
     public float movementSpeed;
+    private bool isShooting;
     public float lineOfSight;
     public float retreatDistance;
-    private float timeBetweenShots;
-    public float startTimeBetweenShots;
+    public float fireRate;
     public float fireForce;
-    private bool isMoving;
-    private bool isAttacking;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
+    // Private variables
+    private float timeSinceLastShot = 0f;
     private Animator animator;
     private Transform player;
-    private Rigidbody2D rb;
-
-    public Transform firePoint;
-    public GameObject bulletPrefab; // This should be assigned in the Inspector
-
-    public enum EnemyStates
-    {
-        IDLE,
-        WALK,
-        SHOOT,
-        DIE
-    }
-
-    public EnemyStates currentState;
+    private bool isMoving = false; // Flag to track if the enemy is moving
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        timeBetweenShots = startTimeBetweenShots;
-        currentState = EnemyStates.IDLE;
     }
 
     void Update()
     {
-        if (!isAttacking)
+        Action();
+        SetAnimationDirection();
+        timeSinceLastShot += Time.deltaTime;
+    }
+
+    void Action()
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer > lineOfSight)
         {
             MoveTowardsPlayer();
+            isMoving = true; // Enemy is moving
         }
-
-        if (timeBetweenShots <= 0 && !isMoving)
+        else if (distanceToPlayer < lineOfSight && distanceToPlayer > retreatDistance)
         {
-            Shoot();
-            timeBetweenShots = startTimeBetweenShots;
+            if (!isMoving) // Only allow shooting when not moving
+            {
+                if (timeSinceLastShot >= 1 / fireRate)
+                {
+                    Shoot();
+                    timeSinceLastShot = 0f;
+                }
+            }
+            else
+            {
+                timeSinceLastShot = 0f; // Reset timeSinceLastShot when starting to move
+            }
+            isMoving = false; // Enemy is not moving
         }
-        else
+        else if (distanceToPlayer < retreatDistance)
         {
-            timeBetweenShots -= Time.deltaTime;
+            RetreatFromPlayer();
+            isMoving = true; // Enemy is moving
         }
     }
 
     void MoveTowardsPlayer()
     {
-        if (player != null && Vector2.Distance(transform.position, player.position) > lineOfSight)
-        {
-            isMoving = true;
-            currentState = EnemyStates.WALK;
-            Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = direction * movementSpeed;
-            SetAnimationState(direction, movementSpeed);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            isMoving = true;
-            currentState = EnemyStates.WALK;
-            Vector2 direction = (transform.position - player.position).normalized;
-            rb.velocity = direction * movementSpeed;
-            SetAnimationState(direction, movementSpeed);
-        }
-        else
-        {
-            isMoving = false;
-            isAttacking = false;
-            rb.velocity = Vector2.zero;
-            currentState = EnemyStates.IDLE;
-            SetAnimationState(Vector2.zero, 0);
-        }
+        transform.position = Vector2.MoveTowards(transform.position, player.position, movementSpeed * Time.deltaTime);
+        animator.Play("Walk");
+    }
+
+    void RetreatFromPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.position, -movementSpeed * Time.deltaTime);
+        animator.Play("Walk");
     }
 
     void Shoot()
     {
-        // Calculate direction to the player
+        animator.Play("Shoot");
         Vector2 direction = (player.position - firePoint.position).normalized;
-
-        // Calculate rotation angle from direction, adding 90 degrees for left rotation
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
-
-        // Instantiate the bullet
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, angle));
-
-        // Apply force in the direction of the player
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * fireForce;
     }
-
-    IEnumerator FireRoutine()
-    {
-        yield return new WaitForSeconds(0.5f); // Adjust this delay as needed
-        Vector2 direction = (player.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
-        Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
-        bulletRB.velocity = direction * fireForce;
-        isAttacking = false;
-        currentState = EnemyStates.IDLE;
-    }
-
-    void SetAnimationState(Vector2 direction, float speed)
-    {
-        if (isAttacking == false)
-        {
-            if (isMoving == true)
-            {
-                animator.Play("Walk");
-                SetAnimationDirection();
-            }
-            else
-            {
-                animator.Play("Idle");
-                SetAnimationDirection();
-            }
-        }
-        else
-        {
-            animator.Play("Shoot");
-            SetAnimationDirection();
-        }
+    
+    void OnShootEnd() { // Called at the end of the shoot animation to reset enemy state
+        animator.Play("Idle");
     }
 
     void SetAnimationDirection()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        float xMove = 0f;
-        float yMove = -1f; // Default: facing down
-
-        if (Vector2.Distance(transform.position, player.position) <= lineOfSight)
-        {
-            // If player is within line of sight, update animation direction
-            xMove = direction.x;
-            yMove = direction.y;
-        }
-
-        animator.SetFloat("xMove", xMove);
-        animator.SetFloat("yMove", yMove);
+        animator.SetFloat("xMove", direction.x);
+        animator.SetFloat("yMove", direction.y);
     }
 }
