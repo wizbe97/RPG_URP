@@ -270,6 +270,8 @@ MonoBehaviour:
   moveSpeed: 2
   fireRate: 1
   fireForce: 20
+  idleTime: 2
+  wanderRadius: 8
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
   firePoints:
   - {fileID: 4590352175913291884}

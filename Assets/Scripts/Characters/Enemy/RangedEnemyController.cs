@@ -8,15 +8,20 @@ public class RangedEnemyController : MonoBehaviour
     public float moveSpeed = 2f;
     public float fireRate = 1f;
     public float fireForce = 10f;
+    public float idleTime = 2f; // Time to wait in idle state
+    public float wanderRadius = 5f; // Radius within which the enemy can wander
     public GameObject bulletPrefab;
     public Transform[] firePoints; // Array of fire points for different directions
 
     // Define private variables
     private float nextFireTime;
+    private float idleTimer = 0f; // Timer for idle state
     private Animator animator;
     private Transform player;
     private bool playerInLineOfSight = false;
     private bool playerInShootingRange = false;
+    private bool isWandering = false;
+    private Vector3 wanderTarget; // Target position for wandering
 
     void Start()
     {
@@ -53,10 +58,20 @@ public class RangedEnemyController : MonoBehaviour
         {
             playerInLineOfSight = false;
             playerInShootingRange = false;
-            animator.Play("Idle");
         }
 
-        if (playerInLineOfSight && !playerInShootingRange)
+        if (!playerInLineOfSight) // If player is not in line of sight
+        {
+            if (!isWandering)
+            {
+                Wander();
+            }
+            else
+            {
+                MoveTowardsTarget();
+            }
+        }
+        else if (playerInLineOfSight && !playerInShootingRange)
         {
             MoveTowardsPlayer();
         }
@@ -65,6 +80,33 @@ public class RangedEnemyController : MonoBehaviour
         {
             Shoot();
             nextFireTime = Time.time + 1f / fireRate;
+        }
+    }
+
+    void Wander()
+    {
+        idleTimer += Time.deltaTime;
+        if (idleTimer >= idleTime)
+        {
+            idleTimer = 0f;
+            isWandering = true;
+            wanderTarget = transform.position + Random.insideUnitSphere * wanderRadius;
+        }
+        else
+        {
+            animator.Play("Idle");
+        }
+    }
+
+    void MoveTowardsTarget()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, wanderTarget, moveSpeed * Time.deltaTime);
+        animator.Play("Walk");
+
+        // If reached the target, stop wandering
+        if (Vector2.Distance(transform.position, wanderTarget) < 0.1f)
+        {
+            isWandering = false;
         }
     }
 
@@ -150,9 +192,20 @@ public class RangedEnemyController : MonoBehaviour
 
     void SetAnimationDirection()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        animator.SetFloat("xMove", direction.x);
-        animator.SetFloat("yMove", direction.y);
+        if (playerInLineOfSight == true)
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            animator.SetFloat("xMove", direction.x);
+            animator.SetFloat("yMove", direction.y);
+        }
+        else
+        {
+            {
+                Vector2 direction = (wanderTarget - transform.position).normalized;
+                animator.SetFloat("xMove", direction.x);
+                animator.SetFloat("yMove", direction.y);
+            }
+        }
     }
 
     // Draw gizmos to visualize line of sight and shooting range
