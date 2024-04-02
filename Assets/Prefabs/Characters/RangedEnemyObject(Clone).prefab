@@ -269,7 +269,7 @@ MonoBehaviour:
   shootingRange: 10
   moveSpeed: 2
   fireRate: 1
-  fireForce: 8
+  fireForce: 5
   idleTime: 2
   wanderRadius: 8
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
@@ -290,7 +290,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029307690160249545}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

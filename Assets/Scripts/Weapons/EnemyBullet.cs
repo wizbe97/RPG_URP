@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class EnemyBullet : Bullet
@@ -6,7 +5,8 @@ public class EnemyBullet : Bullet
     private Coroutine damageCoroutine;
     private Vector3 gunSpawnPosition;
     private Animator animator;
-    private Rigidbody2D rb2D;
+    private Transform playerTransform; // Reference to the player's transform
+    private bool hasCollided = false;
 
     protected override void Start()
     {
@@ -14,14 +14,16 @@ public class EnemyBullet : Bullet
         // Initialize gunSpawnPosition in the child class
         gunSpawnPosition = transform.position;
         animator = GetComponent<Animator>();
-        rb2D = GetComponent<Rigidbody2D>();
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        // Only process collision if the bullet hasn't collided before
+        if (hasCollided) return;
+
+        if (other.CompareTag("Player"))
         {
-            Player player = collision.gameObject.GetComponent<Player>();
+            Player player = other.GetComponent<Player>();
             // Calculate damage based on travel distance
             float travelDistance = Vector3.Distance(gunSpawnPosition, transform.position);
             int calculatedDamage = CalculateDamage(travelDistance);
@@ -31,10 +33,22 @@ public class EnemyBullet : Bullet
             {
                 damageCoroutine = StartCoroutine(player.DamageCharacter(calculatedDamage, 0f));
             }
+
+            // Set the bullet as a child of the player
+            transform.SetParent(player.transform);
+
+            // Store a reference to the player's transform
+            playerTransform = player.transform;
+
+            // Trigger animation for sticking to the object
+            animator.SetBool("hasCollided", true);
+
+            // Set collision flag to true to prevent further collisions
+            hasCollided = true;
         }
-        else if (collision.gameObject.CompareTag("Enemy"))
+        else if (other.CompareTag("Enemy"))
         {
-            RangedEnemyCharacter enemy = collision.gameObject.GetComponent<RangedEnemyCharacter>();
+            RangedEnemyCharacter enemy = other.GetComponent<RangedEnemyCharacter>();
             // Calculate damage based on travel distance
             float travelDistance = Vector3.Distance(gunSpawnPosition, transform.position);
             int calculatedDamage = CalculateDamage(travelDistance);
@@ -44,18 +58,24 @@ public class EnemyBullet : Bullet
             {
                 damageCoroutine = StartCoroutine(enemy.DamageCharacter(calculatedDamage, 0f));
             }
+
+            // Set the bullet as a child of the enemy
+            transform.SetParent(enemy.transform);
+
+            // Set collision flag to true to prevent further collisions
+            hasCollided = true;
         }
-
-        rb2D.velocity = Vector2.zero;
-        rb2D.simulated = false;
-
-        // Set the collided object as the parent of the bullet
-        transform.parent = collision.transform;
-
-        // Trigger animation for sticking to the object
-        animator.SetBool("hasCollided", true);
     }
 
+    private void Update()
+    {
+        // If the bullet has collided and is attached to a player or an enemy,
+        // update its position to match the player's position.
+        if (hasCollided && playerTransform != null)
+        {
+            transform.position = playerTransform.position;
+        }
+    }
 
     protected override int CalculateDamage(float travelDistance)
     {
