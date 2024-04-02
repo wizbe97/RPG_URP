@@ -14,12 +14,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerProjectiles
+  - Enemies
+  - EnemyProjectiles
+  - EnemyCollisions
+  - PlayerCollisions
+  - Player
   - 
   - 
   - 

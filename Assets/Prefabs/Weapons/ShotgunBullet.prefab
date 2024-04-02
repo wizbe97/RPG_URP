@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4157334335600169748}
   - component: {fileID: 4490999042631835740}
   - component: {fileID: 8140556580618190491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotgunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333f290d50cdf9a4194ab3857268b585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTravelDistance: 10
+  maxTravelDistance: 15
   minimumBulletDamage: 5
   maximumBulletDamage: 55

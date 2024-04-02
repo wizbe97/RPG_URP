@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -23,7 +22,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(gameObject);
     }

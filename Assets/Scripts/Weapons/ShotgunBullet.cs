@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class ShotgunBullet : Bullet
@@ -13,11 +12,11 @@ public class ShotgunBullet : Bullet
         shotgunSpawnPosition = transform.position;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            RangedEnemyCharacter enemy = other.gameObject.GetComponent<RangedEnemyCharacter>();
 
             // Calculate damage based on travel distance
             float travelDistance = Vector3.Distance(shotgunSpawnPosition, transform.position);
@@ -29,7 +28,7 @@ public class ShotgunBullet : Bullet
                 damageCoroutine = StartCoroutine(enemy.DamageCharacter(calculatedDamage, 0f));
             }
         }
-        base.OnCollisionEnter2D(collision);
+        base.OnTriggerEnter2D(other);
     }
 
     protected override int CalculateDamage(float travelDistance)
