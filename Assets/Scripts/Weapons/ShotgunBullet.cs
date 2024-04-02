@@ -17,7 +17,7 @@ public class ShotgunBullet : Bullet
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            RangedEnemyCharacter enemy = collision.gameObject.GetComponent<RangedEnemyCharacter>();
 
             // Calculate damage based on travel distance
             float travelDistance = Vector3.Distance(shotgunSpawnPosition, transform.position);

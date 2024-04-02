@@ -9,6 +9,7 @@ public class RangedEnemyController : MonoBehaviour
     public float fireRate = 1f;
     public float fireForce = 10f;
     public float idleTime = 2f; // Time to wait in idle state
+    private bool canMove = true;
     public float wanderRadius = 5f; // Radius within which the enemy can wander
     public GameObject bulletPrefab;
     public Transform[] firePoints; // Array of fire points for different directions
@@ -85,6 +86,8 @@ public class RangedEnemyController : MonoBehaviour
 
     void Wander()
     {
+        if (!canMove)
+            return;
         idleTimer += Time.deltaTime;
         if (idleTimer >= idleTime)
         {
@@ -100,6 +103,8 @@ public class RangedEnemyController : MonoBehaviour
 
     void MoveTowardsTarget()
     {
+        if (!canMove)
+            return;
         transform.position = Vector2.MoveTowards(transform.position, wanderTarget, moveSpeed * Time.deltaTime);
         animator.Play("Walk");
 
@@ -112,6 +117,8 @@ public class RangedEnemyController : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
+        if (!canMove)
+            return;
         if (!playerInShootingRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
@@ -121,6 +128,8 @@ public class RangedEnemyController : MonoBehaviour
 
     void Shoot()
     {
+        if (!canMove)
+            return;
         animator.Play("Shoot");
         Vector2 direction = (player.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
@@ -218,5 +227,11 @@ public class RangedEnemyController : MonoBehaviour
         // Draw shooting range circle
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, shootingRange);
+    }
+
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }
