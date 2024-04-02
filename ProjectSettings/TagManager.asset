@@ -17,9 +17,9 @@ TagManager:
   - PlayerProjectiles
   - Enemies
   - EnemyProjectiles
-  - 
-  - 
-  - 
+  - EnemyCollisions
+  - PlayerCollisions
+  - Player
   - 
   - 
   - 
