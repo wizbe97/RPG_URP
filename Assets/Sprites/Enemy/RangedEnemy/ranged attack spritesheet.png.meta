@@ -126,10 +126,10 @@ TextureImporter:
       name: ranged attack spritesheet_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 586
-        width: 16
-        height: 38
+        x: 0
+        y: 594
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f673ab6aaad0ef4caa1cd0bc23fddd9
-      internalID: -1125632009
+      spriteID: b6b4882cdbda2c84d915a77e73240a96
+      internalID: 1082994428
       vertices: []
       indices: 
       edges: []
@@ -147,10 +147,10 @@ TextureImporter:
       name: ranged attack spritesheet_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 584
-        width: 16
-        height: 40
+        x: 80
+        y: 594
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05bc5b4dc5207954db00f9aa66434da1
-      internalID: -742454261
+      spriteID: 8576ecff2ab24fc4f8ad00862e3f663c
+      internalID: 1589035163
       vertices: []
       indices: 
       edges: []
@@ -168,10 +168,10 @@ TextureImporter:
       name: ranged attack spritesheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 514
-        width: 27
-        height: 30
+        x: 160
+        y: 594
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c462e2c7f2eac98488948034fcbfc3bf
-      internalID: 1528979612
+      spriteID: 62488f4b8783f734db4ef2957b7cf479
+      internalID: 287782896
       vertices: []
       indices: 
       edges: []
@@ -189,10 +189,10 @@ TextureImporter:
       name: ranged attack spritesheet_3
       rect:
         serializedVersion: 2
-        x: 112
+        x: 0
         y: 514
-        width: 27
-        height: 30
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ac5a24f86652754a9da5e6499946801
-      internalID: -1005866052
+      spriteID: c1bf800c96af49142a70f406e5b5b3c0
+      internalID: -1619987751
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
       name: ranged attack spritesheet_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 434
-        width: 37
-        height: 29
+        x: 80
+        y: 514
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e973c09f0c581f429b21e4bd60ba709
-      internalID: -167099483
+      spriteID: d3d61fd8e495bf24bae58ba693dc1449
+      internalID: -1308540935
       vertices: []
       indices: 
       edges: []
@@ -231,10 +231,10 @@ TextureImporter:
       name: ranged attack spritesheet_5
       rect:
         serializedVersion: 2
-        x: 112
-        y: 434
-        width: 39
-        height: 29
+        x: 160
+        y: 514
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf470fbe4bdca11449c7e35fcd4909d5
-      internalID: -630187328
+      spriteID: cac040dd79fe5764ab08a136e494846d
+      internalID: 1831101151
       vertices: []
       indices: 
       edges: []
@@ -252,10 +252,10 @@ TextureImporter:
       name: ranged attack spritesheet_6
       rect:
         serializedVersion: 2
-        x: 31
-        y: 354
-        width: 27
-        height: 29
+        x: 0
+        y: 434
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf680e0759c093848b44574f283d9eab
-      internalID: 197681307
+      spriteID: 11de40291c529a74c99e0bc9b7412aa4
+      internalID: -1012785205
       vertices: []
       indices: 
       edges: []
@@ -273,10 +273,10 @@ TextureImporter:
       name: ranged attack spritesheet_7
       rect:
         serializedVersion: 2
-        x: 111
-        y: 354
-        width: 27
-        height: 29
+        x: 80
+        y: 434
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84d91c88e4838cf479014f30015fe9c5
-      internalID: -676718219
+      spriteID: bcd71a6f024c41a498a33f2c09d08f77
+      internalID: 29061554
       vertices: []
       indices: 
       edges: []
@@ -294,10 +294,10 @@ TextureImporter:
       name: ranged attack spritesheet_8
       rect:
         serializedVersion: 2
-        x: 31
-        y: 274
-        width: 18
-        height: 38
+        x: 160
+        y: 434
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de18543c1dda12b489da952763efbb47
-      internalID: 1582579030
+      spriteID: be251a85e7cf46e45baa3024f9a6ecff
+      internalID: -107925673
       vertices: []
       indices: 
       edges: []
@@ -315,10 +315,10 @@ TextureImporter:
       name: ranged attack spritesheet_9
       rect:
         serializedVersion: 2
-        x: 111
-        y: 274
-        width: 18
-        height: 40
+        x: 0
+        y: 354
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 943f63c01d3429a46b6faf1c4f65ac66
-      internalID: -1492167602
+      spriteID: fdf1428a14bf5824bb3041eb7131d337
+      internalID: -348854006
       vertices: []
       indices: 
       edges: []
@@ -336,10 +336,10 @@ TextureImporter:
       name: ranged attack spritesheet_10
       rect:
         serializedVersion: 2
-        x: 21
-        y: 194
-        width: 27
-        height: 30
+        x: 80
+        y: 354
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaef6a5d80afb314f83024934dc79976
-      internalID: 428298593
+      spriteID: c705e06040012a34197e9edc260515d2
+      internalID: -1367551993
       vertices: []
       indices: 
       edges: []
@@ -357,10 +357,10 @@ TextureImporter:
       name: ranged attack spritesheet_11
       rect:
         serializedVersion: 2
-        x: 101
-        y: 194
-        width: 27
-        height: 30
+        x: 160
+        y: 354
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf82a75dcd6e684b8696a1817200e64
-      internalID: -2003782865
+      spriteID: 20073bac773b7a646b5f9eff957f1f91
+      internalID: 794043242
       vertices: []
       indices: 
       edges: []
@@ -378,10 +378,10 @@ TextureImporter:
       name: ranged attack spritesheet_12
       rect:
         serializedVersion: 2
-        x: 11
-        y: 114
-        width: 37
-        height: 29
+        x: 0
+        y: 274
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bcb6e9d104d8d94295fff442493c16f
-      internalID: -834014792
+      spriteID: b301bd9306e7a3643b834ef0f113d97a
+      internalID: 278293567
       vertices: []
       indices: 
       edges: []
@@ -399,10 +399,10 @@ TextureImporter:
       name: ranged attack spritesheet_13
       rect:
         serializedVersion: 2
-        x: 89
-        y: 114
-        width: 39
-        height: 29
+        x: 80
+        y: 274
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0afa40062cd508042b9bc92b180f83c9
-      internalID: -870107223
+      spriteID: 98932e56f36758346b0684a7af1b73e5
+      internalID: -1862240994
       vertices: []
       indices: 
       edges: []
@@ -420,10 +420,10 @@ TextureImporter:
       name: ranged attack spritesheet_14
       rect:
         serializedVersion: 2
-        x: 22
-        y: 34
-        width: 27
-        height: 29
+        x: 160
+        y: 274
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60591bb4f44277a4485ecb8d8f87d109
-      internalID: -1878614259
+      spriteID: 85a3c211ec7892e4d92d642712a868d8
+      internalID: -1490410522
       vertices: []
       indices: 
       edges: []
@@ -441,10 +441,10 @@ TextureImporter:
       name: ranged attack spritesheet_15
       rect:
         serializedVersion: 2
-        x: 102
-        y: 34
-        width: 27
-        height: 29
+        x: 0
+        y: 194
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,8 +452,176 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 836fdb00607b9184484dee24a6457bcc
-      internalID: 522088368
+      spriteID: 65b87733da874ad4a99133b771393de5
+      internalID: 1593021310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 194
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282ee1738bd15da43bc30b7fb352f6c7
+      internalID: -1814085938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 194
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ae07b5deef54847b15c22b1523cbe5
+      internalID: 1198344593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a5d713bbcf4674896d2d7f2254d9c7
+      internalID: -1461966146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 114
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e388c3a44addd3b4194031a63ea59833
+      internalID: 1420496364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 114
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043fa6e42c2968b479ebf9c42e4cf446
+      internalID: 1615885259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 34
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559445a2217dc0f4084f146be78f472f
+      internalID: -766722235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 34
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0161f4488f9210346a5d98dd7797f073
+      internalID: 301578401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranged attack spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 34
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eedf9eefc1d00504c817ac28db8611c5
+      internalID: -2141004789
       vertices: []
       indices: 
       edges: []
@@ -469,22 +637,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ranged attack spritesheet_0: -1125632009
-      ranged attack spritesheet_1: -742454261
-      ranged attack spritesheet_10: 428298593
-      ranged attack spritesheet_11: -2003782865
-      ranged attack spritesheet_12: -834014792
-      ranged attack spritesheet_13: -870107223
-      ranged attack spritesheet_14: -1878614259
-      ranged attack spritesheet_15: 522088368
-      ranged attack spritesheet_2: 1528979612
-      ranged attack spritesheet_3: -1005866052
-      ranged attack spritesheet_4: -167099483
-      ranged attack spritesheet_5: -630187328
-      ranged attack spritesheet_6: 197681307
-      ranged attack spritesheet_7: -676718219
-      ranged attack spritesheet_8: 1582579030
-      ranged attack spritesheet_9: -1492167602
+      ranged attack spritesheet_0: 1082994428
+      ranged attack spritesheet_1: 1589035163
+      ranged attack spritesheet_10: -1367551993
+      ranged attack spritesheet_11: 794043242
+      ranged attack spritesheet_12: 278293567
+      ranged attack spritesheet_13: -1862240994
+      ranged attack spritesheet_14: -1490410522
+      ranged attack spritesheet_15: 1593021310
+      ranged attack spritesheet_16: -1814085938
+      ranged attack spritesheet_17: 1198344593
+      ranged attack spritesheet_18: -1461966146
+      ranged attack spritesheet_19: 1420496364
+      ranged attack spritesheet_2: 287782896
+      ranged attack spritesheet_20: 1615885259
+      ranged attack spritesheet_21: -766722235
+      ranged attack spritesheet_22: 301578401
+      ranged attack spritesheet_23: -2141004789
+      ranged attack spritesheet_3: -1619987751
+      ranged attack spritesheet_4: -1308540935
+      ranged attack spritesheet_5: 1831101151
+      ranged attack spritesheet_6: -1012785205
+      ranged attack spritesheet_7: 29061554
+      ranged attack spritesheet_8: -107925673
+      ranged attack spritesheet_9: -348854006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

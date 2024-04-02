@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4685262873413292785}
   - component: {fileID: -8574081465401563823}
   - component: {fileID: -1339579937504900439}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: enemy-bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65145dd5ec4437d489964b06be1c7002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTravelDistance: 25
-  minimumBulletDamage: 5
-  maximumBulletDamage: 15
+  maxTravelDistance: 30
+  minimumBulletDamage: 15
+  maximumBulletDamage: 25
 --- !u!95 &-1339579937504900439
 Animator:
   serializedVersion: 5

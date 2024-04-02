@@ -241,7 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateLock: 0
-  animator: {fileID: 908663655771853657}
   currentStateValue: 0
 --- !u!61 &2256841804960756383
 BoxCollider2D:

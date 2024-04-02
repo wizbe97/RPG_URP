@@ -84,12 +84,12 @@ public class UpdateAnimationState : MonoBehaviour
             if (action.isHoldingGun == true) // Check if the player is holding a gun
             {
                 // If holding a gun, check if the movement speed is greater than or equal to 3
-                stateIdentifier = playerController.movementSpeed >= 3 ? 1 : 2;
+                stateIdentifier = playerController.movementSpeed >= 2000 ? 1 : 2;
             }
             else
             {
                 // If not holding a gun, check if the movement speed is greater than or equal to 3
-                stateIdentifier = playerController.movementSpeed >= 3 ? 3 : 4;
+                stateIdentifier = playerController.movementSpeed >= 2000 ? 3 : 4;
             }
         }
         else
