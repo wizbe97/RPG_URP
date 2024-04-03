@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 public class RangedEnemyCharacter : Character
 {
     public int damageStrength;
+    public GameObject floatingHealthBar;
+    public GameObject shadow;
     private Animator animator;
     private CapsuleCollider2D capsuleCollider2D;
     [SerializeField] private FloatingHealthBar healthBar;
     public GameObject floatingDamage;
-    Coroutine damageCoroutine;
 
     float hitPoints;
 
@@ -57,6 +59,8 @@ public class RangedEnemyCharacter : Character
     // Kill Character (Enemy)
     public override void KillCharacter()
     {
+        floatingHealthBar.SetActive(false);
+        shadow.SetActive(false);
         animator.Play("Death");
         capsuleCollider2D.enabled = false;
 
