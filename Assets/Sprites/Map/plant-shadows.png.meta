@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ab7e4f5e1fe0c449bdda129efb5e5bc
+guid: cfc95241857e0e9439d42b6cd9ec6e06
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,106 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: terrain_object-shadows_0
+      name: plant-shadows_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 96
         y: 48
-        width: 16
-        height: 16
+        width: 20
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d6f40a990fe5ff439ee5a65afdfa61e
-      internalID: 631741886
+      spriteID: 1d50e0f6c3b571d41976bed67e5155b0
+      internalID: 1544895595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain_object-shadows_1
+      name: plant-shadows_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa5023a6abcbc3d4b8b51d456521b3aa
-      internalID: -1770630432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain_object-shadows_4
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 96
         y: 32
-        width: 16
-        height: 16
+        width: 24
+        height: 7
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90420d53836e48149ad1776440a9d18c
-      internalID: 1604435524
+      spriteID: 864f39ce665db614db18d761db9bbdbe
+      internalID: 1751348178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain_object-shadows_5
+      name: plant-shadows_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 6
+        y: 12
+        width: 68
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75ebc2ab8bdca2e44ae271e8f624f67e
-      internalID: 1959151128
+      spriteID: 6731a57509ac0bb4ebb3f8ba63048554
+      internalID: 586531902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain_object-shadows_6
+      name: plant-shadows_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 96
+        y: 16
+        width: 21
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ac411862dfd66d40a582d2c950b0602
-      internalID: 1932178214
+      spriteID: 3ff8b42c06cd7c4429666ca5ea2fa0f6
+      internalID: 1802897579
       vertices: []
       indices: 
       edges: []
@@ -238,25 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      terrain_object-shadows_0: 631741886
-      terrain_object-shadows_1: -1770630432
-      terrain_object-shadows_10: 1420813492
-      terrain_object-shadows_11: 1897951280
-      terrain_object-shadows_12: -1321755436
-      terrain_object-shadows_13: 1133668979
-      terrain_object-shadows_14: 501835472
-      terrain_object-shadows_15: -1884242002
-      terrain_object-shadows_16: -1718110292
-      terrain_object-shadows_17: 2050586305
-      terrain_object-shadows_18: 617617141
-      terrain_object-shadows_2: -1803767366
-      terrain_object-shadows_3: 45906785
-      terrain_object-shadows_4: 1604435524
-      terrain_object-shadows_5: 1959151128
-      terrain_object-shadows_6: 1932178214
-      terrain_object-shadows_7: 1989129986
-      terrain_object-shadows_8: 580959116
-      terrain_object-shadows_9: -1527110914
+      plant-shadows_0: 1544895595
+      plant-shadows_1: 1751348178
+      plant-shadows_2: 586531902
+      plant-shadows_3: 1802897579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

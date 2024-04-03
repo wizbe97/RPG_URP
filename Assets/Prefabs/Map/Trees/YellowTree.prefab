@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1425944782895211853
+--- !u!1 &5222162550045516303
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1602201830541219428}
-  - component: {fileID: 3116466273543852471}
-  m_Layer: 12
+  - component: {fileID: 6314138632597711037}
+  - component: {fileID: 8949081571031882773}
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1602201830541219428
+--- !u!4 &6314138632597711037
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425944782895211853}
+  m_GameObject: {fileID: 5222162550045516303}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027999878, y: -0.24699974, z: 0}
+  m_LocalPosition: {x: -0.030229568, y: -0.24913025, z: -0.02318696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 928799770273467757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3116466273543852471
+--- !u!212 &8949081571031882773
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425944782895211853}
+  m_GameObject: {fileID: 5222162550045516303}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1967825719
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1604435524, guid: 3ab7e4f5e1fe0c449bdda129efb5e5bc, type: 3}
+  m_Sprite: {fileID: 1802897579, guid: cfc95241857e0e9439d42b6cd9ec6e06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,11 +111,11 @@ Transform:
   m_GameObject: {fileID: 7790746295177008181}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6021862, y: -0.16501808, z: 0.02318696}
+  m_LocalPosition: {x: -2.3078504, y: 7.6903386, z: 0.02318696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1602201830541219428}
+  - {fileID: 6314138632597711037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5246289351508358030
@@ -202,6 +202,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.048549533, y: -0.13851357}
+  m_Offset: {x: -0.048549533, y: -0.19373363}
   serializedVersion: 2
-  m_Radius: 0.47253597
+  m_Radius: 0.4173159
