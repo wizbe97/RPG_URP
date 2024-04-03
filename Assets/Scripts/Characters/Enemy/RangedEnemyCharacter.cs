@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
-using UnityEngine.UI;
+using TMPro;
 
 public class RangedEnemyCharacter : Character
 {
@@ -38,7 +38,8 @@ public class RangedEnemyCharacter : Character
             hitPoints -= damage;
             healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
             GameObject damageNumber = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
-            damageNumber.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
+            TextMeshPro damageText = damageNumber.transform.GetChild(0).GetComponent<TextMeshPro>();
+            damageText.text = damage.ToString();
             if (hitPoints <= 0)
             {
                 KillCharacter();
