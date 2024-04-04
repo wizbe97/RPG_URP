@@ -265,5 +265,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3528981164989052066, guid: 5c79751ad8e4ff3429642b0adae4af28, type: 3}
   firePoint: {fileID: 6064246225989084949}
   fireForce: 25
+  recoilStrength: 0.25
+  recoilTimer: 3
   isShooting: 0
   fireRate: 0.25
