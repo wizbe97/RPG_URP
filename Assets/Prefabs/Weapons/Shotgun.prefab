@@ -172,6 +172,7 @@ MonoBehaviour:
   firePoint: {fileID: 5593825063538871715}
   fireForce: 30
   recoilStrength: 0.1
+  recoilTimer: 0.5
   isShooting: 0
   fireRate: 1
 --- !u!82 &4160471982219836962
@@ -186,7 +187,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c3806365b86c3b34ba90f87e09f7e60a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.726
   m_Pitch: 1
   Loop: 0
   Mute: 0

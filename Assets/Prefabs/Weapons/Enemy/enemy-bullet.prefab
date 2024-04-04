@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65145dd5ec4437d489964b06be1c7002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTravelDistance: 30
+  bulletLifetime: 2
+  maxTravelDistance: 3
   minimumBulletDamage: 10
   maximumBulletDamage: 10
   spawnPosition: {x: 0, y: 0, z: 0}

@@ -2,24 +2,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float bulletLifetime;
     public float maxTravelDistance;
     public int minimumBulletDamage;
     public int maximumBulletDamage;
 
-    public Vector3 spawnPosition; // Position where the bullet was instantiated
+    [HideInInspector] public Vector3 spawnPosition; // Position where the bullet was instantiated
 
     protected virtual void Start()
     {
         spawnPosition = transform.position;
-    }
-
-    private void Update()
-    {
-        float travelDistance = Vector3.Distance(spawnPosition, transform.position);
-        if (travelDistance >= maxTravelDistance)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, bulletLifetime);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

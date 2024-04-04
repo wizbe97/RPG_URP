@@ -338,7 +338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineOfSight: 15
   shootingRange: 10
-  moveSpeed: 2
   fireRate: 1
   fireForce: 8
   idleTime: 2
@@ -353,6 +352,7 @@ MonoBehaviour:
   - {fileID: 1366540737856106494}
   - {fileID: 2464021173266099578}
   - {fileID: 2800728275407744219}
+  moveForce: 1000
 --- !u!114 &-2948688100467753451
 MonoBehaviour:
   m_ObjectHideFlags: 0

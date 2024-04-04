@@ -30,12 +30,4 @@ public class WeaponBullet : Bullet
         }
         base.OnTriggerEnter2D(other);
     }
-
-    protected override int CalculateDamage(float travelDistance)
-    {
-        // Calculate damage based on travel distance
-        float t = Mathf.Clamp01(travelDistance / maxTravelDistance);
-        int damage = Mathf.RoundToInt(Mathf.Lerp(maximumBulletDamage, minimumBulletDamage, t));
-        return damage;
-    }
 }
