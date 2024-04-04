@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class ShotgunBullet : Bullet
+public class WeaponBullet : Bullet
 {
     private Coroutine damageCoroutine;
-    private Vector3 shotgunSpawnPosition;
+    private Vector3 gunSpawnPosition;
 
     protected override void Start()
     {
         base.Start();
-        // Initialize shotgunSpawnPosition in the child class
-        shotgunSpawnPosition = transform.position;
+        // Initialize gunSpawnPosition in the child class
+        gunSpawnPosition = transform.position;
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +19,7 @@ public class ShotgunBullet : Bullet
             RangedEnemyCharacter enemy = other.gameObject.GetComponent<RangedEnemyCharacter>();
 
             // Calculate damage based on travel distance
-            float travelDistance = Vector3.Distance(shotgunSpawnPosition, transform.position);
+            float travelDistance = Vector3.Distance(gunSpawnPosition, transform.position);
             int calculatedDamage = CalculateDamage(travelDistance);
 
             // Only call DamageCharacter on the Enemy if we don't currently have a DamageCharacter() Coroutine running.

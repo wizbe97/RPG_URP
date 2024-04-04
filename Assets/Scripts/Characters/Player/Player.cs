@@ -9,7 +9,7 @@ public class Player : Character
 
     public Inventory inventoryPrefab;
     private Inventory inventoryManager;
-    
+
     private void Start()
     {
         inventoryManager = FindObjectOfType<Inventory>();
@@ -36,8 +36,6 @@ public class Player : Character
                         break;
                     case Item.ItemType.GUN:
                         shouldDisappear = inventoryManager.AddItem(hitObject);
-                        break;
-                    default:
                         break;
                 }
 

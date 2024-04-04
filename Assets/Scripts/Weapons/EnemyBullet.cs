@@ -75,6 +75,11 @@ public class EnemyBullet : Bullet
         {
             transform.position = playerTransform.position;
         }
+        float travelDistance = Vector3.Distance(spawnPosition, transform.position);
+        if (travelDistance >= maxTravelDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected override int CalculateDamage(float travelDistance)

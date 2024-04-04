@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using TMPro;
 
 public class RangedEnemyCharacter : Character
 {
     public int damageStrength;
+    public GameObject floatingHealthBar;
+    public GameObject shadow;
     private Animator animator;
     private CapsuleCollider2D capsuleCollider2D;
     [SerializeField] private FloatingHealthBar healthBar;
     public GameObject floatingDamage;
-    Coroutine damageCoroutine;
 
     float hitPoints;
 
@@ -36,7 +38,8 @@ public class RangedEnemyCharacter : Character
             hitPoints -= damage;
             healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
             GameObject damageNumber = Instantiate(floatingDamage, transform.position, Quaternion.identity) as GameObject;
-            damageNumber.transform.GetChild(0).GetComponent<TextMesh>().text = damage.ToString();
+            TextMeshPro damageText = damageNumber.transform.GetChild(0).GetComponent<TextMeshPro>();
+            damageText.text = damage.ToString();
             if (hitPoints <= 0)
             {
                 KillCharacter();
@@ -57,6 +60,8 @@ public class RangedEnemyCharacter : Character
     // Kill Character (Enemy)
     public override void KillCharacter()
     {
+        floatingHealthBar.SetActive(false);
+        shadow.SetActive(false);
         animator.Play("Death");
         capsuleCollider2D.enabled = false;
 
