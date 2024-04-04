@@ -45,7 +45,7 @@ public class Action : MonoBehaviour
     {
         if (overUI != true)
         {
-            if (currentItem != null && currentItem.objectName == "shotgun")
+            if (currentItem != null && currentItem.itemName == "shotgun")
             {
                 shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
                 if (shotgun != null && !Gun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
@@ -57,7 +57,7 @@ public class Action : MonoBehaviour
                     Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
                 }
             }
-            else if (currentItem != null && currentItem.objectName == "smg")
+            else if (currentItem != null && currentItem.itemName == "smg")
             {
                 smg = FindObjectOfType<SMG>(); // Assuming there's only one smg in the scene
                 if (smg != null && !Gun.IsAnyGunShooting()) // Check if smg exists and no gun is shooting
@@ -98,7 +98,7 @@ public class Action : MonoBehaviour
             {
                 if (currentItem.itemType == Item.ItemType.GUN)
                 {
-                    if (currentItem.objectName == "shotgun")
+                    if (currentItem.itemName == "shotgun")
                     {
                         isHoldingGun = true;
                         // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
@@ -118,7 +118,7 @@ public class Action : MonoBehaviour
                             instantiatedSmg.SetActive(false);
                         }
                     }
-                    else if (currentItem.objectName == "smg")
+                    else if (currentItem.itemName == "smg")
                     {
                         isHoldingGun = true;
                         // If smg prefab is not instantiated, instantiate it and set its parent to the player

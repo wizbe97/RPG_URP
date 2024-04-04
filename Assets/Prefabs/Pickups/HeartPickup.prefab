@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3974523491025016341}
   - component: {fileID: 4965440420544347677}
   m_Layer: 9
-  m_Name: HeartObject
+  m_Name: HeartPickup
   m_TagString: CanBePickedUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

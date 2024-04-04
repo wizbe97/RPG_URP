@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8723667704026190418}
   - component: {fileID: 4392355263316547409}
   m_Layer: 9
-  m_Name: GemObject
+  m_Name: GemPickup
   m_TagString: CanBePickedUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
