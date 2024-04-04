@@ -7,7 +7,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string itemName;
-    public Sprite droppedImage;
+    public GameObject droppedItem;
     public Sprite inventoryImage;
     public int quantity;
     public bool stackable;

@@ -43,11 +43,12 @@ public class LootBag : MonoBehaviour
         return null;
     }
 
-    public void InstantiateLoot(Vector3 spawnPosition) {
+    public void InstantiateLoot(Vector3 spawnPosition)
+    {
         Item droppedItem = GetDroppedItem();
-        if(droppedItem != null) {
-            GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);)
-            lootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.droppedImage;
+        if (droppedItem != null)
+        {
+            Instantiate(droppedItem.droppedItem, spawnPosition, Quaternion.identity);
         }
     }
 
