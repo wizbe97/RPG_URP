@@ -160,10 +160,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5440687993766135674}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bea3e642ba5c11847b876e7f37eb3200, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -266,4 +266,4 @@ MonoBehaviour:
   firePoint: {fileID: 6064246225989084949}
   fireForce: 25
   isShooting: 0
-  fireRate: 0.1
+  fireRate: 0.25

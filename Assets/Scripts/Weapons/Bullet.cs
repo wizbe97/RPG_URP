@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     public int minimumBulletDamage;
     public int maximumBulletDamage;
 
-    private Vector3 spawnPosition; // Position where the bullet was instantiated
+    public Vector3 spawnPosition; // Position where the bullet was instantiated
 
     protected virtual void Start()
     {

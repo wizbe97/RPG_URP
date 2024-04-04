@@ -12,12 +12,21 @@ public class Gun : MonoBehaviour
     public float fireRate = 0.5f; // Adjust this value to control fire rate
     private float nextFireTime = 0f; // Tracks the next allowed time to fire
 
+
     protected virtual void Start()
     {
         action = GetComponent<Action>();
         audioSource = GetComponent<AudioSource>();
     }
 
+    public virtual void Update()
+    {
+        if (Input.GetMouseButton(0)) // Check if left mouse button is held down
+        {
+            animator.SetBool("isShooting", true);
+            isShooting = false;
+        }
+    }
     public virtual void Shoot()
     {
         if (Time.time >= nextFireTime)

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6db8b461ed0f14386e23feb3bac7e6, type: 3}
   m_Name: Smg
   m_EditorClassIdentifier: 
-  objectName: 
-  image: {fileID: 0}
-  quantity: 0
+  objectName: smg
+  image: {fileID: 21300000, guid: 577bdc8e4d2f7ff429ff389b6fd3e326, type: 3}
+  quantity: 1
   stackable: 0
-  itemType: 0
+  itemType: 2
