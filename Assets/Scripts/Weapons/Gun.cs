@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     public float fireForce;
     protected AudioSource audioSource;
     public bool isShooting;
+    public float fireRate = 0.5f; // Adjust this value to control fire rate
+    private float nextFireTime = 0f; // Tracks the next allowed time to fire
 
     protected virtual void Start()
     {
@@ -18,11 +20,15 @@ public class Gun : MonoBehaviour
 
     public virtual void Shoot()
     {
-        isShooting = true;
-        animator.SetBool("isShooting", true);
-        audioSource.Play();
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        if (Time.time >= nextFireTime)
+        {
+            isShooting = true;
+            animator.SetBool("isShooting", true);
+            audioSource.Play();
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+            nextFireTime = Time.time + fireRate; // Update next allowed time to fire
+        }
     }
 
     public void OnShootingAnimationEnd()
