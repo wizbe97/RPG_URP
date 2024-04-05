@@ -9,11 +9,14 @@ public class Action : MonoBehaviour
     public bool isHoldingGun = false;
     public GameObject shotgunPrefab;
     private GameObject instantiatedShotgun;
+    public GameObject sniperPrefab;
+    private GameObject instantiatedSniper;
     public GameObject smgPrefab;
     private GameObject instantiatedSmg;
     public Item currentItem;
     private Shotgun shotgun;
     private SMG smg;
+    private Sniper sniper;
     private bool overUI;
 
     void Start()
@@ -69,6 +72,18 @@ public class Action : MonoBehaviour
                     Debug.Log("Cannot shoot. Either SMG not found or another gun is already shooting.");
                 }
             }
+            else if (currentItem != null && currentItem.itemName == "sniper")
+            {
+                sniper = FindObjectOfType<Sniper>(); // Assuming there's only one sniper in the scene
+                if (sniper != null && !Gun.IsAnyGunShooting()) // Check if sniper exists and no gun is shooting
+                {
+                    sniper.Shoot();
+                }
+                else
+                {
+                    Debug.Log("Cannot shoot. Either Sniper not found or another gun is already shooting.");
+                }
+            }
             else
             {
                 Debug.Log("No gun item in slot");
@@ -112,10 +127,14 @@ public class Action : MonoBehaviour
                         {
                             instantiatedShotgun.SetActive(true);
                         }
-                        // Deactivate other gun if exists
+                        // Deactivate other guns if exist
                         if (instantiatedSmg != null)
                         {
                             instantiatedSmg.SetActive(false);
+                        }
+                        if (instantiatedSniper != null)
+                        {
+                            instantiatedSniper.SetActive(false);
                         }
                     }
                     else if (currentItem.itemName == "smg")
@@ -132,10 +151,38 @@ public class Action : MonoBehaviour
                         {
                             instantiatedSmg.SetActive(true);
                         }
-                        // Deactivate other gun if exists
+                        // Deactivate other guns if exist
                         if (instantiatedShotgun != null)
                         {
                             instantiatedShotgun.SetActive(false);
+                        }
+                        if (instantiatedSniper != null)
+                        {
+                            instantiatedSniper.SetActive(false);
+                        }
+                    }
+                    else if (currentItem.itemName == "sniper")
+                    {
+                        isHoldingGun = true;
+                        // If sniper prefab is not instantiated, instantiate it and set its parent to the player
+                        if (instantiatedSniper == null && sniperPrefab != null)
+                        {
+                            instantiatedSniper = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
+                            instantiatedSniper.transform.parent = transform; // Set player as parent
+                        }
+                        // If instantiated, set active
+                        if (instantiatedSniper != null)
+                        {
+                            instantiatedSniper.SetActive(true);
+                        }
+                        // Deactivate other guns if exist
+                        if (instantiatedShotgun != null)
+                        {
+                            instantiatedShotgun.SetActive(false);
+                        }
+                        if (instantiatedSmg != null)
+                        {
+                            instantiatedSmg.SetActive(false);
                         }
                     }
                 }
@@ -151,6 +198,10 @@ public class Action : MonoBehaviour
                     {
                         instantiatedSmg.SetActive(false);
                     }
+                    if (instantiatedSniper != null)
+                    {
+                        instantiatedSniper.SetActive(false);
+                    }
                 }
             }
             else
@@ -165,6 +216,10 @@ public class Action : MonoBehaviour
                 {
                     instantiatedSmg.SetActive(false);
                 }
+                if (instantiatedSniper != null)
+                {
+                    instantiatedSniper.SetActive(false);
+                }
             }
         }
         else
@@ -172,7 +227,4 @@ public class Action : MonoBehaviour
             Debug.LogWarning("Inventory instance is null!");
         }
     }
-
-
-
 }

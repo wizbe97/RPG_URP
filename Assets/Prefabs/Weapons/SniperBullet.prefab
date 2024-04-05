@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4683768972515350924}
   - component: {fileID: 3879655671919182217}
   m_Layer: 6
-  m_Name: SMG Bullet
+  m_Name: SniperBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifetime: 2
-  maxTravelDistance: 5
-  minimumBulletDamage: 20
-  maximumBulletDamage: 20
+  maxTravelDistance: 10
+  minimumBulletDamage: 100
+  maximumBulletDamage: 100
   spawnPosition: {x: 0, y: 0, z: 0}
