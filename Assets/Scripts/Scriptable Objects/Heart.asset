@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heart
   m_EditorClassIdentifier: 
   itemName: heart
-  droppedImage: {fileID: -443841175, guid: 83dfc663a4585984fa5e603087fcc470, type: 3}
+  droppedItem: {fileID: 6870393358900712992, guid: e741d65a2281360479de95e310600bf6, type: 3}
   inventoryImage: {fileID: 0}
   quantity: 5
   stackable: 0

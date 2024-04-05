@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   itemName: shotgun
-  droppedImage: {fileID: 21300000, guid: c1cc56178b6582f449eed402f1bc0755, type: 3}
+  droppedItem: {fileID: 6870393358900712992, guid: 46bff91ce57328e429dd47b22ea353b4, type: 3}
   inventoryImage: {fileID: 21300000, guid: 256f651ac40144f43934854a07ee13fd, type: 3}
   quantity: 1
   stackable: 0
