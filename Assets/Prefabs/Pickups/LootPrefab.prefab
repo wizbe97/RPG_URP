@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4195979551380247288}
   m_Layer: 0
   m_Name: LootPrefab
-  m_TagString: Untagged
+  m_TagString: CanBePickedUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef0bb7d7c26a447b3cd118b209ee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!50 &6241037144780060161
 Rigidbody2D:
   serializedVersion: 4

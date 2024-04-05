@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifetime: 2
-  maxTravelDistance: 5
-  minimumBulletDamage: 20
+  maxTravelDistance: 3
+  minimumBulletDamage: 15
   maximumBulletDamage: 20
   spawnPosition: {x: 0, y: 0, z: 0}

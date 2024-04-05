@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: sniper
   droppedItem: {fileID: 5895550283864259508, guid: 393f51089ae5bfb47b19b246641b45c2, type: 3}
-  inventoryImage: {fileID: 21300000, guid: 146f3268b5c13a34f81beaf4b0b02948, type: 3}
+  inventoryImage: {fileID: 21300000, guid: 0a13c51eaea59b04e86c59ba3142eaef, type: 3}
   quantity: 1
   stackable: 0
-  dropChance: 50
+  dropChance: 5
   itemType: 2
