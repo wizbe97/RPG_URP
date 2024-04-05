@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4997271625006173340}
   - component: {fileID: 5707971894388275387}
   - component: {fileID: -2822319440538414711}
+  - component: {fileID: 3541599930725368069}
   - component: {fileID: 3079905615380998449}
   - component: {fileID: 4160471982219836962}
-  - component: {fileID: 3541599930725368069}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -110,6 +110,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3541599930725368069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601246038333148960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3ceb64f01beec478bd9e6cd7e185f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: -2822319440538414711}
+  bulletPrefab: {fileID: 3528981164989052066, guid: c3797ce8aa06d6e4f81066312dbaccb5, type: 3}
+  firePoint: {fileID: 5593825063538871715}
+  fireForce: 50
+  recoilStrength: 0.1
+  recoilTimer: 0.5
+  isShooting: 0
+  fireRate: 1
 --- !u!114 &3079905615380998449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,26 +238,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3541599930725368069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6601246038333148960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e3ceb64f01beec478bd9e6cd7e185f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -2822319440538414711}
-  bulletPrefab: {fileID: 3528981164989052066, guid: c3797ce8aa06d6e4f81066312dbaccb5, type: 3}
-  firePoint: {fileID: 5593825063538871715}
-  fireForce: 50
-  recoilStrength: 0.1
-  recoilTimer: 0.5
-  isShooting: 0
-  fireRate: 1
 --- !u!1 &6713888473970511660
 GameObject:
   m_ObjectHideFlags: 0
