@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1908802346655595205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0.81, y: 0.03, z: 0.07009891}
+  m_LocalPosition: {x: 1.42, y: 0.03, z: 0.07009891}
   m_LocalScale: {x: 1.4285715, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 5552232016026755414}
   - component: {fileID: 535924184211490659}
   - component: {fileID: 7219502315566520091}
-  - component: {fileID: 8421039119962242835}
   - component: {fileID: 433782340179184001}
+  - component: {fileID: -688013990770639183}
   m_Layer: 0
-  m_Name: SMG
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 1967825719
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1156777680, guid: 7a470f29a955c8243a0d7095c3e1b388, type: 3}
+  m_Sprite: {fileID: 688404549, guid: fc544660a2d0e314aa46995cd00bf1c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 5440687993766135674}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5c3240ffdfba14147860a6183bdb4c42, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2ffb82b6390f4d04bbfe5cb8641e1a1f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,26 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadb6680ef1f51b41b6cf41b9a3603be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8421039119962242835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5440687993766135674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1512bced52853468cf37f71eef23a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 535924184211490659}
-  bulletPrefab: {fileID: 3528981164989052066, guid: 5c79751ad8e4ff3429642b0adae4af28, type: 3}
-  firePoint: {fileID: 6064246225989084949}
-  fireForce: 25
-  recoilStrength: 0.25
-  recoilTimer: 3
-  isShooting: 0
-  fireRate: 0.25
 --- !u!82 &433782340179184001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -180,7 +160,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5440687993766135674}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bea3e642ba5c11847b876e7f37eb3200, type: 3}
@@ -269,3 +249,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-688013990770639183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440687993766135674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1512bced52853468cf37f71eef23a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 535924184211490659}
+  bulletPrefab: {fileID: 3528981164989052066, guid: 503f8d4e2bce69949832ca751684d96b, type: 3}
+  firePoint: {fileID: 6064246225989084949}
+  fireForce: 45
+  recoilStrength: 1
+  recoilTimer: 0.5
+  isShooting: 0
+  fireRate: 1

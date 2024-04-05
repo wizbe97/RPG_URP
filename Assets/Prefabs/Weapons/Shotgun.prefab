@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 5707971894388275387}
   - component: {fileID: -2822319440538414711}
   - component: {fileID: 3079905615380998449}
-  - component: {fileID: -1985220646753293290}
   - component: {fileID: 4160471982219836962}
+  - component: {fileID: 8393950566730970346}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -155,26 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadb6680ef1f51b41b6cf41b9a3603be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1985220646753293290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6601246038333148960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30addeaf27493354f8b2daf34c7b49b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: -2822319440538414711}
-  bulletPrefab: {fileID: 5556698250833213186, guid: a97d4881aa5491d418c7680d46af1401, type: 3}
-  firePoint: {fileID: 5593825063538871715}
-  fireForce: 30
-  recoilStrength: 0.1
-  recoilTimer: 0.5
-  isShooting: 0
-  fireRate: 1
 --- !u!82 &4160471982219836962
 AudioSource:
   m_ObjectHideFlags: 0
@@ -271,6 +251,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8393950566730970346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601246038333148960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1512bced52853468cf37f71eef23a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: -2822319440538414711}
+  bulletPrefab: {fileID: 5556698250833213186, guid: a97d4881aa5491d418c7680d46af1401, type: 3}
+  firePoint: {fileID: 5593825063538871715}
+  fireForce: 30
+  recoilStrength: 0.1
+  recoilTimer: 0.5
+  isShooting: 0
+  fireRate: 1
 --- !u!1 &6713888473970511660
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 6713888473970511660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 1.94, y: 0.034, z: 0.07009891}
+  m_LocalPosition: {x: 1.89, y: 0.034, z: 0.07009891}
   m_LocalScale: {x: 1.4285715, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
