@@ -18,19 +18,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     bool isDragging = false; // Track if dragging is occurring
     private Inventory inventory;
-    private Gun gun;
-
     public int InventorySlotIndex;
 
     private void Start()
     {
         inventory = FindObjectOfType<Inventory>();
-        gun = FindObjectOfType<Gun>();
     }
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
-        image.sprite = newItem.image;
+        image.sprite = newItem.inventoryImage;
         RefreshCount();
     }
 

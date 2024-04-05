@@ -179,8 +179,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000040101796, y: -0.33639827}
-  m_Size: {x: 1.0000004, y: 0.4584828}
+  m_Offset: {x: 0.0047078324, y: -0.34581736}
+  m_Size: {x: 1.348512, y: 0.60918933}
   m_Direction: 1
 --- !u!1 &2029307690160249545
 GameObject:
@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 8906895150612784875}
   - component: {fileID: 4649686469831205795}
   - component: {fileID: 3001705789708108707}
+  - component: {fileID: -2948688100467753451}
   - component: {fileID: 7727937568507082553}
   - component: {fileID: 6457791027470236210}
   m_Layer: 7
@@ -337,9 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineOfSight: 15
   shootingRange: 10
-  moveSpeed: 2
   fireRate: 1
-  fireForce: 5
+  fireForce: 8
   idleTime: 2
   wanderRadius: 8
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
@@ -352,6 +352,25 @@ MonoBehaviour:
   - {fileID: 1366540737856106494}
   - {fileID: 2464021173266099578}
   - {fileID: 2800728275407744219}
+  moveForce: 1000
+--- !u!114 &-2948688100467753451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029307690160249545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b4190956f639040aaa6534586844fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 9014210621753723185, guid: a3c34e745368dc24d9ae0f21e3a26c63, type: 3}
+  lootList:
+  - {fileID: 11400000, guid: a05b0b96d13108d4b8fb567b7d297981, type: 2}
+  - {fileID: 11400000, guid: 733b50ffa985caf44b17f961a8cd94c5, type: 2}
+  - {fileID: 11400000, guid: 35776014ec8f7e44dacf442fc62f622a, type: 2}
+  - {fileID: 11400000, guid: 9388d10eb104fa447b4626be0ab0accd, type: 2}
 --- !u!50 &7727937568507082553
 Rigidbody2D:
   serializedVersion: 4

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6db8b461ed0f14386e23feb3bac7e6, type: 3}
   m_Name: Heart
   m_EditorClassIdentifier: 
-  objectName: heart
-  image: {fileID: -443841175, guid: 83dfc663a4585984fa5e603087fcc470, type: 3}
+  itemName: heart
+  droppedImage: {fileID: -443841175, guid: 83dfc663a4585984fa5e603087fcc470, type: 3}
+  inventoryImage: {fileID: 0}
   quantity: 5
   stackable: 0
+  dropChance: 75
   itemType: 1

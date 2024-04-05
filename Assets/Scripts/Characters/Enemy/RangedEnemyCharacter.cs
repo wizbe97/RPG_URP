@@ -60,6 +60,7 @@ public class RangedEnemyCharacter : Character
     // Kill Character (Enemy)
     public override void KillCharacter()
     {
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
         floatingHealthBar.SetActive(false);
         shadow.SetActive(false);
         animator.Play("Death");

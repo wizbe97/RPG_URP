@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public string objectName;
-    public Sprite image;
+    public string itemName;
+    public GameObject droppedItem;
+    public Sprite inventoryImage;
     public int quantity;
     public bool stackable;
+    public int dropChance;
 
     public enum ItemType {
         COIN,
@@ -17,4 +19,9 @@ public class Item : ScriptableObject
         GUN
     }
     public ItemType itemType;
+
+    public Item(string itemName, int dropChance){ 
+        this.itemName = itemName;
+        this.dropChance = dropChance;
+    }
 }

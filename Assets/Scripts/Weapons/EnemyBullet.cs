@@ -67,21 +67,6 @@ public class EnemyBullet : Bullet
         }
     }
 
-    private void Update()
-    {
-        // If the bullet has collided and is attached to a player or an enemy,
-        // update its position to match the player's position.
-        if (hasCollided && playerTransform != null)
-        {
-            transform.position = playerTransform.position;
-        }
-        float travelDistance = Vector3.Distance(spawnPosition, transform.position);
-        if (travelDistance >= maxTravelDistance)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     protected override int CalculateDamage(float travelDistance)
     {
         // Calculate damage based on travel distance
