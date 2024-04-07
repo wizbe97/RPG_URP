@@ -44,23 +44,21 @@ public class Action : MonoBehaviour
 
     private void OnUseItem()
     {
-        if (overUI != true)
-        {
-            if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
-            {
-                playerGun = FindObjectOfType<PlayerGun>();
-                if (playerGun != null && !PlayerGun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
-                {
-                    playerGun.Shoot();
-                }
-                else
-                {
-                    Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
-                }
+        if (overUI || currentItem == null)
+            return;
 
+        if (currentItem.itemType == Item.ItemType.GUN)
+        {
+            playerGun = FindObjectOfType<PlayerGun>();
+            if (playerGun != null && !PlayerGun.IsAnyGunShooting())
+            {
+                playerGun.Shoot();
             }
         }
     }
+
+
+
 
     private void OnDropItem()
     {
