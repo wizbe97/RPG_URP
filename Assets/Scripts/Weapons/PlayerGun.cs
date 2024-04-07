@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class PlayerGun : MonoBehaviour
 {
     protected Action action;
     private float holdStartTime;
@@ -17,13 +17,13 @@ public class Gun : MonoBehaviour
     private float nextFireTime = 0f; // Tracks the next allowed time to fire
 
 
-    protected virtual void Start()
+    private void Start()
     {
         action = GetComponent<Action>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    public virtual void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Check if left mouse button is pressed
         {
@@ -55,7 +55,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public virtual void Shoot()
+    public void Shoot()
     {
         if (Time.time >= nextFireTime)
         {
@@ -63,7 +63,7 @@ public class Gun : MonoBehaviour
             animator.SetBool("isShooting", true);
             audioSource.Play();
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+            Debug.Log("Bullet Fired");
             if (recoilActivated == true)
             {
                 Vector3 recoil = new Vector2(Random.Range(-recoilStrength, recoilStrength), Random.Range(-recoilStrength, recoilStrength));
@@ -88,8 +88,8 @@ public class Gun : MonoBehaviour
 
     public static bool IsAnyGunShooting()
     {
-        Gun[] guns = FindObjectsOfType<Gun>();
-        foreach (Gun gun in guns)
+        PlayerGun[] guns = FindObjectsOfType<PlayerGun>();
+        foreach (PlayerGun gun in guns)
         {
             if (gun.isShooting)
             {

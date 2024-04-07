@@ -14,9 +14,7 @@ public class Action : MonoBehaviour
     public GameObject smgPrefab;
     private GameObject instantiatedSmg;
     public Item currentItem;
-    private Shotgun shotgun;
-    private SMG smg;
-    private Sniper sniper;
+    private PlayerGun playerGun;
     private bool overUI;
 
     void Start()
@@ -48,45 +46,18 @@ public class Action : MonoBehaviour
     {
         if (overUI != true)
         {
-            if (currentItem != null && currentItem.itemName == "shotgun")
+            if (currentItem != null && currentItem.itemType == Item.ItemType.GUN)
             {
-                shotgun = FindObjectOfType<Shotgun>(); // Assuming there's only one shotgun in the scene
-                if (shotgun != null && !Gun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
+                playerGun = FindObjectOfType<PlayerGun>();
+                if (playerGun != null && !PlayerGun.IsAnyGunShooting()) // Check if shotgun exists and no gun is shooting
                 {
-                    shotgun.Shoot();
+                    playerGun.Shoot();
                 }
                 else
                 {
                     Debug.Log("Cannot shoot. Either shotgun not found or another gun is already shooting.");
                 }
-            }
-            else if (currentItem != null && currentItem.itemName == "smg")
-            {
-                smg = FindObjectOfType<SMG>(); // Assuming there's only one smg in the scene
-                if (smg != null && !Gun.IsAnyGunShooting()) // Check if smg exists and no gun is shooting
-                {
-                    smg.Shoot();
-                }
-                else
-                {
-                    Debug.Log("Cannot shoot. Either SMG not found or another gun is already shooting.");
-                }
-            }
-            else if (currentItem != null && currentItem.itemName == "sniper")
-            {
-                sniper = FindObjectOfType<Sniper>(); // Assuming there's only one sniper in the scene
-                if (sniper != null && !Gun.IsAnyGunShooting()) // Check if sniper exists and no gun is shooting
-                {
-                    sniper.Shoot();
-                }
-                else
-                {
-                    Debug.Log("Cannot shoot. Either Sniper not found or another gun is already shooting.");
-                }
-            }
-            else
-            {
-                Debug.Log("No gun item in slot");
+
             }
         }
     }

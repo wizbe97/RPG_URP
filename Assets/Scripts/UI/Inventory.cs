@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     void ChangeSelectedSlot(int newValue)
     {
         // Check if any gun is shooting before changing the selected slot
-        if (!Gun.IsAnyGunShooting())
+        if (!PlayerGun.IsAnyGunShooting())
         {
             if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
             {

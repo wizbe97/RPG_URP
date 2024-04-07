@@ -65,7 +65,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (isDragging)
         {
             transform.position = Mouse.current.position.ReadValue();
-            foreach (Gun gun in FindObjectsOfType<Gun>())
+            foreach (PlayerGun gun in FindObjectsOfType<PlayerGun>())
             {
                 Debug.Log("SET SHOOTING TO FALSE");
                 gun.isShooting = false;

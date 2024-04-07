@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 5552232016026755414}
   - component: {fileID: 535924184211490659}
   - component: {fileID: 7219502315566520091}
+  - component: {fileID: 7040097925054766565}
   - component: {fileID: 433782340179184001}
-  - component: {fileID: -2399992170716608033}
   m_Layer: 0
   m_Name: SMG
   m_TagString: Untagged
@@ -153,6 +153,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadb6680ef1f51b41b6cf41b9a3603be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7040097925054766565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440687993766135674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942ae707eab8b1d4ba6ab266c2905a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 535924184211490659}
+  bulletPrefab: {fileID: 3528981164989052066, guid: 5c79751ad8e4ff3429642b0adae4af28, type: 3}
+  firePoint: {fileID: 6064246225989084949}
+  fireForce: 25
+  recoilStrength: 0.25
+  recoilTimer: 3
+  isShooting: 0
+  fireRate: 0.25
 --- !u!82 &433782340179184001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -249,23 +269,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-2399992170716608033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5440687993766135674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0de75ed65e76694ab34d6839cf48567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 535924184211490659}
-  bulletPrefab: {fileID: 3528981164989052066, guid: 5c79751ad8e4ff3429642b0adae4af28, type: 3}
-  firePoint: {fileID: 6064246225989084949}
-  fireForce: 25
-  recoilStrength: 0.25
-  recoilTimer: 3
-  isShooting: 0
-  fireRate: 0.25
