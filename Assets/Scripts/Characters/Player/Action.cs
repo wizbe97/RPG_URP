@@ -73,22 +73,23 @@ public class Action : MonoBehaviour
                 if (currentItem.itemType == Item.ItemType.GUN)
                 {
                     isHoldingGun = true;
-                    // Check if the shotgun prefab is already instantiated
+                    Debug.Log("Instantiating Gun");
+
+                    // Only instantiate if the shotgun prefab is not already instantiated
                     if (instantiatedGun == null)
                     {
-                        // Instantiate the current item gun prefab and set its parent to the player
+                        Debug.Log("Instantiating " +currentItem.itemName);
                         instantiatedGun = Instantiate(currentItem.instantiatedPrefab, transform.position, Quaternion.identity);
-                        instantiatedGun.transform.parent = transform;
+                        instantiatedGun.transform.parent = transform; // Set player as parent
                     }
-                    else
+
+                    // If instantiated, set active
+                    if (instantiatedGun != null)
                     {
-                        Debug.Log("Gun already instantiated.");
+                        Debug.Log("Activating "+currentItem.itemName);
+                        instantiatedGun.SetActive(true);
                     }
                 }
-            }
-            else
-            {
-                isHoldingGun = false;
             }
         }
     }
