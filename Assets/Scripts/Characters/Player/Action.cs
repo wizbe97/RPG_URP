@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,12 +5,7 @@ public class Action : MonoBehaviour
 {
     private Inventory inventory;
     public bool isHoldingGun = false;
-    public GameObject shotgunPrefab;
-    private GameObject instantiatedShotgun;
-    public GameObject sniperPrefab;
-    private GameObject instantiatedSniper;
-    public GameObject smgPrefab;
-    private GameObject instantiatedSmg;
+    private GameObject instantiatedGun;
     public Item currentItem;
     private PlayerGun playerGun;
     private bool overUI;
@@ -57,9 +50,6 @@ public class Action : MonoBehaviour
         }
     }
 
-
-
-
     private void OnDropItem()
     {
         currentItem = inventory.GetSelectedItem(true);
@@ -78,122 +68,128 @@ public class Action : MonoBehaviour
         if (Inventory.Instance != null)
         {
             currentItem = Inventory.Instance.GetSelectedItem(false);
-            if (currentItem != null)
+            if (currentItem != null && currentItem.holdable == true)
             {
                 if (currentItem.itemType == Item.ItemType.GUN)
                 {
-                    if (currentItem.itemName == "shotgun")
+                    isHoldingGun = true;
+                    // Check if the shotgun prefab is already instantiated
+                    if (instantiatedGun == null)
                     {
-                        isHoldingGun = true;
-                        // If shotgun prefab is not instantiated, instantiate it and set its parent to the player
-                        if (instantiatedShotgun == null && shotgunPrefab != null)
-                        {
-                            instantiatedShotgun = Instantiate(shotgunPrefab, transform.position, Quaternion.identity);
-                            instantiatedShotgun.transform.parent = transform; // Set player as parent
-                        }
-                        // If instantiated, set active
-                        if (instantiatedShotgun != null)
-                        {
-                            instantiatedShotgun.SetActive(true);
-                        }
-                        // Deactivate other guns if exist
-                        if (instantiatedSmg != null)
-                        {
-                            instantiatedSmg.SetActive(false);
-                        }
-                        if (instantiatedSniper != null)
-                        {
-                            instantiatedSniper.SetActive(false);
-                        }
+                        // Instantiate the current item gun prefab and set its parent to the player
+                        instantiatedGun = Instantiate(currentItem.instantiatedPrefab, transform.position, Quaternion.identity);
+                        instantiatedGun.transform.parent = transform;
                     }
-                    else if (currentItem.itemName == "smg")
+                    else
                     {
-                        isHoldingGun = true;
-                        // If smg prefab is not instantiated, instantiate it and set its parent to the player
-                        if (instantiatedSmg == null && smgPrefab != null)
-                        {
-                            instantiatedSmg = Instantiate(smgPrefab, transform.position, Quaternion.identity);
-                            instantiatedSmg.transform.parent = transform; // Set player as parent
-                        }
-                        // If instantiated, set active
-                        if (instantiatedSmg != null)
-                        {
-                            instantiatedSmg.SetActive(true);
-                        }
-                        // Deactivate other guns if exist
-                        if (instantiatedShotgun != null)
-                        {
-                            instantiatedShotgun.SetActive(false);
-                        }
-                        if (instantiatedSniper != null)
-                        {
-                            instantiatedSniper.SetActive(false);
-                        }
-                    }
-                    else if (currentItem.itemName == "sniper")
-                    {
-                        isHoldingGun = true;
-                        // If sniper prefab is not instantiated, instantiate it and set its parent to the player
-                        if (instantiatedSniper == null && sniperPrefab != null)
-                        {
-                            instantiatedSniper = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
-                            instantiatedSniper.transform.parent = transform; // Set player as parent
-                        }
-                        // If instantiated, set active
-                        if (instantiatedSniper != null)
-                        {
-                            instantiatedSniper.SetActive(true);
-                        }
-                        // Deactivate other guns if exist
-                        if (instantiatedShotgun != null)
-                        {
-                            instantiatedShotgun.SetActive(false);
-                        }
-                        if (instantiatedSmg != null)
-                        {
-                            instantiatedSmg.SetActive(false);
-                        }
-                    }
-                }
-                else
-                {
-                    isHoldingGun = false;
-                    // If instantiated, set inactive
-                    if (instantiatedShotgun != null)
-                    {
-                        instantiatedShotgun.SetActive(false);
-                    }
-                    if (instantiatedSmg != null)
-                    {
-                        instantiatedSmg.SetActive(false);
-                    }
-                    if (instantiatedSniper != null)
-                    {
-                        instantiatedSniper.SetActive(false);
+                        Debug.Log("Gun already instantiated.");
                     }
                 }
             }
             else
             {
                 isHoldingGun = false;
-                // If instantiated, set inactive
-                if (instantiatedShotgun != null)
-                {
-                    instantiatedShotgun.SetActive(false);
-                }
-                if (instantiatedSmg != null)
-                {
-                    instantiatedSmg.SetActive(false);
-                }
-                if (instantiatedSniper != null)
-                {
-                    instantiatedSniper.SetActive(false);
-                }
             }
-        }
-        else
-        {
-            Debug.LogWarning("Inventory instance is null!");
         }
     }
 }
+//     }
+//                         // Deactivate other guns if exist
+//                         if (instantiatedSmg != null)
+//                         {
+//                             instantiatedSmg.SetActive(false);
+//                         }
+//                         if (instantiatedSniper != null)
+//                         {
+//                             instantiatedSniper.SetActive(false);
+//                         }
+//                     }
+//                     else if (currentItem.itemName == "smg")
+//                     {
+//                         // If smg prefab is not instantiated, instantiate it and set its parent to the player
+//                         if (instantiatedSmg == null && smgPrefab != null)
+//                         {
+//                             instantiatedSmg = Instantiate(smgPrefab, transform.position, Quaternion.identity);
+//                             instantiatedSmg.transform.parent = transform; // Set player as parent
+//                         }
+//                         // If instantiated, set active
+//                         if (instantiatedSmg != null)
+//                         {
+//                             instantiatedSmg.SetActive(true);
+//                         }
+//                         // Deactivate other guns if exist
+//                         if (instantiatedShotgun != null)
+//                         {
+//                             instantiatedShotgun.SetActive(false);
+//                         }
+//                         if (instantiatedSniper != null)
+//                         {
+//                             instantiatedSniper.SetActive(false);
+//                         }
+//                     }
+//                     else if (currentItem.itemName == "sniper")
+//                     {
+//                         // If sniper prefab is not instantiated, instantiate it and set its parent to the player
+//                         if (instantiatedSniper == null && sniperPrefab != null)
+//                         {
+//                             instantiatedSniper = Instantiate(sniperPrefab, transform.position, Quaternion.identity);
+//                             instantiatedSniper.transform.parent = transform; // Set player as parent
+//                         }
+//                         // If instantiated, set active
+//                         if (instantiatedSniper != null)
+//                         {
+//                             instantiatedSniper.SetActive(true);
+//                         }
+//                         // Deactivate other guns if exist
+//                         if (instantiatedShotgun != null)
+//                         {
+//                             instantiatedShotgun.SetActive(false);
+//                         }
+//                         if (instantiatedSmg != null)
+//                         {
+//                             instantiatedSmg.SetActive(false);
+//                         }
+//                     }
+//                 }
+//                 else
+//                 {
+//                     isHoldingGun = false;
+//                     // If instantiated, set inactive
+//                     if (instantiatedShotgun != null)
+//                     {
+//                         instantiatedShotgun.SetActive(false);
+//                     }
+//                     if (instantiatedSmg != null)
+//                     {
+//                         instantiatedSmg.SetActive(false);
+//                     }
+//                     if (instantiatedSniper != null)
+//                     {
+//                         instantiatedSniper.SetActive(false);
+//                     }
+//                 }
+//             }
+//             else
+//             {
+//                 isHoldingGun = false;
+//                 // If instantiated, set inactive
+//                 if (instantiatedShotgun != null)
+//                 {
+//                     instantiatedShotgun.SetActive(false);
+//                 }
+//                 if (instantiatedSmg != null)
+//                 {
+//                     instantiatedSmg.SetActive(false);
+//                 }
+//                 if (instantiatedSniper != null)
+//                 {
+//                     instantiatedSniper.SetActive(false);
+//                 }
+//             }
+//         }
+//         else
+//         {
+//             Debug.LogWarning("Inventory instance is null!");
+//         }
+//     }
+// }

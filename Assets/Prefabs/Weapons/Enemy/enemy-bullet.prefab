@@ -164,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLifetime: 2
   maxTravelDistance: 3
-  minimumBulletDamage: 1
-  maximumBulletDamage: 1
+  minimumBulletDamage: 5
+  maximumBulletDamage: 10
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &-1339579937504900439
 Animator:
