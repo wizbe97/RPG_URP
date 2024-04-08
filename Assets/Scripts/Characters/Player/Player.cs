@@ -8,11 +8,13 @@ public class Player : Character
     private HealthBar healthBar;
 
     public Inventory inventoryPrefab;
-    private Inventory inventoryManager;
+    private Inventory inventory;
+    private Action action;
 
     private void Start()
     {
-        inventoryManager = FindObjectOfType<Inventory>();
+        inventory = FindObjectOfType<Inventory>();
+        action = GetComponent<Action>();
         ResetCharacter();
     }
 
@@ -28,14 +30,16 @@ public class Player : Character
 
                 switch (hitObject.itemType)
                 {
-                    case Item.ItemType.COIN:
-                        shouldDisappear = inventoryManager.AddItem(hitObject);
-                        break;
                     case Item.ItemType.HEALTH:
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
+                    case Item.ItemType.COIN:
+                        shouldDisappear = inventory.AddItem(hitObject);
+                        action.CurrentItem();
+                        break;
                     case Item.ItemType.GUN:
-                        shouldDisappear = inventoryManager.AddItem(hitObject);
+                        shouldDisappear = inventory.AddItem(hitObject);
+                        action.CurrentItem();
                         break;
                 }
 
@@ -89,7 +93,7 @@ public class Player : Character
     public override void ResetCharacter()
     {
         healthBar = Instantiate(healthBarPrefab);
-        inventoryManager = Instantiate(inventoryPrefab);
+        inventory = Instantiate(inventoryPrefab);
         healthBar.character = this;
         hitPoints.value = startingHitPoints;
     }

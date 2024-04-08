@@ -10,6 +10,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [Header("UI")]
     public Image image;
     public Text countText;
+    private Action action;
+
     [HideInInspector] public Item item;
     [HideInInspector] public int count = 1;
     [HideInInspector] public Transform parentAfterDrag;
@@ -23,6 +25,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Start()
     {
         inventory = FindObjectOfType<Inventory>();
+        action = FindAnyObjectByType<Action>();
+
     }
     public void InitialiseItem(Item newItem)
     {
@@ -120,6 +124,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
             // Destroy the placeholder object
             Destroy(placeholder);
+            action.DeactivateCurrentItem(); action.CurrentItem();
         }
     }
 

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: sniper
   droppedItem: {fileID: 5895550283864259508, guid: 393f51089ae5bfb47b19b246641b45c2, type: 3}
+  instantiatedPrefab: {fileID: 6601246038333148960, guid: 7e66efbd67d88fb4a95e5747d18cebcd, type: 3}
   inventoryImage: {fileID: 21300000, guid: 0a13c51eaea59b04e86c59ba3142eaef, type: 3}
   quantity: 1
   stackable: 0
   dropChance: 5
+  holdable: 1
   itemType: 2
