@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1219726968562564485}
   - component: {fileID: 3951018547741957029}
   - component: {fileID: 7898148600104646360}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SMGPickup
   m_TagString: CanBePickedUp
   m_Icon: {fileID: 0}

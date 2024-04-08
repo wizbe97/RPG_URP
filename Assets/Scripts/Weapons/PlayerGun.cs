@@ -95,6 +95,7 @@ public class PlayerGun : MonoBehaviour
     public void OnShootingAnimationEnd()
     {
         animator.SetBool("isShooting", false);
+        animator.Play("idle");
         isShooting = false;
     }
 
