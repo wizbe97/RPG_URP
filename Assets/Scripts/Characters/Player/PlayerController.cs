@@ -73,8 +73,6 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput.magnitude > 0)
         {
-            Debug.Log("Dashing");
-
             Vector2 dashDirection = moveInput.normalized;
             rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
         }
