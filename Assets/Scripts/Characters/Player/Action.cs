@@ -24,15 +24,14 @@ public class Action : MonoBehaviour
         }
     }
 
-    private bool IsPointerOverUI()
+    private bool IsPointerOverUI()  // Check if the pointer is over a UI element
     {
-        // Check if the pointer is over a UI element
         return EventSystem.current.IsPointerOverGameObject();
     }
 
     private void OnUseItem()
     {
-        if (overUI || currentItem == null)
+        if (overUI || currentItem == null) 
             return;
 
         if (currentItem.itemType == Item.ItemType.GUN)
@@ -47,16 +46,25 @@ public class Action : MonoBehaviour
 
     private void OnDropItem()
     {
-        currentItem = inventory.GetSelectedItem(true);
+        currentItem = inventory.GetSelectedItem(true); // Need to change this later to not use the item
         if (currentItem != null)
         {
             Debug.Log("Dropping item: " + currentItem);
+            Vector3 playerPosition = transform.position; // Get player's position
+            Vector3 itemPosition = playerPosition;
+
+            // Shift down by 1 unit along the Y-axis
+            itemPosition.y -= 2;
+
+            Instantiate(currentItem.droppedItem, itemPosition, Quaternion.identity);
+            DeactivateCurrentItem();
         }
         else
         {
             Debug.Log("No item in slot");
         }
     }
+
     public void CurrentItem()
     {
         if (Inventory.Instance == null)
