@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -31,7 +33,7 @@ public class Action : MonoBehaviour
 
     private void OnUseItem()
     {
-        if (overUI || currentItem == null) 
+        if (overUI || currentItem == null)
             return;
 
         if (currentItem.itemType == Item.ItemType.GUN)
@@ -46,23 +48,48 @@ public class Action : MonoBehaviour
 
     private void OnDropItem()
     {
-        currentItem = inventory.GetSelectedItem(true); // Need to change this later to not use the item
-        if (currentItem != null)
+        currentItem = inventory.GetSelectedItem(true);
+        if (currentItem != null && !PlayerGun.IsAnyGunShooting())
         {
             Debug.Log("Dropping item: " + currentItem);
-            Vector3 playerPosition = transform.position; // Get player's position
-            Vector3 itemPosition = playerPosition;
 
-            // Shift down by 1 unit along the Y-axis
-            itemPosition.y -= 2;
+            // Calculate drop direction based on the mouse position if holding a gun
+            Vector3 dropDirection;
+            if (isHoldingGun)
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                dropDirection = (mousePosition - transform.position).normalized;
+            }
+            else
+            {
+                // Otherwise, use the player's movement direction
+                PlayerController playerController = GetComponent<PlayerController>();
+                dropDirection = playerController.moveInput.normalized;
+            }
 
-            Instantiate(currentItem.droppedItem, itemPosition, Quaternion.identity);
+            Vector3 dropPosition = transform.position + dropDirection * 2f;
+
+            GameObject droppedItem = Instantiate(currentItem.droppedItem, dropPosition, Quaternion.identity);
+
+            // Disable collider temporarily to prevent instant pickup
+            if (droppedItem.TryGetComponent<Collider2D>(out var itemCollider))
+            {
+                itemCollider.enabled = false;
+                StartCoroutine(EnableColliderAfterDelay(itemCollider));
+            }
+
             DeactivateCurrentItem();
         }
         else
         {
             Debug.Log("No item in slot");
         }
+    }
+
+    private IEnumerator EnableColliderAfterDelay(Collider2D collider)
+    {
+        yield return new WaitForSeconds(1f); // Adjust the delay as needed
+        collider.enabled = true;
     }
 
     public void CurrentItem()
@@ -86,28 +113,18 @@ public class Action : MonoBehaviour
             isHoldingGun = true;
 
             Transform existingItemTransform = transform.Find(currentItem.itemName);
-            if (existingItemTransform != null)
-            {
-                // If an item with the same name exists, set it as the current item and activate it
-                instantiatedCurrentItem = existingItemTransform.gameObject;
-            }
-            else
-            {
-                // If no item with the same name exists, instantiate a new one
-                instantiatedCurrentItem = Instantiate(currentItem.instantiatedPrefab, transform.position, Quaternion.identity);
-                instantiatedCurrentItem.name = currentItem.itemName; // Set the name to make it easier to find later
-                instantiatedCurrentItem.transform.parent = transform; // Set player as parent
-            }
-
-            // Activate the current item
+            instantiatedCurrentItem = existingItemTransform != null ? existingItemTransform.gameObject :
+                                  Instantiate(currentItem.instantiatedPrefab, transform.position, Quaternion.identity);
+            instantiatedCurrentItem.name = currentItem.itemName;
+            instantiatedCurrentItem.transform.parent = transform;
             instantiatedCurrentItem.SetActive(true);
         }
         else
         {
-            // Deactivate current item if exists
             DeactivateCurrentItem();
         }
     }
+
     public void DeactivateCurrentItem()
     {
         if (instantiatedCurrentItem != null)

@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     private UpdateAnimationState animationState;
-    private Inventory inventory;
     private Rigidbody2D rb;
 
 
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float stopDrag = 25f;
     [SerializeField] private float dashForce = 10f;
     public bool isMoving = false;
-    private bool canMove = true;
+    private readonly bool canMove = true;
 
     public float movementSpeed = 1250f;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
@@ -41,14 +40,12 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animationState = GetComponent<UpdateAnimationState>();
-        inventory = Inventory.Instance;
     }
 
     private void FixedUpdate()
     {
         MoveCharacter();
     }
-
 
     private void OnMove(InputValue value)
     {
@@ -59,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove == true && moveInput != Vector2.zero)
         {
-            rb.AddForce(moveInput * movementSpeed * Time.fixedDeltaTime, ForceMode2D.Force);
+            rb.AddForce(movementSpeed * Time.fixedDeltaTime * moveInput, ForceMode2D.Force);
             IsMoving = true;
 
         }
