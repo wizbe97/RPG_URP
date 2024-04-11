@@ -3,6 +3,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
+    private Action action;
     public int maxStackedItems = 250;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
@@ -19,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        action = FindAnyObjectByType<Action>();
         ChangeSelectedSlot(0);
     }
 
@@ -36,10 +38,13 @@ public class Inventory : MonoBehaviour
     void ChangeSelectedSlot(int newValue)
     {
         // Check if any gun is shooting before changing the selected slot
-        if (!Gun.IsAnyGunShooting())
+        if (!PlayerGun.IsAnyGunShooting())
         {
             if (selectedSlot >= 0 && selectedSlot < inventorySlots.Length)
             {
+                // Deactivate existing current item
+                action.DeactivateCurrentItem();
+                action.isHoldingGun = false;
                 inventorySlots[selectedSlot].Deselect();
             }
             // Find the slot with the specified index in the parent's list of children
@@ -50,6 +55,10 @@ public class Inventory : MonoBehaviour
                     // Select the found slot
                     inventorySlots[i].Select();
                     selectedSlot = i;
+
+                    // Call CurrentItem() method here
+                    action.CurrentItem();
+
                     break;
                 }
             }
