@@ -72,9 +72,9 @@ public class PlayerGun : MonoBehaviour
         if (Time.time >= nextFireTime)
         {
             isShooting = true;
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             animator.SetBool("isShooting", true);
             audioSource.Play();
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Debug.Log("Bullet Fired");
             if (recoilActivated == true)
             {
