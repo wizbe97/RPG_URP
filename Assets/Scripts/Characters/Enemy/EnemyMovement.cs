@@ -50,9 +50,6 @@ public class EnemyMovement : MonoBehaviour
         }
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        // Start wandering when the game starts
-        StartWandering();
     }
 
     void Update()
@@ -188,13 +185,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return index;
-    }
-
-    void StartWandering()
-    {
-        // Set initial wander direction
-        wanderDirection = Random.insideUnitCircle.normalized;
-        nextWanderTime = Time.time + wanderTime;
     }
 
     void Wander()
