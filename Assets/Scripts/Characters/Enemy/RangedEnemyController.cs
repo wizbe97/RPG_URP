@@ -2,27 +2,44 @@ using UnityEngine;
 
 public class RangedEnemyController : MonoBehaviour
 {
-    // Define public variables
     public float lineOfSight = 5f;
     public float shootingRange = 3f;
-    public float moveSpeed = 2f;
-    public float fireRate = 1f;
-    public float fireForce = 10f;
-    public float idleTime = 2f; // Time to wait in idle state
-    private bool canMove = true;
-    public float wanderRadius = 5f; // Radius within which the enemy can wander
-    public GameObject bulletPrefab;
-    public Transform[] firePoints; // Array of fire points for different directions
+    public float moveSpeed = 12500;
+    public float wanderSpeed = 10000f; // Speed for wandering
+    public float wanderTime = 5f; // Time interval for changing wander direction
+    public float fireRate = 1f; // Rate of fire in shots per second
+    private float nextFireTime = 0f; // Time when the enemy can fire next
 
-    // Define private variables
-    private float nextFireTime;
-    private float idleTimer = 0f; // Timer for idle state
+    [SerializeField] private float moveDrag = 15f;
+    [SerializeField] private float stopDrag = 25f;
+
+    public bool canMove = true;
+    private Rigidbody2D rb;
     private Animator animator;
     private Transform player;
-    private bool playerInLineOfSight = false;
-    private bool playerInShootingRange = false;
-    private bool isWandering = false;
-    private Vector3 wanderTarget; // Target position for wandering
+    public bool isMoving = false;
+    public GameObject bulletPrefab;
+    public Transform[] firePoints;
+    public float fireForce = 10f;
+
+    private Vector2 wanderDirection;
+    private float nextWanderTime;
+    bool IsMoving
+    {
+        set
+        {
+            isMoving = value;
+
+            if (isMoving)
+            {
+                rb.drag = moveDrag;
+            }
+            else
+            {
+                rb.drag = stopDrag;
+            }
+        }
+    }
 
     void Start()
     {
@@ -31,99 +48,75 @@ public class RangedEnemyController : MonoBehaviour
         {
             player = playerObject.transform;
         }
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        nextFireTime = Time.time;
     }
-
 
     void Update()
     {
-        if (player == null) return; // Check if the player object is null and return if it is
-
         SetAnimationDirection();
 
-        if (Vector2.Distance(transform.position, player.position) < lineOfSight)
+        // Check if the player object is null
+        if (player == null)
         {
-            playerInLineOfSight = true;
+            Wander(); // Continue wandering if player is not present
+        }
 
-            if (Vector2.Distance(transform.position, player.position) <= shootingRange)
+        else if (IsPlayerInLineOfSight())
+        {
+            if (IsPlayerInShootingRange())
             {
-                playerInShootingRange = true;
+                // Stop moving when in shooting range
+                rb.velocity = Vector2.zero;
             }
             else
             {
-                playerInShootingRange = false;
+                // Move towards player if not in shooting range
+                MoveTowardsPlayer();
             }
         }
         else
         {
-            playerInLineOfSight = false;
-            playerInShootingRange = false;
+            // Wander if player is not in line of sight
+            Wander();
         }
 
-        if (!playerInLineOfSight) // If player is not in line of sight
-        {
-            if (!isWandering)
-            {
-                Wander();
-            }
-            else
-            {
-                MoveTowardsTarget();
-            }
-        }
-        else if (playerInLineOfSight && !playerInShootingRange)
-        {
-            MoveTowardsPlayer();
-        }
-
-        if (playerInShootingRange && Time.time >= nextFireTime)
+        // Shoot only if player is in shooting range and enough time has passed since the last shot
+        if (IsPlayerInShootingRange() && Time.time >= nextFireTime)
         {
             Shoot();
+            // Calculate the next allowed time for firing
             nextFireTime = Time.time + 1f / fireRate;
         }
     }
 
-    void Wander()
+
+
+    bool IsPlayerInLineOfSight()
     {
-        if (!canMove)
-            return;
-        idleTimer += Time.deltaTime;
-        if (idleTimer >= idleTime)
-        {
-            idleTimer = 0f;
-            isWandering = true;
-            wanderTarget = transform.position + Random.insideUnitSphere * wanderRadius;
-        }
-        else
-        {
-            animator.Play("Idle");
-        }
+        if (player == null) return false;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        return distanceToPlayer <= lineOfSight;
     }
 
-    void MoveTowardsTarget()
+    bool IsPlayerInShootingRange()
     {
-        if (!canMove)
-            return;
-        transform.position = Vector2.MoveTowards(transform.position, wanderTarget, moveSpeed * Time.deltaTime);
-        animator.Play("Walk");
+        if (player == null) return false;
 
-        // If reached the target, stop wandering
-        if (Vector2.Distance(transform.position, wanderTarget) < 0.1f)
-        {
-            isWandering = false;
-        }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        return distanceToPlayer <= shootingRange;
     }
 
     void MoveTowardsPlayer()
     {
-        if (!canMove)
-            return;
-        if (!playerInShootingRange)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            animator.Play("Walk");
-        }
+        if (!canMove) return;
+        animator.Play("Walk");
+
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.AddForce(moveSpeed * Time.deltaTime * direction, ForceMode2D.Force);
+        rb.drag = moveDrag; // Apply drag when moving
+        IsMoving = true;
     }
 
     void Shoot()
@@ -141,8 +134,8 @@ public class RangedEnemyController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, selectedFirePoint.position, Quaternion.Euler(0f, 0f, angle));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * fireForce;
+        IsMoving = false;
     }
-
 
     int GetFirePointIndex(Vector2 direction)
     {
@@ -194,14 +187,28 @@ public class RangedEnemyController : MonoBehaviour
         return index;
     }
 
-    void OnShootEnd()
+    void Wander()
     {
-        animator.Play("Idle");
+        if (Time.time > nextWanderTime)
+        {
+            // Change wander direction after wanderTime interval
+            wanderDirection = Random.insideUnitCircle.normalized;
+            nextWanderTime = Time.time + wanderTime;
+        }
+
+        rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
+        animator.Play("Walk");
+        IsMoving = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 
     void SetAnimationDirection()
     {
-        if (playerInLineOfSight == true)
+        if (IsPlayerInLineOfSight())
         {
             Vector2 direction = (player.position - transform.position).normalized;
             animator.SetFloat("xMove", direction.x);
@@ -209,29 +216,14 @@ public class RangedEnemyController : MonoBehaviour
         }
         else
         {
-            {
-                Vector2 direction = (wanderTarget - transform.position).normalized;
-                animator.SetFloat("xMove", direction.x);
-                animator.SetFloat("yMove", direction.y);
-            }
+            Vector2 direction = rb.velocity.normalized; // Assuming rb is the Rigidbody2D component
+            animator.SetFloat("xMove", direction.x);
+            animator.SetFloat("yMove", direction.y);
         }
     }
 
-    // Draw gizmos to visualize line of sight and shooting range
-    private void OnDrawGizmosSelected()
+    void OnShootEnd()
     {
-        // Draw line of sight circle
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, lineOfSight);
-
-        // Draw shooting range circle
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, shootingRange);
-    }
-
-
-    public void DisableMovement()
-    {
-        canMove = false;
+        animator.Play("Idle");
     }
 }
