@@ -24,9 +24,6 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 wanderDirection;
     private float nextWanderTime;
-    private bool playerInLineOfSight = false;
-    private bool playerInShootingRange = false;
-
     bool IsMoving
     {
         set
@@ -74,26 +71,21 @@ public class EnemyMovement : MonoBehaviour
             {
                 // Stop moving when in shooting range
                 rb.velocity = Vector2.zero;
-                playerInShootingRange = true;
             }
             else
             {
                 // Move towards player if not in shooting range
                 MoveTowardsPlayer();
-                playerInLineOfSight = true;
-                playerInShootingRange = false;
             }
         }
         else
         {
             // Wander if player is not in line of sight
             Wander();
-            playerInLineOfSight = false;
-            playerInShootingRange = false;
         }
 
         // Shoot only if player is in shooting range and enough time has passed since the last shot
-        if (playerInShootingRange && Time.time >= nextFireTime)
+        if (IsPlayerInShootingRange() && Time.time >= nextFireTime)
         {
             Shoot();
             // Calculate the next allowed time for firing
@@ -226,7 +218,7 @@ public class EnemyMovement : MonoBehaviour
 
     void SetAnimationDirection()
     {
-        if (playerInLineOfSight)
+        if (IsPlayerInLineOfSight())
         {
             Vector2 direction = (player.position - transform.position).normalized;
             animator.SetFloat("xMove", direction.x);
