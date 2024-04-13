@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using TMPro;
 
-public class RangedEnemyCharacter : Character
+public class EnemyCharacter : Character
 {
     public int damageStrength;
     public GameObject floatingHealthBar;
@@ -27,7 +27,6 @@ public class RangedEnemyCharacter : Character
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
-
     }
 
     public override IEnumerator DamageCharacter(int damage, float interval)

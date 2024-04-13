@@ -16,7 +16,7 @@ public class WeaponBullet : Bullet
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            RangedEnemyCharacter enemy = other.gameObject.GetComponent<RangedEnemyCharacter>();
+            EnemyCharacter enemy = other.gameObject.GetComponent<EnemyCharacter>();
 
             // Calculate damage based on travel distance
             float travelDistance = Vector3.Distance(gunSpawnPosition, transform.position);
