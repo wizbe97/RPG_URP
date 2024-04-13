@@ -9,33 +9,12 @@ public class RangedEnemyController : EnemyController
     public float fireRate = 1f; // Rate of fire in shots per second
     private float nextFireTime = 0f; // Time when the enemy can fire next
 
-    bool IsMoving
-    {
-        set
-        {
-            isMoving = value;
-
-            if (isMoving)
-            {
-                rb.drag = moveDrag;
-            }
-            else
-            {
-                rb.drag = stopDrag;
-            }
-        }
-    }
-
     public override void Update()
     {
         base.Update();
         // Check if the player object is null
-        if (player == null)
-        {
-            Wander(); // Continue wandering if player is not present
-        }
 
-        else if (IsPlayerInLineOfSight())
+        if (IsPlayerInLineOfSight())
         {
             if (IsPlayerInShootingRange())
             {

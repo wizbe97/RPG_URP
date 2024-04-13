@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
 
     [HideInInspector] public Vector2 wanderDirection;
     [HideInInspector] public float nextWanderTime;
-    bool IsMoving
+    public bool IsMoving
     {
         set
         {
@@ -49,7 +49,10 @@ public class EnemyController : MonoBehaviour
     public virtual void Update()
     {
         SetAnimationDirection();
-
+        if (player == null)
+        {
+            Wander(); // Continue wandering if player is not present
+        }
     }
     public virtual bool IsPlayerInLineOfSight()
     {
@@ -82,8 +85,13 @@ public class EnemyController : MonoBehaviour
 
         // Move with the current direction
         rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
-        animator.Play("Walk");
         IsMoving = true;
+        if (rb.velocity != Vector2.zero) {
+            animator.Play("Walk");
+        }
+        else {
+            animator.Play("Idle");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
