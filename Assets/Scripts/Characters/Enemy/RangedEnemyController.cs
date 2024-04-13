@@ -26,11 +26,6 @@ public class RangedEnemyController : EnemyController
         }
     }
 
-    public override void Start()
-    {
-        base.Start();
-    }
-
     public override void Update()
     {
         base.Update();
@@ -143,12 +138,6 @@ public class RangedEnemyController : EnemyController
 
         return index;
     }
-
-    public override void Wander()
-    {
-        base.Wander();
-    }
-
     void OnShootEnd()
     {
         animator.Play("Idle");

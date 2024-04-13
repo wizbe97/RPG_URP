@@ -63,6 +63,7 @@ public class EnemyBullet : Bullet
             transform.SetParent(enemy.transform);
 
             // Set collision flag to true to prevent further collisions
+            animator.SetBool("hasCollided", true);
             hasCollided = true;
         }
     }

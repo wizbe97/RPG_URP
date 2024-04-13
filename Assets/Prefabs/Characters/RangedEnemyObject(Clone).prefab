@@ -330,7 +330,15 @@ MonoBehaviour:
   wanderDirection: {x: 0, y: 0}
   nextWanderTime: 0
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
-  firePoints: []
+  firePoints:
+  - {fileID: 4590352175913291884}
+  - {fileID: 7772758688641973482}
+  - {fileID: 2430445697011767883}
+  - {fileID: 2136072369855842162}
+  - {fileID: 4266904467339043771}
+  - {fileID: 1366540737856106494}
+  - {fileID: 2464021173266099578}
+  - {fileID: 2800728275407744219}
   fireForce: 10
   shootingRange: 10
   fireRate: 1

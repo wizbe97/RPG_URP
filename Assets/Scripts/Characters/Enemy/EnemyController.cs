@@ -78,12 +78,36 @@ public class EnemyController : MonoBehaviour
             wanderDirection = Random.insideUnitCircle.normalized;
             nextWanderTime = Time.time + wanderTime;
         }
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, wanderSpeed);
 
+        // Move with the current direction
         rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
         animator.Play("Walk");
         IsMoving = true;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("MapCollisions"))
+        {
+            // If collided with a wall, find a new direction
+            FindNewWanderDirection();
+        }
+    }
+
+    // Find a new direction to wander after collision with a wall
+    private void FindNewWanderDirection()
+    {
+        // Generate a new random direction
+        Vector2 newDirection = Random.insideUnitCircle.normalized;
+
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, wanderSpeed);
+        rb.AddForce(wanderSpeed * Time.deltaTime * newDirection, ForceMode2D.Force);
+        wanderDirection = newDirection;
+
+        // Update the wander time to prevent immediate direction changes
+        nextWanderTime = Time.time + wanderTime;
+    }
     public void DisableMovement()
     {
         canMove = false;
