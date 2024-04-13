@@ -488,7 +488,6 @@ GameObject:
   - component: {fileID: 4821336471261510043}
   - component: {fileID: 8541385743128683729}
   - component: {fileID: 44183714394344264}
-  - component: {fileID: 4596066384708057104}
   - component: {fileID: 579845575038050725}
   - component: {fileID: 8655013891526077390}
   m_Layer: 7
@@ -653,27 +652,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHitPoints: 100
   maxHitPoints: 100
-  characterCategory: 1
+  characterCategory: 2
   damageStrength: 25
-  shadow: {fileID: 0}
+  floatingHealthBar: {fileID: 935307851839207253, guid: db01622576ca8d94dab8e10d26928e52, type: 3}
+  shadow: {fileID: 2552156745151881988}
   healthBar: {fileID: 5373686297968119114}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
---- !u!114 &4596066384708057104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8917528825447284023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44fc2360a085c4f4692b34fc9f01425b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pursuitSpeed: 2.8
-  wanderSpeed: 1.5
-  directionChangeInterval: 10
-  followPlayer: 1
 --- !u!58 &579845575038050725
 CircleCollider2D:
   m_ObjectHideFlags: 0
