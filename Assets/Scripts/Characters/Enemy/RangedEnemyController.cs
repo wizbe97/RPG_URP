@@ -1,29 +1,14 @@
 using UnityEngine;
 
-public class RangedEnemyController : MonoBehaviour
+public class RangedEnemyController : EnemyController
 {
-    public float lineOfSight = 5f;
-    public float shootingRange = 3f;
-    public float moveSpeed = 12500;
-    public float wanderSpeed = 10000f; // Speed for wandering
-    public float wanderTime = 5f; // Time interval for changing wander direction
-    public float fireRate = 1f; // Rate of fire in shots per second
-    private float nextFireTime = 0f; // Time when the enemy can fire next
-
-    [SerializeField] private float moveDrag = 15f;
-    [SerializeField] private float stopDrag = 25f;
-
-    public bool canMove = true;
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Transform player;
-    public bool isMoving = false;
     public GameObject bulletPrefab;
     public Transform[] firePoints;
     public float fireForce = 10f;
+    public float shootingRange = 10f;
+    public float fireRate = 1f; // Rate of fire in shots per second
+    private float nextFireTime = 0f; // Time when the enemy can fire next
 
-    private Vector2 wanderDirection;
-    private float nextWanderTime;
     bool IsMoving
     {
         set
@@ -41,21 +26,14 @@ public class RangedEnemyController : MonoBehaviour
         }
     }
 
-    void Start()
+    public override void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            player = playerObject.transform;
-        }
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        base.Start();
     }
 
-    void Update()
+    public override void Update()
     {
-        SetAnimationDirection();
-
+        base.Update();
         // Check if the player object is null
         if (player == null)
         {
@@ -90,17 +68,7 @@ public class RangedEnemyController : MonoBehaviour
         }
     }
 
-
-
-    bool IsPlayerInLineOfSight()
-    {
-        if (player == null) return false;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        return distanceToPlayer <= lineOfSight;
-    }
-
-    bool IsPlayerInShootingRange()
+    public bool IsPlayerInShootingRange()
     {
         if (player == null) return false;
 
@@ -108,18 +76,7 @@ public class RangedEnemyController : MonoBehaviour
         return distanceToPlayer <= shootingRange;
     }
 
-    void MoveTowardsPlayer()
-    {
-        if (!canMove) return;
-        animator.Play("Walk");
-
-        Vector2 direction = (player.position - transform.position).normalized;
-        rb.AddForce(moveSpeed * Time.deltaTime * direction, ForceMode2D.Force);
-        rb.drag = moveDrag; // Apply drag when moving
-        IsMoving = true;
-    }
-
-    void Shoot()
+    public void Shoot()
     {
         if (!canMove)
             return;
@@ -187,39 +144,9 @@ public class RangedEnemyController : MonoBehaviour
         return index;
     }
 
-    void Wander()
+    public override void Wander()
     {
-        if (Time.time > nextWanderTime)
-        {
-            // Change wander direction after wanderTime interval
-            wanderDirection = Random.insideUnitCircle.normalized;
-            nextWanderTime = Time.time + wanderTime;
-        }
-
-        rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
-        animator.Play("Walk");
-        IsMoving = true;
-    }
-
-    public void DisableMovement()
-    {
-        canMove = false;
-    }
-
-    void SetAnimationDirection()
-    {
-        if (IsPlayerInLineOfSight())
-        {
-            Vector2 direction = (player.position - transform.position).normalized;
-            animator.SetFloat("xMove", direction.x);
-            animator.SetFloat("yMove", direction.y);
-        }
-        else
-        {
-            Vector2 direction = rb.velocity.normalized; // Assuming rb is the Rigidbody2D component
-            animator.SetFloat("xMove", direction.x);
-            animator.SetFloat("yMove", direction.y);
-        }
+        base.Wander();
     }
 
     void OnShootEnd()

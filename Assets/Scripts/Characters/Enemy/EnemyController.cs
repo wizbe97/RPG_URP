@@ -1,32 +1,23 @@
 using UnityEngine;
-public abstract class EnemyController : MonoBehaviour
+
+public class EnemyController : MonoBehaviour
 {
-    [HideInInspector] public Rigidbody2D rb;
-    [HideInInspector] public Animator animator;
-    [HideInInspector] public Transform player;
     public float lineOfSight = 15f;
-    public float idleTime = 2f;
     public float moveSpeed = 12500;
     public float wanderSpeed = 10000f; // Speed for wandering
     public float wanderTime = 5f; // Time interval for changing wander direction
 
-    [SerializeField] private float moveDrag = 15f;
-    [SerializeField] private float stopDrag = 25f;
+    public float moveDrag = 15f;
+    public float stopDrag = 25f;
 
-    public bool canMove = true;
+    [HideInInspector] public bool canMove = true;
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public Transform player;
+    [HideInInspector] public bool isMoving = false;
 
-    public bool isMoving = false;
-    private Vector2 wanderDirection;
-    private float nextWanderTime;
-
-    public EnemyStates currentStateValue;
-    public enum EnemyStates
-    {
-        IDLE,
-        WALK,
-        DEATH,
-        SHOOT
-    }
+    [HideInInspector] public Vector2 wanderDirection;
+    [HideInInspector] public float nextWanderTime;
     bool IsMoving
     {
         set
@@ -57,14 +48,9 @@ public abstract class EnemyController : MonoBehaviour
 
     public virtual void Update()
     {
-        UpdateEnemyState();
         SetAnimationDirection();
-        if (player.transform == null)
-        {
-            Wander();
-        }
-    }
 
+    }
     public virtual bool IsPlayerInLineOfSight()
     {
         if (player == null) return false;
@@ -76,11 +62,14 @@ public abstract class EnemyController : MonoBehaviour
     public virtual void MoveTowardsPlayer()
     {
         if (!canMove) return;
+        animator.Play("Walk");
+
         Vector2 direction = (player.position - transform.position).normalized;
         rb.AddForce(moveSpeed * Time.deltaTime * direction, ForceMode2D.Force);
         rb.drag = moveDrag; // Apply drag when moving
         IsMoving = true;
     }
+
     public virtual void Wander()
     {
         if (Time.time > nextWanderTime)
@@ -91,10 +80,11 @@ public abstract class EnemyController : MonoBehaviour
         }
 
         rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
+        animator.Play("Walk");
         IsMoving = true;
     }
 
-    public virtual void DisableMovement()
+    public void DisableMovement()
     {
         canMove = false;
     }
@@ -109,45 +99,14 @@ public abstract class EnemyController : MonoBehaviour
         }
         else
         {
-            Vector2 direction = rb.velocity.normalized;
+            Vector2 direction = rb.velocity.normalized; // Assuming rb is the Rigidbody2D component
             animator.SetFloat("xMove", direction.x);
             animator.SetFloat("yMove", direction.y);
         }
     }
 
-    public virtual EnemyStates CurrentState
+    void OnShootEnd()
     {
-        set
-        {
-            currentStateValue = value;
-            switch (currentStateValue)
-            {
-                case EnemyStates.IDLE:
-                    animator.Play("Idle");
-                    break;
-                case EnemyStates.WALK:
-                    animator.Play("Walk");
-                    break;
-                case EnemyStates.DEATH:
-                    animator.Play("Death");
-                    break;
-                case EnemyStates.SHOOT:
-                    animator.Play("Shoot");
-                    break;
-            }
-
-        }
-    }
-
-    public virtual void UpdateEnemyState()
-    {
-        if (rb.velocity == Vector2.zero)
-        {
-            CurrentState = EnemyStates.IDLE;
-        }
-        else
-        {
-            CurrentState = EnemyStates.WALK;
-        }
+        animator.Play("Idle");
     }
 }

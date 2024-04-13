@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using TMPro;
 
 public class EnemyCharacter : Character
@@ -65,10 +64,10 @@ public class EnemyCharacter : Character
         animator.Play("Death");
         capsuleCollider2D.enabled = false;
 
-        EnemyMovement enemyMovement = GetComponent<EnemyMovement>();
-        if (enemyMovement != null)
+        EnemyController enemyController = GetComponent<EnemyController>();
+        if (enemyController != null)
         {
-            enemyMovement.DisableMovement(); // Call a method to disable movement
+            enemyController.DisableMovement(); // Call a method to disable movement
         }
 
     }
