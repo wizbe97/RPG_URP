@@ -65,7 +65,6 @@ public class EnemyController : MonoBehaviour
     public virtual void MoveTowardsPlayer()
     {
         if (!canMove) return;
-        animator.Play("Walk");
 
         Vector2 direction = (player.position - transform.position).normalized;
         rb.AddForce(moveSpeed * Time.deltaTime * direction, ForceMode2D.Force);

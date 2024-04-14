@@ -25,6 +25,14 @@ public class RangedEnemyController : EnemyController
             {
                 // Move towards player if not in shooting range
                 MoveTowardsPlayer();
+                if (GetComponent<EnemyCharacter>().hitPoints <= 0)
+                {
+                    animator.Play("Death");
+                }
+                else
+                {
+                    animator.Play("Walk");
+                }
             }
         }
         else

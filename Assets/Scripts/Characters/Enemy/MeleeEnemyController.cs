@@ -1,12 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyController : MonoBehaviour
+public class MeleeEnemyController : EnemyController
 {
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        
+        base.Update();
+        // Check if the player object is null
+
+        if (IsPlayerInLineOfSight())
+        {
+            MoveTowardsPlayer();
+            animator.Play("Run");
+        }
+        else
+        {
+            // Wander if player is not in line of sight
+            Wander();
+        }
+
     }
 }
