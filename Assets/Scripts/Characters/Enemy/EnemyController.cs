@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public abstract class EnemyController : MonoBehaviour
 {
     public float lineOfSight = 15f;
     public float moveSpeed = 12500;
@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
         set
         {
             isMoving = value;
+            UpdateAnimationState();
 
             if (isMoving)
             {
@@ -48,7 +49,6 @@ public class EnemyController : MonoBehaviour
 
     public virtual void Update()
     {
-        SetAnimationDirection();
         if (player == null)
         {
             Wander(); // Continue wandering if player is not present
@@ -74,6 +74,7 @@ public class EnemyController : MonoBehaviour
 
     public virtual void Wander()
     {
+        if (!canMove) return;
         if (Time.time > nextWanderTime)
         {
             // Change wander direction after wanderTime interval
@@ -85,12 +86,6 @@ public class EnemyController : MonoBehaviour
         // Move with the current direction
         rb.AddForce(wanderSpeed * Time.deltaTime * wanderDirection, ForceMode2D.Force);
         IsMoving = true;
-        if (rb.velocity != Vector2.zero) {
-            animator.Play("Walk");
-        }
-        else {
-            animator.Play("Idle");
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -135,9 +130,5 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("yMove", direction.y);
         }
     }
-
-    void OnShootEnd()
-    {
-        animator.Play("Idle");
-    }
+    public abstract void UpdateAnimationState();
 }
