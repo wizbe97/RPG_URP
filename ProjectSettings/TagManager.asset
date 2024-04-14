@@ -7,6 +7,7 @@ TagManager:
   - VirtualCamera
   - Enemy
   - CanBePickedUp
+  - MapCollisions
   layers:
   - Default
   - TransparentFX

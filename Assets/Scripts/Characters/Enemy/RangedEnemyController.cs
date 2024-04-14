@@ -1,136 +1,52 @@
 using UnityEngine;
 
-public class RangedEnemyController : MonoBehaviour
+public class RangedEnemyController : EnemyController
 {
-    // Define public variables
-    public float lineOfSight = 5f;
-    public float shootingRange = 3f;
-    public float moveSpeed = 2f;
-    public float fireRate = 1f;
-    public float fireForce = 10f;
-    public float idleTime = 2f; // Time to wait in idle state
-    private bool canMove = true;
-    public float wanderRadius = 5f; // Radius within which the enemy can wander
     public GameObject bulletPrefab;
-    public Transform[] firePoints; // Array of fire points for different directions
+    public Transform[] firePoints;
+    public float fireForce = 10f;
+    public float shootingRange = 10f;
+    public float fireRate = 1f; // Rate of fire in shots per second
+    private float nextFireTime = 0f; // Time when the enemy can fire next
 
-    // Define private variables
-    private float nextFireTime;
-    private float idleTimer = 0f; // Timer for idle state
-    private Animator animator;
-    private Transform player;
-    private bool playerInLineOfSight = false;
-    private bool playerInShootingRange = false;
-    private bool isWandering = false;
-    private Vector3 wanderTarget; // Target position for wandering
-
-    void Start()
+    public override void Update()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
+        base.Update();
+        // Check if the player object is null
+
+        if (IsPlayerInLineOfSight())
         {
-            player = playerObject.transform;
-        }
-        animator = GetComponent<Animator>();
-        nextFireTime = Time.time;
-    }
+            // Move towards player if not in shooting range
+            MoveTowardsPlayer();
 
-
-    void Update()
-    {
-        if (player == null) return; // Check if the player object is null and return if it is
-
-        SetAnimationDirection();
-
-        if (Vector2.Distance(transform.position, player.position) < lineOfSight)
-        {
-            playerInLineOfSight = true;
-
-            if (Vector2.Distance(transform.position, player.position) <= shootingRange)
-            {
-                playerInShootingRange = true;
-            }
-            else
-            {
-                playerInShootingRange = false;
-            }
         }
         else
         {
-            playerInLineOfSight = false;
-            playerInShootingRange = false;
+            // Wander if player is not in line of sight
+            Wander();
         }
 
-        if (!playerInLineOfSight) // If player is not in line of sight
-        {
-            if (!isWandering)
-            {
-                Wander();
-            }
-            else
-            {
-                MoveTowardsTarget();
-            }
-        }
-        else if (playerInLineOfSight && !playerInShootingRange)
-        {
-            MoveTowardsPlayer();
-        }
-
-        if (playerInShootingRange && Time.time >= nextFireTime)
+        // Shoot only if player is in shooting range and enough time has passed since the last shot
+        if (IsPlayerInShootingRange() && Time.time >= nextFireTime)
         {
             Shoot();
+            // Calculate the next allowed time for firing
             nextFireTime = Time.time + 1f / fireRate;
         }
     }
 
-    void Wander()
+    public bool IsPlayerInShootingRange()
     {
-        if (!canMove)
-            return;
-        idleTimer += Time.deltaTime;
-        if (idleTimer >= idleTime)
-        {
-            idleTimer = 0f;
-            isWandering = true;
-            wanderTarget = transform.position + Random.insideUnitSphere * wanderRadius;
-        }
-        else
-        {
-            animator.Play("Idle");
-        }
+        if (player == null) return false;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        return distanceToPlayer <= shootingRange;
     }
 
-    void MoveTowardsTarget()
+    public void Shoot()
     {
         if (!canMove)
             return;
-        transform.position = Vector2.MoveTowards(transform.position, wanderTarget, moveSpeed * Time.deltaTime);
-        animator.Play("Walk");
-
-        // If reached the target, stop wandering
-        if (Vector2.Distance(transform.position, wanderTarget) < 0.1f)
-        {
-            isWandering = false;
-        }
-    }
-
-    void MoveTowardsPlayer()
-    {
-        if (!canMove)
-            return;
-        if (!playerInShootingRange)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            animator.Play("Walk");
-        }
-    }
-
-    void Shoot()
-    {
-        if (!canMove)
-            return;
-        animator.Play("Shoot");
         Vector2 direction = (player.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
 
@@ -141,8 +57,8 @@ public class RangedEnemyController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, selectedFirePoint.position, Quaternion.Euler(0f, 0f, angle));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * fireForce;
+        IsMoving = false;
     }
-
 
     int GetFirePointIndex(Vector2 direction)
     {
@@ -193,45 +109,44 @@ public class RangedEnemyController : MonoBehaviour
 
         return index;
     }
-
     void OnShootEnd()
     {
-        animator.Play("Idle");
+        CurrentState = EnemyStates.IDLE;
     }
 
-    void SetAnimationDirection()
+    public override void UpdateAnimationState()
     {
-        if (playerInLineOfSight == true)
+        int stateIdentifier;
+        if (isMoving)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            animator.SetFloat("xMove", direction.x);
-            animator.SetFloat("yMove", direction.y);
+            stateIdentifier = 1;
+        }
+        else if (IsPlayerInShootingRange() && Time.time >= nextFireTime)
+        {
+            // Idle
+            stateIdentifier = 2;
         }
         else
         {
-            {
-                Vector2 direction = (wanderTarget - transform.position).normalized;
-                animator.SetFloat("xMove", direction.x);
-                animator.SetFloat("yMove", direction.y);
-            }
+            stateIdentifier = 3;
         }
-    }
 
-    // Draw gizmos to visualize line of sight and shooting range
-    private void OnDrawGizmosSelected()
-    {
-        // Draw line of sight circle
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, lineOfSight);
+        switch (stateIdentifier)
+        {
+            case 1:
+                SetAnimationDirection();
+                CurrentState = EnemyStates.WALK;
+                break;
 
-        // Draw shooting range circle
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, shootingRange);
-    }
+            case 2:
+                SetAnimationDirection();
+                CurrentState = EnemyStates.SHOOT;
+                break;
 
-
-    public void DisableMovement()
-    {
-        canMove = false;
+            case 3:
+                SetAnimationDirection();
+                CurrentState = EnemyStates.IDLE;
+                break;
+        }
     }
 }

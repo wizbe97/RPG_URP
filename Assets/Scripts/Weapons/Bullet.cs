@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
     protected virtual int CalculateDamage(float travelDistance)
     {
         // Calculate damage based on travel distance

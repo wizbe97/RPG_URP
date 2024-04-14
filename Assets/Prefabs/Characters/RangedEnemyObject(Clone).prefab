@@ -193,8 +193,8 @@ GameObject:
   - component: {fileID: 9063805345157768997}
   - component: {fileID: 2843759742767081566}
   - component: {fileID: 8906895150612784875}
+  - component: {fileID: 7033642599240829296}
   - component: {fileID: 4649686469831205795}
-  - component: {fileID: 3001705789708108707}
   - component: {fileID: -2948688100467753451}
   - component: {fileID: 7727937568507082553}
   - component: {fileID: 6457791027470236210}
@@ -304,6 +304,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7033642599240829296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029307690160249545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af551fc874770640ac21c7119b1ed7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineOfSight: 15
+  moveSpeed: 12500
+  wanderSpeed: 10000
+  wanderTime: 5
+  moveDrag: 15
+  stopDrag: 25
+  canMove: 1
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  player: {fileID: 0}
+  isMoving: 0
+  wanderDirection: {x: 0, y: 0}
+  nextWanderTime: 0
+  currentStateValue: 0
+  bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
+  firePoints:
+  - {fileID: 4590352175913291884}
+  - {fileID: 7772758688641973482}
+  - {fileID: 2430445697011767883}
+  - {fileID: 2136072369855842162}
+  - {fileID: 4266904467339043771}
+  - {fileID: 1366540737856106494}
+  - {fileID: 2464021173266099578}
+  - {fileID: 2800728275407744219}
+  fireForce: 10
+  shootingRange: 10
+  fireRate: 1
 --- !u!114 &4649686469831205795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,39 +359,13 @@ MonoBehaviour:
   maxHitPoints: 75
   characterCategory: 1
   damageStrength: 5
+  damage: 15
   floatingHealthBar: {fileID: 4153698874951894766}
   shadow: {fileID: 1193015334430439287}
+  collisionsCapsule: {fileID: 6233723867239113009}
   healthBar: {fileID: 1842577151576190909}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
---- !u!114 &3001705789708108707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029307690160249545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af551fc874770640ac21c7119b1ed7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineOfSight: 15
-  shootingRange: 10
-  moveSpeed: 2
-  fireRate: 1
-  fireForce: 8
-  idleTime: 2
-  wanderRadius: 8
-  bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
-  firePoints:
-  - {fileID: 4590352175913291884}
-  - {fileID: 7772758688641973482}
-  - {fileID: 2430445697011767883}
-  - {fileID: 2136072369855842162}
-  - {fileID: 4266904467339043771}
-  - {fileID: 1366540737856106494}
-  - {fileID: 2464021173266099578}
-  - {fileID: 2800728275407744219}
+  hitPoints: 0
 --- !u!114 &-2948688100467753451
 MonoBehaviour:
   m_ObjectHideFlags: 0
