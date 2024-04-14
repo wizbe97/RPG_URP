@@ -7,8 +7,8 @@ public class EnemyCharacter : Character
     public int damageStrength;
     public GameObject floatingHealthBar;
     public GameObject shadow;
-    private Animator animator;
-    private CapsuleCollider2D capsuleCollider2D;
+    private EnemyController enemyController;
+    public CapsuleCollider2D capsuleCollider2D;
     [SerializeField] private FloatingHealthBar healthBar;
     public GameObject floatingDamage;
 
@@ -16,14 +16,13 @@ public class EnemyCharacter : Character
 
     private void OnEnable()
     {
+        enemyController = GetComponent<EnemyController>();
         ResetCharacter();
     }
 
     public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
-        animator = GetComponent<Animator>();
-        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(hitPoints, maxHitPoints);
     }
@@ -58,18 +57,12 @@ public class EnemyCharacter : Character
     // Kill Character (Enemy)
     public override void KillCharacter()
     {
+        capsuleCollider2D.enabled = false;
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         floatingHealthBar.SetActive(false);
         shadow.SetActive(false);
-        animator.Play("Death");
-        capsuleCollider2D.enabled = false;
-
-        EnemyController enemyController = GetComponent<EnemyController>();
-        if (enemyController != null)
-        {
-            enemyController.DisableMovement(); // Call a method to disable movement
-        }
-
+        enemyController.CurrentState = EnemyController.EnemyStates.DIE;
+        enemyController.canMove = false;
     }
 
     public void OnDeathEnd()

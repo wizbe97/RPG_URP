@@ -18,6 +18,47 @@ public abstract class EnemyController : MonoBehaviour
 
     [HideInInspector] public Vector2 wanderDirection;
     [HideInInspector] public float nextWanderTime;
+
+    public EnemyStates currentStateValue;
+    public enum EnemyStates
+    {
+        IDLE,
+        WALK,
+        RUN,
+        SHOOT,
+        DIE
+    }
+
+    public EnemyStates CurrentState
+    {
+        set
+        {
+            currentStateValue = value;
+            switch (currentStateValue)
+            {
+                case EnemyStates.IDLE:
+                    animator.Play("Idle");
+                    canMove = true;
+                    break;
+                case EnemyStates.WALK:
+                    animator.Play("Walk");
+                    canMove = true;
+                    break;
+                case EnemyStates.RUN:
+                    animator.Play("Run");
+                    canMove = true;
+                    break;
+                case EnemyStates.SHOOT:
+                    animator.Play("Shoot");
+                    canMove = false;
+                    break;
+                case EnemyStates.DIE:
+                    animator.Play("Die");
+                    canMove = false;
+                    break;
+            }
+        }
+    }
     public bool IsMoving
     {
         set
@@ -109,10 +150,6 @@ public abstract class EnemyController : MonoBehaviour
 
         // Update the wander time to prevent immediate direction changes
         nextWanderTime = Time.time + wanderTime;
-    }
-    public void DisableMovement()
-    {
-        canMove = false;
     }
 
     public virtual void SetAnimationDirection()

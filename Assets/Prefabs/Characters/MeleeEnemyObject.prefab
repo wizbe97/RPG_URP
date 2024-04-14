@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineOfSight: 10
-  moveSpeed: 45000
+  moveSpeed: 55000
   wanderSpeed: 10000
   wanderTime: 5
   moveDrag: 15
@@ -329,6 +329,7 @@ MonoBehaviour:
   isMoving: 0
   wanderDirection: {x: 0, y: 0}
   nextWanderTime: 0
+  currentStateValue: 0
 --- !u!114 &4649686469831205795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +348,7 @@ MonoBehaviour:
   damageStrength: 25
   floatingHealthBar: {fileID: 4153698874951894766}
   shadow: {fileID: 1193015334430439287}
+  capsuleCollider2D: {fileID: 6233723867239113009}
   healthBar: {fileID: 1842577151576190909}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
   hitPoints: 0

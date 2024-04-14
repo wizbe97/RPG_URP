@@ -9,38 +9,6 @@ public class RangedEnemyController : EnemyController
     public float fireRate = 1f; // Rate of fire in shots per second
     private float nextFireTime = 0f; // Time when the enemy can fire next
 
-    public EnemyStates currentStateValue;
-    public enum EnemyStates
-    {
-        IDLE,
-        WALK,
-        SHOOT,
-        DEATH
-    }
-
-    public EnemyStates CurrentState
-    {
-        set
-        {
-            currentStateValue = value;
-            switch (currentStateValue)
-            {
-                case EnemyStates.IDLE:
-                    animator.Play("Idle");
-                    break;
-                case EnemyStates.WALK:
-                    animator.Play("Walk");
-                    break;
-                case EnemyStates.SHOOT:
-                    animator.Play("Shoot");
-                    break;
-                case EnemyStates.DEATH:
-                    animator.Play("Death");
-                    break;
-            }
-        }
-    }
-
     public override void Update()
     {
         base.Update();
@@ -150,7 +118,7 @@ public class RangedEnemyController : EnemyController
     }
     void OnShootEnd()
     {
-        animator.Play("Idle");
+        CurrentState = EnemyStates.IDLE;
     }
 
     public override void UpdateAnimationState()
@@ -165,7 +133,8 @@ public class RangedEnemyController : EnemyController
             // Idle
             stateIdentifier = 2;
         }
-        else {
+        else
+        {
             stateIdentifier = 3;
         }
 
