@@ -10,14 +10,12 @@ public class MeleeEnemyController : EnemyController
     {
         base.Update();
 
-        // Check if the player object is null
         if (IsPlayerInLineOfSight())
         {
             MoveTowardsPlayer();
         }
         else
         {
-            // Wander if player is not in line of sight
             Wander();
         }
 
@@ -32,7 +30,7 @@ public class MeleeEnemyController : EnemyController
             {
                 damageCoroutine = StartCoroutine(player.DamageCharacter(damage, 2f));
                 isAttacking = true;
-                UpdateAnimationState(); // Trigger the attack animation
+                UpdateAnimationState();
             }
             UpdateAnimationState();
         }
