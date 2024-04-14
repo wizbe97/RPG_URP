@@ -25,6 +25,7 @@ public abstract class EnemyController : MonoBehaviour
         IDLE,
         WALK,
         RUN,
+        ATTACK,
         SHOOT,
         DIE
     }
@@ -48,8 +49,14 @@ public abstract class EnemyController : MonoBehaviour
                     animator.Play("Run");
                     canMove = true;
                     break;
+                case EnemyStates.ATTACK:
+                    animator.Play("Attack");
+                    rb.velocity = Vector2.zero;
+                    canMove = false;
+                    break;
                 case EnemyStates.SHOOT:
                     animator.Play("Shoot");
+                    rb.velocity = Vector2.zero;
                     canMove = false;
                     break;
                 case EnemyStates.DIE:

@@ -329,6 +329,7 @@ MonoBehaviour:
   isMoving: 0
   wanderDirection: {x: 0, y: 0}
   nextWanderTime: 0
+  currentStateValue: 0
   bulletPrefab: {fileID: 5597702106749440813, guid: 3cb80eaad0fef974587c2ac9d45f4b41, type: 3}
   firePoints:
   - {fileID: 4590352175913291884}
@@ -358,10 +359,13 @@ MonoBehaviour:
   maxHitPoints: 75
   characterCategory: 1
   damageStrength: 5
+  damage: 15
   floatingHealthBar: {fileID: 4153698874951894766}
   shadow: {fileID: 1193015334430439287}
+  collisionsCapsule: {fileID: 6233723867239113009}
   healthBar: {fileID: 1842577151576190909}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
+  hitPoints: 0
 --- !u!114 &-2948688100467753451
 MonoBehaviour:
   m_ObjectHideFlags: 0

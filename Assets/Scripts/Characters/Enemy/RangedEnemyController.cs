@@ -16,16 +16,9 @@ public class RangedEnemyController : EnemyController
 
         if (IsPlayerInLineOfSight())
         {
-            if (IsPlayerInShootingRange())
-            {
-                // Stop moving when in shooting range
-                rb.velocity = Vector2.zero;
-            }
-            else
-            {
-                // Move towards player if not in shooting range
-                MoveTowardsPlayer();
-            }
+            // Move towards player if not in shooting range
+            MoveTowardsPlayer();
+
         }
         else
         {

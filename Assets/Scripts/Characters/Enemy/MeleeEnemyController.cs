@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class MeleeEnemyController : EnemyController
 {
+    private bool isAttacking = false;
+    private int damage = 15;
+    private Coroutine damageCoroutine;
+
     public override void Update()
     {
         base.Update();
-        // Check if the player object is null
 
+        // Check if the player object is null
         if (IsPlayerInLineOfSight())
         {
             MoveTowardsPlayer();
@@ -19,18 +23,59 @@ public class MeleeEnemyController : EnemyController
 
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Player player = FindObjectOfType<Player>();
+        if (other.gameObject.CompareTag("Player") && !isAttacking)
+        {
+            if (damageCoroutine == null)
+            {
+                damageCoroutine = StartCoroutine(player.DamageCharacter(damage, 2f));
+                isAttacking = true;
+                UpdateAnimationState(); // Trigger the attack animation
+            }
+            UpdateAnimationState();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;
+            }
+            isAttacking = false;
+        }
+    }
+
+
+    private void OnAttackEnd()
+    {
+        isAttacking = false;
+        canMove = true;
+        UpdateAnimationState();
+    }
+
     public override void UpdateAnimationState()
     {
         int stateIdentifier;
-        if (isMoving)
+        if (isAttacking == false)
         {
-            // If moving, check if player is in line of sight. 
-            stateIdentifier = !IsPlayerInLineOfSight() ? 1 : 2;
+            if (isMoving)
+            {
+                stateIdentifier = !IsPlayerInLineOfSight() ? 1 : 2;
+            }
+            else
+            {
+                stateIdentifier = 3;
+            }
         }
         else
         {
-            // Idle
-            stateIdentifier = 3;
+            stateIdentifier = 4;
         }
 
         switch (stateIdentifier)
@@ -48,6 +93,10 @@ public class MeleeEnemyController : EnemyController
             case 3:
                 SetAnimationDirection();
                 CurrentState = EnemyStates.IDLE;
+                break;
+            case 4:
+                SetAnimationDirection();
+                CurrentState = EnemyStates.ATTACK;
                 break;
         }
     }

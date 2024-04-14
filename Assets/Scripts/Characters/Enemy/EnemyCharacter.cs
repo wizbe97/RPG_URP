@@ -4,11 +4,12 @@ using TMPro;
 
 public class EnemyCharacter : Character
 {
-    public int damageStrength;
+    public float attackCooldown = 3f;
+    public int damage = 15;
     public GameObject floatingHealthBar;
     public GameObject shadow;
     private EnemyController enemyController;
-    public CapsuleCollider2D capsuleCollider2D;
+    public CapsuleCollider2D collisionsCapsule;
     [SerializeField] private FloatingHealthBar healthBar;
     public GameObject floatingDamage;
 
@@ -54,10 +55,9 @@ public class EnemyCharacter : Character
         }
     }
 
-    // Kill Character (Enemy)
     public override void KillCharacter()
     {
-        capsuleCollider2D.enabled = false;
+        collisionsCapsule.enabled = false;
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         floatingHealthBar.SetActive(false);
         shadow.SetActive(false);
@@ -69,5 +69,4 @@ public class EnemyCharacter : Character
     {
         base.KillCharacter();
     }
-
 }

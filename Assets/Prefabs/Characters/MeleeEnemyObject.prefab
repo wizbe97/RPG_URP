@@ -57,8 +57,8 @@ Transform:
   m_GameObject: {fileID: 1193015334430439287}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4, z: 0}
-  m_LocalScale: {x: 1.2576, y: 1.0735999, z: 1}
+  m_LocalPosition: {x: 0.03, y: -0.58, z: 0}
+  m_LocalScale: {x: 1.7822615, y: 1.9516644, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9063805345157768997}
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineOfSight: 10
-  moveSpeed: 55000
-  wanderSpeed: 10000
+  moveSpeed: 3000
+  wanderSpeed: 1000
   wanderTime: 5
   moveDrag: 15
   stopDrag: 25
@@ -345,10 +345,11 @@ MonoBehaviour:
   startingHitPoints: 150
   maxHitPoints: 150
   characterCategory: 2
-  damageStrength: 25
+  attackCooldown: 1.5
+  damage: 15
   floatingHealthBar: {fileID: 4153698874951894766}
   shadow: {fileID: 1193015334430439287}
-  capsuleCollider2D: {fileID: 6233723867239113009}
+  collisionsCapsule: {fileID: 6233723867239113009}
   healthBar: {fileID: 1842577151576190909}
   floatingDamage: {fileID: 5596010984081927688, guid: 748baa23e86d8a34f8aceb6730f342c7, type: 3}
   hitPoints: 0
@@ -383,7 +384,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -430,8 +431,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0305544, y: -0.14392985}
-  m_Size: {x: 1.6727185, y: 1.4157089}
+  m_Offset: {x: 0.026023617, y: -0.10890485}
+  m_Size: {x: 1.8322592, y: 1.4039198}
   m_Direction: 1
 --- !u!1 &2032773716378726222
 GameObject:

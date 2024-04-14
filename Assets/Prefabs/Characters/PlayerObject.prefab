@@ -295,9 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHoldingGun: 0
-  shotgunPrefab: {fileID: 6601246038333148960, guid: fb61993b70c859847b133cdfcf02301b, type: 3}
-  sniperPrefab: {fileID: 6601246038333148960, guid: 7e66efbd67d88fb4a95e5747d18cebcd, type: 3}
-  smgPrefab: {fileID: 5440687993766135674, guid: adbd9bcc1299f52409a42e10924d3cc6, type: 3}
+  instantiatedCurrentItem: {fileID: 0}
   currentItem: {fileID: 0}
 --- !u!114 &8400025653179552194
 MonoBehaviour:
@@ -345,7 +343,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023378968, y: -0.0046758056}
+  m_Offset: {x: -0.008140564, y: 0.00040340424}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -356,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8351009, y: 1.4851943}
+  m_Size: {x: 1.1703424, y: 1.8001175}
   m_EdgeRadius: 0
 --- !u!50 &929484657668223764
 Rigidbody2D:
