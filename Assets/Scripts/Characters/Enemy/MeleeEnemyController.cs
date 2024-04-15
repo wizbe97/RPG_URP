@@ -10,29 +10,29 @@ public class MeleeEnemyController : EnemyController
     {
         base.Update();
 
+        // Check if the player object is null
         if (IsPlayerInLineOfSight())
         {
             MoveTowardsPlayer();
         }
         else
         {
+            // Wander if player is not in line of sight
             Wander();
         }
 
+        // If currently attacking, continuously update animation state
+        if (isAttacking)
+        {
+            UpdateAnimationState();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Player player = FindObjectOfType<Player>();
         if (other.gameObject.CompareTag("Player") && !isAttacking)
         {
-            if (damageCoroutine == null)
-            {
-                damageCoroutine = StartCoroutine(player.DamageCharacter(damage, 2f));
-                isAttacking = true;
-                UpdateAnimationState();
-            }
-            UpdateAnimationState();
+            DamagePlayer();
         }
     }
 
@@ -49,6 +49,17 @@ public class MeleeEnemyController : EnemyController
         }
     }
 
+    private void DamagePlayer()
+    {
+        Player player = FindObjectOfType<Player>();
+
+        if (damageCoroutine == null)
+        {
+            damageCoroutine = StartCoroutine(player.DamageCharacter(damage, 2f));
+            isAttacking = true;
+            UpdateAnimationState(); // Trigger the attack animation
+        }
+    }
 
     private void OnAttackEnd()
     {
