@@ -3,7 +3,6 @@ using UnityEngine;
 public class MeleeEnemyController : EnemyController
 {
     private bool isAttacking = false;
-    private float damageCooldown = 2f;
     private int damage = 15;
     private Coroutine damageCoroutine;
 
