@@ -24,7 +24,7 @@ public class PlayerGun : MonoBehaviour
 
     private void Start()
     {
-        action = GetComponent<Action>();
+        action = FindObjectOfType<Action>();
         audioSource = GetComponent<AudioSource>();
         playerTransform = transform.parent;
         gunSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -53,7 +53,6 @@ public class PlayerGun : MonoBehaviour
                 recoilActivated = false;
             }
 
-            animator.SetBool("isShooting", true);
             isShooting = false;
         }
         else // If mouse button is not held down
@@ -69,28 +68,43 @@ public class PlayerGun : MonoBehaviour
 
     public void Shoot()
     {
+        if (action == null)
+        {
+            Debug.LogError("Action is null in Shoot method.");
+            return;
+        }
+
+        if (action.currentItem == null)
+        {
+            Debug.LogError("Current item is null in Shoot method.");
+            return;
+        }
         if (Time.time >= nextFireTime)
         {
+            nextFireTime = Time.time + fireRate;
             isShooting = true;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            Inventory.Instance.ConsumeItem(action.currentItem.bullet);
+
             animator.SetBool("isShooting", true);
             audioSource.Play();
             Debug.Log("Bullet Fired");
+
             if (recoilActivated == true)
             {
                 Vector3 recoil = new Vector2(Random.Range(-recoilStrength, recoilStrength), Random.Range(-recoilStrength, recoilStrength));
                 Vector2 fireDirection = (firePoint.up + recoil).normalized;
                 bullet.GetComponent<Rigidbody2D>().AddForce(fireDirection * fireForce, ForceMode2D.Impulse);
-                nextFireTime = Time.time + fireRate;
             }
             else
             {
                 Vector2 fireDirection = firePoint.up;
                 bullet.GetComponent<Rigidbody2D>().AddForce(fireDirection * fireForce, ForceMode2D.Impulse);
-                nextFireTime = Time.time + fireRate;
             }
         }
     }
+
 
     public void OnShootingAnimationEnd()
     {

@@ -97,6 +97,46 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool HasItem(Item item)
+    {
+        foreach (var slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.item == item)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void ConsumeItem(Item item)
+    {
+        // Find the slot containing the specified item
+        foreach (var slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count > 0)
+            {
+                // Consume one item
+                itemInSlot.count--;
+                itemInSlot.RefreshCount();
+
+                // If the count reaches zero, destroy the item
+                if (itemInSlot.count <= 0)
+                {
+                    Destroy(itemInSlot.gameObject);
+                }
+                return; // Exit the method after consuming one item
+            }
+        }
+    }
+
+
+
+
+
     public bool AddItem(Item item)
     {
         for (int i = 0; i < inventorySlots.Length; i++)

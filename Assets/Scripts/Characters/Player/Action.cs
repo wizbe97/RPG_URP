@@ -29,7 +29,6 @@ public class Action : MonoBehaviour
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
-
     private void OnUseItem()
     {
         if (overUI || currentItem == null)
@@ -37,13 +36,30 @@ public class Action : MonoBehaviour
 
         if (currentItem.itemType == Item.ItemType.GUN)
         {
-            playerGun = FindObjectOfType<PlayerGun>();
-            if (playerGun != null && !PlayerGun.IsAnyGunShooting())
+            if (currentItem.bullet != null)
             {
-                playerGun.Shoot();
+                // Check if the inventory has the required bullet type for this gun
+                if (inventory.HasItem(currentItem.bullet))
+                {
+                    playerGun = FindObjectOfType<PlayerGun>();
+                    if (playerGun != null && !PlayerGun.IsAnyGunShooting())
+                    {
+                        // Allow shooting only when the left mouse button is pressed down
+                        playerGun.Shoot();
+                    }
+                }
+                else
+                {
+                    Debug.Log("No bullets available for this gun");
+                }
+            }
+            else
+            {
+                Debug.Log("No bullet type associated with this gun");
             }
         }
     }
+
 
     private void OnDropItem()
     {

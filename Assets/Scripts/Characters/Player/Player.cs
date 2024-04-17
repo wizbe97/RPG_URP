@@ -37,6 +37,10 @@ public class Player : Character
                         shouldDisappear = inventory.AddItem(hitObject);
                         action.CurrentItem();
                         break;
+                    case Item.ItemType.BULLET:
+                        shouldDisappear = inventory.AddItem(hitObject);
+                        action.CurrentItem();
+                        break;
                     case Item.ItemType.GUN:
                         shouldDisappear = inventory.AddItem(hitObject);
                         action.CurrentItem();
