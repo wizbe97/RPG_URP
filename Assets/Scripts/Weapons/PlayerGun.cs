@@ -68,17 +68,6 @@ public class PlayerGun : MonoBehaviour
 
     public void Shoot()
     {
-        if (action == null)
-        {
-            Debug.LogError("Action is null in Shoot method.");
-            return;
-        }
-
-        if (action.currentItem == null)
-        {
-            Debug.LogError("Current item is null in Shoot method.");
-            return;
-        }
         if (Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
