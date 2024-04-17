@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: CliffEdges_6
+  m_Name: non-collision-objects_14
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -236319973, guid: d2ca4c0147602a44f94caac3bb61b59e, type: 3}
+  m_Sprite: {fileID: 1262898449, guid: 907e8b1fdd7024141a6bafd3d8c303b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

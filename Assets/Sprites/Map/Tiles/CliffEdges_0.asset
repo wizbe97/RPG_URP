@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: CliffEdges_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1372905847, guid: d2ca4c0147602a44f94caac3bb61b59e, type: 3}
+  m_Sprite: {fileID: -126425518, guid: d2ca4c0147602a44f94caac3bb61b59e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

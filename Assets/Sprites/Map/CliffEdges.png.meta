@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46098b68326c174dafc1a53cebb4468
-      internalID: -1372905847
+      spriteID: b18a470d8e6469346a18f340bdab60a4
+      internalID: -126425518
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 732931b8fc9ed0d4bbca4d9c8ac3ee98
-      internalID: 1471928811
+      spriteID: cdc6f6ecf27e6964094d762fe0cd8324
+      internalID: -2002145467
       vertices: []
       indices: 
       edges: []
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3e316b1a2ff034587bd8d40b4d30d9
-      internalID: 232065506
+      spriteID: ac9c0b3e9c2350045b683fb4edd81071
+      internalID: 1590368044
       vertices: []
       indices: 
       edges: []
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b443acea1729dd041ae15ca88d5727fe
-      internalID: -473667453
+      spriteID: 333195a9b3a62094d8225d31c2a4458c
+      internalID: -1680898479
       vertices: []
       indices: 
       edges: []
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8451ed531b5711046a097ba5c424a0aa
-      internalID: 1848981195
+      spriteID: f3ebc6624b99f9145b452939abda9776
+      internalID: 286831404
       vertices: []
       indices: 
       edges: []
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a4637623eb21dc4ebc69364a76dc3b0
-      internalID: 898893823
+      spriteID: 7b7d1be513ec2614588ede1671429f7f
+      internalID: -1914398628
       vertices: []
       indices: 
       edges: []
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d8d3fcd22604f468c92766af621d5c
-      internalID: 1282825846
+      spriteID: 562d0efd309b78744afe565ed190f1b6
+      internalID: -236319973
       vertices: []
       indices: 
       edges: []
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f46b5c8e2bd2cb41bcdfb2fd1ef65ef
-      internalID: 690723993
+      spriteID: ac1f8515f8b23a641adea5c44b8552e4
+      internalID: -1126623716
       vertices: []
       indices: 
       edges: []
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f4da5c3833878b4899640475f0b8eca
-      internalID: 1450999725
+      spriteID: f9fcf62acd557374ebd06644d598c0d0
+      internalID: 312693956
       vertices: []
       indices: 
       edges: []
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8802541febd40f4dbff4f6c3e780606
-      internalID: -1228291340
+      spriteID: a4659f0e8b5e6eb4cb8b6b6a7e70f992
+      internalID: -1667154479
       vertices: []
       indices: 
       edges: []
@@ -347,8 +347,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcf6f134aff1e6f47ac05f4ffaadd484
-      internalID: 733145141
+      spriteID: a4fde7439b4c4c8499d568adb3de07bd
+      internalID: -781568555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CliffEdges_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029349de28bf6384885ba726c53ca8a7
+      internalID: -1894058282
       vertices: []
       indices: 
       edges: []
@@ -364,17 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CliffEdges_0: -1372905847
-      CliffEdges_1: 1471928811
-      CliffEdges_10: 733145141
-      CliffEdges_2: 232065506
-      CliffEdges_3: -473667453
-      CliffEdges_4: 1848981195
-      CliffEdges_5: 898893823
-      CliffEdges_6: 1282825846
-      CliffEdges_7: 690723993
-      CliffEdges_8: 1450999725
-      CliffEdges_9: -1228291340
+      CliffEdges_0: -126425518
+      CliffEdges_1: -2002145467
+      CliffEdges_10: -781568555
+      CliffEdges_11: -1894058282
+      CliffEdges_2: 1590368044
+      CliffEdges_3: -1680898479
+      CliffEdges_4: 286831404
+      CliffEdges_5: -1914398628
+      CliffEdges_6: -236319973
+      CliffEdges_7: -1126623716
+      CliffEdges_8: 312693956
+      CliffEdges_9: -1667154479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
