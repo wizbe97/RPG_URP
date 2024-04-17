@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
     void ChangeSelectedSlot(int newValue)
     {
         // Check if any gun is shooting before changing the selected slot
@@ -63,12 +64,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            Debug.Log("Cannot change slot while a gun is shooting!");
-        }
     }
-
 
     public Item GetSelectedItem(bool use)
     {
@@ -110,7 +106,6 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-
     public void ConsumeItem(Item item)
     {
         // Find the slot containing the specified item
@@ -132,10 +127,6 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
-
-
-
 
     public bool AddItem(Item item)
     {

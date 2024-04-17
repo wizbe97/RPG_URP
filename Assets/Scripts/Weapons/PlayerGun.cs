@@ -68,6 +68,7 @@ public class PlayerGun : MonoBehaviour
 
     public void Shoot()
     {
+
         if (Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
@@ -78,7 +79,6 @@ public class PlayerGun : MonoBehaviour
 
             animator.SetBool("isShooting", true);
             audioSource.Play();
-            Debug.Log("Bullet Fired");
 
             if (recoilActivated == true)
             {

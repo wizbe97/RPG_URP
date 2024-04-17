@@ -71,7 +71,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.position = Mouse.current.position.ReadValue();
             foreach (PlayerGun gun in FindObjectsOfType<PlayerGun>())
             {
-                Debug.Log("SET SHOOTING TO FALSE");
                 gun.isShooting = false;
             }
         }

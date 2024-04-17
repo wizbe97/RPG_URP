@@ -48,14 +48,6 @@ public class Action : MonoBehaviour
                         playerGun.Shoot();
                     }
                 }
-                else
-                {
-                    Debug.Log("No bullets available for this gun");
-                }
-            }
-            else
-            {
-                Debug.Log("No bullet type associated with this gun");
             }
         }
     }
@@ -66,7 +58,6 @@ public class Action : MonoBehaviour
         currentItem = inventory.GetSelectedItem(true);
         if (currentItem != null && !PlayerGun.IsAnyGunShooting())
         {
-            Debug.Log("Dropping item: " + currentItem);
 
             // Calculate drop direction based on the mouse position if holding a gun
             Vector3 dropDirection;
@@ -95,10 +86,7 @@ public class Action : MonoBehaviour
 
             DeactivateCurrentItem();
         }
-        else
-        {
-            Debug.Log("No item in slot");
-        }
+
     }
 
     private IEnumerator EnableColliderAfterDelay(Collider2D collider)
