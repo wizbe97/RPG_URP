@@ -10,6 +10,7 @@ public class Item : ScriptableObject
     public int quantity;
     public bool stackable;
     public int dropChance;
+    public Item bullet;
 
     public bool holdable;
 
@@ -17,7 +18,8 @@ public class Item : ScriptableObject
     {
         COIN,
         HEALTH,
-        GUN
+        GUN,
+        BULLET
     }
     public ItemType itemType;
 }
