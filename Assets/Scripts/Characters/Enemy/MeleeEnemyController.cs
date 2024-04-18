@@ -21,11 +21,6 @@ public class MeleeEnemyController : EnemyController
             Wander();
         }
 
-        // If currently attacking, continuously update animation state
-        if (isAttacking)
-        {
-            UpdateAnimationState();
-        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
