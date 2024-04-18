@@ -7,49 +7,36 @@ public class LootBag : MonoBehaviour
     public GameObject droppedItemPrefab;
     public List<Item> lootList = new List<Item>();
 
-    // List<Item> GetDroppedItems() // THIS IS FOR DROPPING MULTIPLE ITEMS
-    // {
-    //     int randomNumber = Random.Range(1, 101);
-    //     List<Item> possibleItems = new List<Item>();
-    //     foreach (Item item in lootList)
-    //     {
-    //         if (randomNumber <= item.dropChance)
-    //         {
-    //             possibleItems.Add(item);
-    //             return possibleItems;
-    //         }
-    //     }
-    //     Debug.Log("No item dropped");
-    //     return null;
-    // }
-
-    Item GetDroppedItem()  // THIS IS FOR DROPPING ONE ITEM ONLY (RANDOM ITEM PICKED)
+    public List<Item> GetDroppedItems()
     {
-        int randomNumber = Random.Range(1, 101);
         List<Item> possibleItems = new List<Item>();
+
+        // Iterate through each item
         foreach (Item item in lootList)
         {
+            // Generate a random number to determine if the item should be dropped
+            int randomNumber = Random.Range(1, 101);
+            // Check if the random number is less than or equal to the drop chance of the item
             if (randomNumber <= item.dropChance)
             {
+                // Add the item to the list of possible drops
                 possibleItems.Add(item);
             }
         }
-        if (possibleItems.Count > 0)
-        {
-            Item droppedItem = possibleItems[Random.Range(0, possibleItems.Count)];
-            return droppedItem;
-        }
-        Debug.Log("No item dropped");
-        return null;
+
+        return possibleItems;
     }
 
     public void InstantiateLoot(Vector3 spawnPosition)
     {
-        Item droppedItem = GetDroppedItem();
-        if (droppedItem != null)
+        List<Item> droppedItems = GetDroppedItems();
+
+        // Instantiate each dropped item once
+        foreach (Item droppedItem in droppedItems)
         {
             Instantiate(droppedItem.droppedItem, spawnPosition, Quaternion.identity);
         }
     }
+
 
 }
