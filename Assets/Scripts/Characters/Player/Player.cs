@@ -34,11 +34,9 @@ public class Player : Character
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
                     case Item.ItemType.COIN:
-                        shouldDisappear = inventory.AddItem(hitObject);
-                        action.CurrentItem();
-                        break;
+                    case Item.ItemType.BULLET:
                     case Item.ItemType.GUN:
-                        shouldDisappear = inventory.AddItem(hitObject);
+                        shouldDisappear = AddItemToInventory(hitObject, hitObject.quantity);
                         action.CurrentItem();
                         break;
                 }
@@ -50,6 +48,13 @@ public class Player : Character
             }
         }
     }
+
+    bool AddItemToInventory(Item item, int quantity)
+    {
+        return inventory.AddItem(item, quantity);
+    }
+
+
     public bool AdjustHitPoints(int amount)
     {
         if (hitPoints.value < maxHitPoints)

@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: coin
   droppedItem: {fileID: 1832815390222109534, guid: 487e5256a2521e849ae1d10b99077431, type: 3}
+  instantiatedPrefab: {fileID: 0}
   inventoryImage: {fileID: 21300000, guid: dab821340dd4e6344b1905b5653e8f6e, type: 3}
   quantity: 1
   stackable: 1
-  dropChance: 50
+  dropChance: 100
+  bullet: {fileID: 0}
+  holdable: 0
   itemType: 0

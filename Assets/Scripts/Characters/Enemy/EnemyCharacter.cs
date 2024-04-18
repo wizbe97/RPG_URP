@@ -30,6 +30,12 @@ public class EnemyCharacter : Character
 
     public override IEnumerator DamageCharacter(int damage, float interval)
     {
+        // Check if the enemy is already dead
+        if (hitPoints <= 0)
+        {
+            yield break; // Exit the coroutine if the enemy is already dead
+        }
+
         while (true)
         {
             StartCoroutine(FlickerCharacter());
@@ -55,14 +61,15 @@ public class EnemyCharacter : Character
         }
     }
 
+
     public override void KillCharacter()
     {
         collisionsCapsule.enabled = false;
-        GetComponent<LootBag>().InstantiateLoot(transform.position);
         floatingHealthBar.SetActive(false);
         shadow.SetActive(false);
         enemyController.CurrentState = EnemyController.EnemyStates.DIE;
         enemyController.canMove = false;
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
     }
 
     public void OnDeathEnd()

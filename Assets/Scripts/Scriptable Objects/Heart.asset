@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: heart
   droppedItem: {fileID: 6870393358900712992, guid: e741d65a2281360479de95e310600bf6, type: 3}
+  instantiatedPrefab: {fileID: 0}
   inventoryImage: {fileID: 0}
   quantity: 5
   stackable: 0
-  dropChance: 75
+  dropChance: 100
+  bullet: {fileID: 0}
+  holdable: 0
   itemType: 1

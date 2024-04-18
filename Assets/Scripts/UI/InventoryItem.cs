@@ -28,12 +28,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         action = FindAnyObjectByType<Action>();
 
     }
-    public void InitialiseItem(Item newItem)
+    public void InitialiseItem(Item newItem, int initialQuantity)
     {
         item = newItem;
         image.sprite = newItem.inventoryImage;
+        count = initialQuantity; // Set the initial quantity
         RefreshCount();
     }
+
 
     public void RefreshCount()
     {
@@ -71,7 +73,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             transform.position = Mouse.current.position.ReadValue();
             foreach (PlayerGun gun in FindObjectsOfType<PlayerGun>())
             {
-                Debug.Log("SET SHOOTING TO FALSE");
                 gun.isShooting = false;
             }
         }

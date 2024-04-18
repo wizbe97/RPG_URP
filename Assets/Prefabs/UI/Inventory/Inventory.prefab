@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6295f7a1f67ce654f859441d2380f20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStackedItems: 15
+  maxStackedItems: 250
   inventorySlots:
   - {fileID: 1015602859568226156}
   - {fileID: 9172753889463993075}

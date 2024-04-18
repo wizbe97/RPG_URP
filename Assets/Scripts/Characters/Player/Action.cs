@@ -29,7 +29,6 @@ public class Action : MonoBehaviour
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
-
     private void OnUseItem()
     {
         if (overUI || currentItem == null)
@@ -37,20 +36,28 @@ public class Action : MonoBehaviour
 
         if (currentItem.itemType == Item.ItemType.GUN)
         {
-            playerGun = FindObjectOfType<PlayerGun>();
-            if (playerGun != null && !PlayerGun.IsAnyGunShooting())
+            if (currentItem.bullet != null)
             {
-                playerGun.Shoot();
+                // Check if the inventory has the required bullet type for this gun
+                if (inventory.HasItem(currentItem.bullet))
+                {
+                    playerGun = FindObjectOfType<PlayerGun>();
+                    if (playerGun != null && !PlayerGun.IsAnyGunShooting())
+                    {
+                        // Allow shooting only when the left mouse button is pressed down
+                        playerGun.Shoot();
+                    }
+                }
             }
         }
     }
+
 
     private void OnDropItem()
     {
         currentItem = inventory.GetSelectedItem(true);
         if (currentItem != null && !PlayerGun.IsAnyGunShooting())
         {
-            Debug.Log("Dropping item: " + currentItem);
 
             // Calculate drop direction based on the mouse position if holding a gun
             Vector3 dropDirection;
@@ -79,10 +86,7 @@ public class Action : MonoBehaviour
 
             DeactivateCurrentItem();
         }
-        else
-        {
-            Debug.Log("No item in slot");
-        }
+
     }
 
     private IEnumerator EnableColliderAfterDelay(Collider2D collider)

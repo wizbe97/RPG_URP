@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
     void ChangeSelectedSlot(int newValue)
     {
         // Check if any gun is shooting before changing the selected slot
@@ -63,12 +64,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            Debug.Log("Cannot change slot while a gun is shooting!");
-        }
     }
-
 
     public Item GetSelectedItem(bool use)
     {
@@ -97,7 +93,42 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool AddItem(Item item)
+    public bool HasItem(Item item)
+    {
+        foreach (var slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.item == item)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void ConsumeItem(Item item)
+    {
+        // Find the slot containing the specified item
+        foreach (var slot in inventorySlots)
+        {
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count > 0)
+            {
+                // Consume one item
+                itemInSlot.count--;
+                itemInSlot.RefreshCount();
+
+                // If the count reaches zero, destroy the item
+                if (itemInSlot.count <= 0)
+                {
+                    Destroy(itemInSlot.gameObject);
+                }
+                return; // Exit the method after consuming one item
+            }
+        }
+    }
+
+    public bool AddItem(Item item, int quantity)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -109,28 +140,43 @@ public class Inventory : MonoBehaviour
             if (itemInSlot == null && slot.transform.childCount == 0)
             {
                 // Spawn a new item in the slot
-                SpawnNewItem(item, slotIndex);
+                SpawnNewItem(item, slotIndex, quantity); // Pass the quantity here
                 return true;
             }
             else if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
             {
                 // If the item is stackable and matches the item in the slot, and the count is less than the maximum stack size
-                itemInSlot.count++;
-                itemInSlot.RefreshCount();
-                return true;
+                int spaceLeftInStack = maxStackedItems - itemInSlot.count;
+                if (quantity <= spaceLeftInStack)
+                {
+                    // If there's enough space in the stack to accommodate the entire quantity
+                    itemInSlot.count += quantity;
+                    itemInSlot.RefreshCount();
+                    return true;
+                }
+                else
+                {
+                    // If there's not enough space in the stack to accommodate the entire quantity
+                    itemInSlot.count = maxStackedItems; // Fill the stack to its maximum
+                    itemInSlot.RefreshCount();
+                    quantity -= spaceLeftInStack; // Subtract the space filled from the remaining quantity
+                                                  // Check the next slot or create a new stack if available slots are exhausted
+                }
             }
         }
         return false;
     }
 
-    void SpawnNewItem(Item item, int slotIndex)
+
+    void SpawnNewItem(Item item, int slotIndex, int quantity)
     {
         InventorySlot slot = inventorySlots[slotIndex];
         GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
         slot.Item = newItemGO.GetComponent<InventoryItem>();
-        slot.Item.InitialiseItem(item);
+        slot.Item.InitialiseItem(item, quantity); // Pass the quantity here
         slot.Item.InventorySlotIndex = slotIndex;
     }
+
 
     public void ChangeItemSlot(InventoryItem item, int slotIndex, bool emptyOriginalSlot = true)
     {
