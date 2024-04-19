@@ -16,9 +16,9 @@ MonoBehaviour:
   droppedItem: {fileID: 1832815390222109534, guid: 793d3ce1cf031af4db1957c51144a2f1, type: 3}
   instantiatedPrefab: {fileID: 3528981164989052066, guid: 5c79751ad8e4ff3429642b0adae4af28, type: 3}
   inventoryImage: {fileID: 21300000, guid: d2b50fd78ac269d40b33d75553261bb6, type: 3}
-  quantity: 5
+  quantity: 10
   stackable: 1
-  dropChance: 25
+  dropChance: 50
   bullet: {fileID: 0}
   holdable: 0
   itemType: 3
