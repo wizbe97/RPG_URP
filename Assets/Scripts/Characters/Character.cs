@@ -17,11 +17,12 @@ public abstract class Character : MonoBehaviour
 
     public virtual void KillCharacter()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
     public abstract void ResetCharacter();
     public abstract IEnumerator DamageCharacter(int damage, float interval);
-    public virtual IEnumerator FlickerCharacter() {
+    public virtual IEnumerator FlickerCharacter()
+    {
         GetComponent<SpriteRenderer>().color = Color.red;
 
         yield return new WaitForSeconds(0.1f);

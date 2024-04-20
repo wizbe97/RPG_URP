@@ -19,6 +19,6 @@ MonoBehaviour:
   quantity: 1
   stackable: 0
   dropChance: 5
-  bullet: {fileID: 0}
+  bullet: {fileID: 11400000, guid: 683ea9e086c649946aba1eed30bc6bc0, type: 2}
   holdable: 1
   itemType: 2

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
@@ -67,6 +68,11 @@ public class Player : Character
 
     public override IEnumerator DamageCharacter(int damage, float interval)
     {
+        if (hitPoints.value <= 0)
+        {
+            yield break; // Exit the coroutine if the enemy is already dead
+        }
+
         while (true)
         {
             StartCoroutine(FlickerCharacter());
@@ -93,6 +99,16 @@ public class Player : Character
     {
         base.KillCharacter();
         Destroy(healthBar.gameObject);
+        ReloadScene();
+    }
+
+    public void ReloadScene()
+    {
+        // Get the current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Reload the scene with the same index
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     public override void ResetCharacter()
