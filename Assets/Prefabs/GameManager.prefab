@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawnPoint: {fileID: 3683095431874883798, guid: f981bc138af7e0e4981617a68464d748, type: 3}
+  startingPosition: {fileID: 0}
+  cameraManager: {fileID: 0}
