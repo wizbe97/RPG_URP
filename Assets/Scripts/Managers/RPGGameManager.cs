@@ -1,11 +1,10 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RPGGameManager : MonoBehaviour
 {
     public SpawnPoint playerSpawnPoint;
-
     public static RPGGameManager sharedInstance = null;
     public RPGCameraManager cameraManager;
 
@@ -38,7 +37,15 @@ public class RPGGameManager : MonoBehaviour
         if (playerSpawnPoint != null)
         {
             GameObject player = playerSpawnPoint.SpawnObject();
-            cameraManager.virtualCamera.Follow = player.transform;
+            if ((cameraManager != null))
+            {
+                cameraManager.virtualCamera.Follow = player.transform;
+            }
+            else
+            {
+                Debug.Log("Camera not moving");
+            }
+
         }
     }
 

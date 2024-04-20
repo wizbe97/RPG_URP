@@ -16,9 +16,10 @@ public class HealthBar : MonoBehaviour
     }
     void Update()
     {
-     if (character != null) {
-        meterImage.fillAmount = hitPoints.value / maxHitPoints;
-        hpText.text = "HP:" + (meterImage.fillAmount * 100);
-     }   
+        if (character != null)
+        {
+            meterImage.fillAmount = hitPoints.value / maxHitPoints;
+            hpText.text = "HP:" + (meterImage.fillAmount * 100);
+        }
     }
 }

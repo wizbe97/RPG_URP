@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     private UpdateAnimationState animationState;
     private Rigidbody2D rb;
 
-
     [SerializeField] private float moveDrag = 15f;
     [SerializeField] private float stopDrag = 25f;
     [SerializeField] private float dashForce = 10f;

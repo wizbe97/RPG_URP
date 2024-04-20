@@ -70,10 +70,7 @@ public class EnemyCharacter : Character
         enemyController.CurrentState = EnemyController.EnemyStates.DIE;
         enemyController.canMove = false;
         GetComponent<LootBag>().InstantiateLoot(transform.position);
-    }
-
-    public void OnDeathEnd()
-    {
         base.KillCharacter();
     }
+
 }
