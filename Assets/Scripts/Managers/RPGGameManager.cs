@@ -29,7 +29,15 @@ public class RPGGameManager : MonoBehaviour
 
     public void SetupScene()
     {
-        SpawnPlayer();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            SpawnPlayer();
+        }
+        else
+        {
+            cameraManager.virtualCamera.Follow = player.transform;
+        }
     }
 
     public void SpawnPlayer()

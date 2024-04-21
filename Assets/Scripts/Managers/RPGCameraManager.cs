@@ -1,7 +1,8 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using Cinemachine;
 
-public class RPGCameraManager : MonoBehaviour {
+public class RPGCameraManager : MonoBehaviour
+{
 
     public static RPGCameraManager sharedInstance = null;
     [HideInInspector]

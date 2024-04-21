@@ -44,17 +44,18 @@ public class Player : Character
 
                 if (shouldDisappear)
                 {
+                    // Notify ObjectManager when an object is destroyed
                     Destroy(collision.gameObject);
                 }
             }
         }
     }
 
+
     bool AddItemToInventory(Item item, int quantity)
     {
         return inventory.AddItem(item, quantity);
     }
-
 
     public bool AdjustHitPoints(int amount)
     {
