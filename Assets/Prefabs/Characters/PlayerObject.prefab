@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3119794391773350772}
   - component: {fileID: 1648615207545544847}
+  - component: {fileID: -1725800145867943330}
   - component: {fileID: 8418841744619551669}
   - component: {fileID: 1045256185546379943}
   - component: {fileID: -3604236888178394875}
@@ -246,6 +247,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1725800145867943330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801228689619027253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c39e0027a9cab0438bffa3297fa81fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8418841744619551669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a45e319afca524d8707ea67512e4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {fileID: 11400000, guid: 8228580604c941a4f8830d25afaa228e, type: 2}
   moveDrag: 15
   stopDrag: 25
   dashForce: 50

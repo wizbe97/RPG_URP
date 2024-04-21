@@ -12,7 +12,15 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         for (int i = 0; i < inventorySlots.Length; i++)
             inventorySlots[i].Index = i;
