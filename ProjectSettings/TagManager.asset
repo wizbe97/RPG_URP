@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - CanBePickedUp
   - MapCollisions
+  - WaveSpawner
   layers:
   - Default
   - TransparentFX
