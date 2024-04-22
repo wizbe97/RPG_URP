@@ -1,16 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DDOL : MonoBehaviour
 {
-    private static readonly HashSet<GameObject> instances = new HashSet<GameObject>();
-
+    public static DDOL Instance;
     private void Awake()
     {
-        if (!instances.Contains(gameObject))
+        if (Instance == null)
         {
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-            instances.Add(gameObject);
         }
         else
         {

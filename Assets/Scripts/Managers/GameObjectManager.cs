@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameObjectManager : MonoBehaviour
 {
     public GameObject[] parentToDeactivate;
+    private WaveSpawner waveSpawner;
 
     void Awake()
     {
@@ -15,12 +16,13 @@ public class GameObjectManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        waveSpawner = FindObjectOfType<WaveSpawner>();
         // Check if the loaded scene is named "Planet"
         if (scene.name == "Planet")
         {
 
             SetParentsActive(true);
+            waveSpawner.startNextWave = true;
         }
         else
         {
