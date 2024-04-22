@@ -6234,6 +6234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269188154}
   - component: {fileID: 269188155}
+  - component: {fileID: 269188156}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: WaveSpawner
@@ -6287,9 +6288,22 @@ MonoBehaviour:
   - {fileID: 782112714}
   - {fileID: 843034545}
   - {fileID: 406910571}
-  spawnIndex: 0
-  waveDuration: 0
+  difficulty: 3
+  spawnDelay: 1
+  startNextWave: 0
   spawnedEnemies: []
+--- !u!114 &269188156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269188153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53fd1f5883f0774fa0ffaac00ba6cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &275031340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18419,7 +18433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21aff4944f829094582ce0b7682951a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupsParent: {fileID: 2083948601}
+  parentToDeactivate:
+  - {fileID: 269188153}
+  - {fileID: 2083948601}
 --- !u!1001 &1265529275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83904,6 +83920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1555238835}
+  - component: {fileID: 1555238836}
   m_Layer: 0
   m_Name: SpawnPoints
   m_TagString: Untagged
@@ -83938,6 +83955,18 @@ Transform:
   - {fileID: 406910571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555238836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555238834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590fe5df29d83af4ca5fd99177fcdfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1559562362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91991,7 +92020,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083948601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc139bd31fb57094584cdc6e18d504ff, type: 3}
+  m_Script: {fileID: 11500000, guid: c6860462a39b44341a1f375cdef8327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2085637068
@@ -92322,5 +92351,5 @@ SceneRoots:
   - {fileID: 119909368}
   - {fileID: 392463447}
   - {fileID: 401008991}
-  - {fileID: 1259381697}
   - {fileID: 269188154}
+  - {fileID: 1259381697}
