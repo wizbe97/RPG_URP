@@ -35,7 +35,11 @@ public class GameObjectManager : MonoBehaviour
     {
         foreach (GameObject parent in parentToDeactivate)
         {
-            parent.SetActive(activeState);
+            if (parent != null)
+            {
+                parent.SetActive(activeState);
+            }
         }
     }
+
 }
