@@ -126,10 +126,10 @@ TextureImporter:
       name: running-gun_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 350
-        width: 18
-        height: 30
+        x: 0
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: running-gun_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 352
-        width: 18
-        height: 29
+        x: 48
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: running-gun_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 351
-        width: 18
-        height: 31
+        x: 96
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: running-gun_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 350
-        width: 18
-        height: 30
+        x: 144
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: running-gun_4
       rect:
         serializedVersion: 2
-        x: 207
-        y: 352
-        width: 18
-        height: 29
+        x: 192
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: running-gun_5
       rect:
         serializedVersion: 2
-        x: 255
-        y: 351
-        width: 18
-        height: 31
+        x: 240
+        y: 336
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +252,10 @@ TextureImporter:
       name: running-gun_6
       rect:
         serializedVersion: 2
-        x: 15
-        y: 303
-        width: 16
-        height: 29
+        x: 0
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: running-gun_7
       rect:
         serializedVersion: 2
-        x: 63
-        y: 305
-        width: 16
-        height: 28
+        x: 48
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +294,10 @@ TextureImporter:
       name: running-gun_8
       rect:
         serializedVersion: 2
-        x: 111
-        y: 304
-        width: 16
-        height: 30
+        x: 96
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +315,10 @@ TextureImporter:
       name: running-gun_9
       rect:
         serializedVersion: 2
-        x: 159
-        y: 303
-        width: 16
-        height: 29
+        x: 144
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: running-gun_10
       rect:
         serializedVersion: 2
-        x: 207
-        y: 305
-        width: 16
-        height: 28
+        x: 192
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +357,10 @@ TextureImporter:
       name: running-gun_11
       rect:
         serializedVersion: 2
-        x: 255
-        y: 305
-        width: 16
-        height: 29
+        x: 240
+        y: 288
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +378,10 @@ TextureImporter:
       name: running-gun_12
       rect:
         serializedVersion: 2
-        x: 17
-        y: 257
-        width: 15
-        height: 27
+        x: 0
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +399,10 @@ TextureImporter:
       name: running-gun_13
       rect:
         serializedVersion: 2
-        x: 65
-        y: 256
-        width: 15
-        height: 29
+        x: 48
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +420,10 @@ TextureImporter:
       name: running-gun_14
       rect:
         serializedVersion: 2
-        x: 113
-        y: 258
-        width: 15
-        height: 28
+        x: 96
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: running-gun_15
       rect:
         serializedVersion: 2
-        x: 161
-        y: 256
-        width: 15
-        height: 28
+        x: 144
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +462,10 @@ TextureImporter:
       name: running-gun_16
       rect:
         serializedVersion: 2
-        x: 209
-        y: 256
-        width: 15
-        height: 29
+        x: 192
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +483,10 @@ TextureImporter:
       name: running-gun_17
       rect:
         serializedVersion: 2
-        x: 257
-        y: 258
-        width: 15
-        height: 28
+        x: 240
+        y: 240
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +504,10 @@ TextureImporter:
       name: running-gun_18
       rect:
         serializedVersion: 2
-        x: 15
-        y: 208
-        width: 16
-        height: 29
+        x: 0
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +525,10 @@ TextureImporter:
       name: running-gun_19
       rect:
         serializedVersion: 2
-        x: 63
-        y: 208
-        width: 16
-        height: 30
+        x: 48
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: running-gun_20
       rect:
         serializedVersion: 2
-        x: 111
-        y: 209
-        width: 16
-        height: 30
+        x: 96
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -567,10 +567,10 @@ TextureImporter:
       name: running-gun_21
       rect:
         serializedVersion: 2
-        x: 159
-        y: 209
-        width: 16
-        height: 28
+        x: 144
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,10 +588,10 @@ TextureImporter:
       name: running-gun_22
       rect:
         serializedVersion: 2
-        x: 207
-        y: 209
-        width: 16
-        height: 29
+        x: 192
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -609,10 +609,10 @@ TextureImporter:
       name: running-gun_23
       rect:
         serializedVersion: 2
-        x: 255
-        y: 208
-        width: 16
-        height: 31
+        x: 240
+        y: 192
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,10 +630,10 @@ TextureImporter:
       name: running-gun_24
       rect:
         serializedVersion: 2
-        x: 15
-        y: 160
-        width: 18
-        height: 29
+        x: 0
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -651,10 +651,10 @@ TextureImporter:
       name: running-gun_25
       rect:
         serializedVersion: 2
-        x: 63
-        y: 159
-        width: 18
-        height: 31
+        x: 48
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,10 +672,10 @@ TextureImporter:
       name: running-gun_26
       rect:
         serializedVersion: 2
-        x: 111
-        y: 162
-        width: 18
-        height: 29
+        x: 96
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -693,10 +693,10 @@ TextureImporter:
       name: running-gun_27
       rect:
         serializedVersion: 2
-        x: 159
-        y: 160
-        width: 18
-        height: 29
+        x: 144
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -714,10 +714,10 @@ TextureImporter:
       name: running-gun_28
       rect:
         serializedVersion: 2
-        x: 207
-        y: 159
-        width: 18
-        height: 31
+        x: 192
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,10 +735,10 @@ TextureImporter:
       name: running-gun_29
       rect:
         serializedVersion: 2
-        x: 255
-        y: 162
-        width: 18
-        height: 29
+        x: 240
+        y: 144
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -756,10 +756,10 @@ TextureImporter:
       name: running-gun_30
       rect:
         serializedVersion: 2
-        x: 17
-        y: 112
-        width: 16
-        height: 29
+        x: 0
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -777,10 +777,10 @@ TextureImporter:
       name: running-gun_31
       rect:
         serializedVersion: 2
-        x: 65
-        y: 112
-        width: 16
-        height: 30
+        x: 48
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -798,10 +798,10 @@ TextureImporter:
       name: running-gun_32
       rect:
         serializedVersion: 2
-        x: 113
-        y: 113
-        width: 16
-        height: 30
+        x: 96
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -819,10 +819,10 @@ TextureImporter:
       name: running-gun_33
       rect:
         serializedVersion: 2
-        x: 161
-        y: 113
-        width: 16
-        height: 28
+        x: 144
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -840,10 +840,10 @@ TextureImporter:
       name: running-gun_34
       rect:
         serializedVersion: 2
-        x: 209
-        y: 113
-        width: 16
-        height: 29
+        x: 192
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -861,10 +861,10 @@ TextureImporter:
       name: running-gun_35
       rect:
         serializedVersion: 2
-        x: 257
-        y: 112
-        width: 16
-        height: 31
+        x: 240
+        y: 96
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -882,10 +882,10 @@ TextureImporter:
       name: running-gun_36
       rect:
         serializedVersion: 2
-        x: 16
-        y: 65
-        width: 15
-        height: 27
+        x: 0
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -903,10 +903,10 @@ TextureImporter:
       name: running-gun_37
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 15
-        height: 29
+        x: 48
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -924,10 +924,10 @@ TextureImporter:
       name: running-gun_38
       rect:
         serializedVersion: 2
-        x: 112
-        y: 66
-        width: 15
-        height: 28
+        x: 96
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -945,10 +945,10 @@ TextureImporter:
       name: running-gun_39
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
-        width: 15
-        height: 28
+        x: 144
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -966,10 +966,10 @@ TextureImporter:
       name: running-gun_40
       rect:
         serializedVersion: 2
-        x: 211
-        y: 64
-        width: 15
-        height: 29
+        x: 192
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -987,10 +987,10 @@ TextureImporter:
       name: running-gun_41
       rect:
         serializedVersion: 2
-        x: 256
-        y: 66
-        width: 15
-        height: 28
+        x: 240
+        y: 48
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1008,10 +1008,10 @@ TextureImporter:
       name: running-gun_42
       rect:
         serializedVersion: 2
-        x: 17
-        y: 15
-        width: 16
-        height: 29
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1029,10 +1029,10 @@ TextureImporter:
       name: running-gun_43
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 16
-        height: 28
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1050,10 +1050,10 @@ TextureImporter:
       name: running-gun_44
       rect:
         serializedVersion: 2
-        x: 113
-        y: 16
-        width: 16
-        height: 30
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1071,10 +1071,10 @@ TextureImporter:
       name: running-gun_45
       rect:
         serializedVersion: 2
-        x: 161
-        y: 15
-        width: 16
-        height: 29
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1092,10 +1092,10 @@ TextureImporter:
       name: running-gun_46
       rect:
         serializedVersion: 2
-        x: 209
-        y: 17
-        width: 16
-        height: 28
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1113,10 +1113,10 @@ TextureImporter:
       name: running-gun_47
       rect:
         serializedVersion: 2
-        x: 257
-        y: 17
-        width: 16
-        height: 29
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

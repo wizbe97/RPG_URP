@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa9567f1c245945be8d8a8e32327e0ca
+guid: 950bae9589d5bce4fb04a22128da68c1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walking-gun_0
+      name: idle-new_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e98c7cab8764aeb92c4225be817ceb
-      internalID: -163901009
+      spriteID: e6dcb24633d3493409ebf097ed0f4096
+      internalID: 1614180067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_1
+      name: idle-new_1
       rect:
         serializedVersion: 2
         x: 48
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fc161e8077714bbba22063918650781
-      internalID: -2127539835
+      spriteID: 45e6496de6b22ff41b8a8bb8eccbd19f
+      internalID: -495407303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_2
+      name: idle-new_2
       rect:
         serializedVersion: 2
         x: 96
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b3a772ecc0e8438a8328d5ab7f88523
-      internalID: -1909094195
+      spriteID: f1eae5debfd686544b7b8f59eb6543d2
+      internalID: 35191794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_3
+      name: idle-new_3
       rect:
         serializedVersion: 2
         x: 144
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbbfe96497b3942fbaeef28378aec1f7
-      internalID: -466520538
+      spriteID: 8fa21abbd27f57645864d7ce01c9e233
+      internalID: -611307596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_4
+      name: idle-new_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3a5b65f2a2944bfb69c3ad29d685da
-      internalID: -1628028578
+      spriteID: dfb1b1269ac1b064a9243ea2d7816c3d
+      internalID: 1061182687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_5
+      name: idle-new_5
       rect:
         serializedVersion: 2
         x: 48
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65a99e402890d4e79b51c4f1d90bc529
-      internalID: -11129460
+      spriteID: 0c262b003b18a9f42a5da0d35dc786ea
+      internalID: 198417444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_6
+      name: idle-new_6
       rect:
         serializedVersion: 2
         x: 96
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df5304ddb9918420097b5dea6f48d2a4
-      internalID: 381891892
+      spriteID: 82212de921a0bdb449788787045f1eb5
+      internalID: 244261198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_7
+      name: idle-new_7
       rect:
         serializedVersion: 2
         x: 144
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3baea3b613c5040efb18dd5974fca881
-      internalID: 1121128026
+      spriteID: b9b439207d4a57045aebf1d451cda17f
+      internalID: 1911154300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_8
+      name: idle-new_8
       rect:
         serializedVersion: 2
         x: 0
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abd87adfca70c49e8b4c81dcfc9a807b
-      internalID: 1016832553
+      spriteID: 0f30068981b92b247badef47bf17272c
+      internalID: 645025224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_9
+      name: idle-new_9
       rect:
         serializedVersion: 2
         x: 48
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d22b70c54bbe748b0988b728addef5ad
-      internalID: 333449199
+      spriteID: 54be67646cacc704a8b4aa2bf87e2ebb
+      internalID: 117865170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_10
+      name: idle-new_10
       rect:
         serializedVersion: 2
         x: 96
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874eafd76b1b8474da8c3396c8b6017f
-      internalID: -361820877
+      spriteID: f2104aa1588a2b34e8f50ca586258133
+      internalID: -1967107512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_11
+      name: idle-new_11
       rect:
         serializedVersion: 2
         x: 144
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e56cacd852104444883fed80884f851
-      internalID: 542972722
+      spriteID: 6a2d1bdc11f0480408ef36c7c5495b44
+      internalID: 1556083723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_12
+      name: idle-new_12
       rect:
         serializedVersion: 2
         x: 0
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c617ead5bf77147f5ab0281738013c23
-      internalID: 453173349
+      spriteID: 03b9cff1760672f46b6a6417a73107d3
+      internalID: 1730380163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_13
+      name: idle-new_13
       rect:
         serializedVersion: 2
         x: 48
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76372374b305b4a9b90ea450125fd014
-      internalID: 133044478
+      spriteID: eee97eac309e6b9498b2e5d2c9fcef45
+      internalID: 2083815844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_14
+      name: idle-new_14
       rect:
         serializedVersion: 2
         x: 96
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 859e9911755df4e46b1eaa57536536c5
-      internalID: -1789495580
+      spriteID: 468cb80631b822245857589bc1f74de7
+      internalID: -1983097894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_15
+      name: idle-new_15
       rect:
         serializedVersion: 2
         x: 144
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17d41bc8267a64f2b934900f6dce2b27
-      internalID: -1598055426
+      spriteID: e30ed3aa99d92574a9a083eab4a728c3
+      internalID: 1589874526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_16
+      name: idle-new_16
       rect:
         serializedVersion: 2
         x: 0
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2800f99729b84b709ab3c5bcae2bc56
-      internalID: -699378641
+      spriteID: 1ba7a754a8999a44083c9a26e817b37c
+      internalID: 164718337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_17
+      name: idle-new_17
       rect:
         serializedVersion: 2
         x: 48
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e9d887c169446ab88bb3deb2ba5632
-      internalID: -74722296
+      spriteID: 8ac0ed3815488d440b5090c61c0599c4
+      internalID: 1697591280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_18
+      name: idle-new_18
       rect:
         serializedVersion: 2
         x: 96
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b571d8237e94172b3407ecd09c4c1e
-      internalID: 1593423397
+      spriteID: c2e0858416660cc4fac265a25535807e
+      internalID: -844256309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_19
+      name: idle-new_19
       rect:
         serializedVersion: 2
         x: 144
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a33941ada7b06482dab44ae3230b399e
-      internalID: 1462267187
+      spriteID: b583017ac6c5a3147800d1f27add1c61
+      internalID: -2124009417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_20
+      name: idle-new_20
       rect:
         serializedVersion: 2
         x: 0
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 333a5413a0c0643db9de405f05d4e9fb
-      internalID: -1660501078
+      spriteID: 4c72eb4752be9044ba9b489a017186e8
+      internalID: -351685330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_21
+      name: idle-new_21
       rect:
         serializedVersion: 2
         x: 48
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c0752f26c2ca413d8892121f81df20f
-      internalID: -86514027
+      spriteID: 1b8417ca375dd434fa60e921c889a16e
+      internalID: 114349129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_22
+      name: idle-new_22
       rect:
         serializedVersion: 2
         x: 96
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 841e79e4679664b2fad7688ebc4c5960
-      internalID: 1449855390
+      spriteID: e0345b7cf9b774e4997fe8b076c5255b
+      internalID: -1004976133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_23
+      name: idle-new_23
       rect:
         serializedVersion: 2
         x: 144
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c3eea028a44d4840a08a114622d36d3
-      internalID: 1908060951
+      spriteID: c28e5be65acec60408f4610ed0dc316b
+      internalID: 397444748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_24
+      name: idle-new_24
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caf297628e7664da6a6ae5efd055917e
-      internalID: 2083474807
+      spriteID: bd5cdf9ef28ae4f448b1129ad3780697
+      internalID: 2123712985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_25
+      name: idle-new_25
       rect:
         serializedVersion: 2
         x: 48
@@ -662,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3bfa66bb7ac49639796eeeb08fafc1
-      internalID: 1567066074
+      spriteID: 7df4291d0d3cf4e4d998fb764c174299
+      internalID: 1428784446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_26
+      name: idle-new_26
       rect:
         serializedVersion: 2
         x: 96
@@ -683,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2feed75b008ff47ad984b6eb89ed258c
-      internalID: 972102859
+      spriteID: 63c33fccd9b6fa741b69ea2bbd194ae7
+      internalID: -1264531291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_27
+      name: idle-new_27
       rect:
         serializedVersion: 2
         x: 144
@@ -704,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f321daa68060d49ab8993399f8029574
-      internalID: 317459051
+      spriteID: 2d52dda87a3909545ba1db1336952faa
+      internalID: -933618289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_28
+      name: idle-new_28
       rect:
         serializedVersion: 2
         x: 0
@@ -725,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960dd2e5c364647ea8f8a00f9c4d5a59
-      internalID: 832759578
+      spriteID: 087ef7aa98ae16047ace600df5a9fe05
+      internalID: -997763723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_29
+      name: idle-new_29
       rect:
         serializedVersion: 2
         x: 48
@@ -746,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52833fc46fb13411d8759e2ee1808bbb
-      internalID: 1546946672
+      spriteID: fd5dc82e37eb90e44880dfac9aa70ec3
+      internalID: 331553021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_30
+      name: idle-new_30
       rect:
         serializedVersion: 2
         x: 96
@@ -767,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a95d1c434e247b39b566d6b258ce32
-      internalID: -243910178
+      spriteID: 173cc4d398ee59d41afb66eba858180b
+      internalID: -1970857013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-gun_31
+      name: idle-new_31
       rect:
         serializedVersion: 2
         x: 144
@@ -788,8 +788,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a83e36ee72284bf480bac2eba887e46
-      internalID: 1648877041
+      spriteID: 66e2c47975493b64082733b7829f140b
+      internalID: 168195913
       vertices: []
       indices: 
       edges: []
@@ -805,38 +805,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      walking-gun_0: -163901009
-      walking-gun_1: -2127539835
-      walking-gun_10: -361820877
-      walking-gun_11: 542972722
-      walking-gun_12: 453173349
-      walking-gun_13: 133044478
-      walking-gun_14: -1789495580
-      walking-gun_15: -1598055426
-      walking-gun_16: -699378641
-      walking-gun_17: -74722296
-      walking-gun_18: 1593423397
-      walking-gun_19: 1462267187
-      walking-gun_2: -1909094195
-      walking-gun_20: -1660501078
-      walking-gun_21: -86514027
-      walking-gun_22: 1449855390
-      walking-gun_23: 1908060951
-      walking-gun_24: 2083474807
-      walking-gun_25: 1567066074
-      walking-gun_26: 972102859
-      walking-gun_27: 317459051
-      walking-gun_28: 832759578
-      walking-gun_29: 1546946672
-      walking-gun_3: -466520538
-      walking-gun_30: -243910178
-      walking-gun_31: 1648877041
-      walking-gun_4: -1628028578
-      walking-gun_5: -11129460
-      walking-gun_6: 381891892
-      walking-gun_7: 1121128026
-      walking-gun_8: 1016832553
-      walking-gun_9: 333449199
+      idle-new_0: 1614180067
+      idle-new_1: -495407303
+      idle-new_10: -1967107512
+      idle-new_11: 1556083723
+      idle-new_12: 1730380163
+      idle-new_13: 2083815844
+      idle-new_14: -1983097894
+      idle-new_15: 1589874526
+      idle-new_16: 164718337
+      idle-new_17: 1697591280
+      idle-new_18: -844256309
+      idle-new_19: -2124009417
+      idle-new_2: 35191794
+      idle-new_20: -351685330
+      idle-new_21: 114349129
+      idle-new_22: -1004976133
+      idle-new_23: 397444748
+      idle-new_24: 2123712985
+      idle-new_25: 1428784446
+      idle-new_26: -1264531291
+      idle-new_27: -933618289
+      idle-new_28: -997763723
+      idle-new_29: 331553021
+      idle-new_3: -611307596
+      idle-new_30: -1970857013
+      idle-new_31: 168195913
+      idle-new_4: 1061182687
+      idle-new_5: 198417444
+      idle-new_6: 244261198
+      idle-new_7: 1911154300
+      idle-new_8: 645025224
+      idle-new_9: 117865170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
