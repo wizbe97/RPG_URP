@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Player : Character
 {
     public HitPoints hitPoints;
+    public GameObject playerSpawnPoint;
     public HealthBar healthBarPrefab;
     private HealthBar healthBar;
 
@@ -16,7 +17,15 @@ public class Player : Character
     {
         inventory = FindObjectOfType<Inventory>();
         action = GetComponent<Action>();
-        ResetCharacter();
+        SetupCharacter();
+    }
+
+    private void SetupCharacter()
+    {
+        healthBar = Instantiate(healthBarPrefab);
+        inventory = Instantiate(inventoryPrefab);
+        healthBar.character = this;
+        hitPoints.value = startingHitPoints;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -50,7 +59,6 @@ public class Player : Character
             }
         }
     }
-
 
     bool AddItemToInventory(Item item, int quantity)
     {
@@ -98,25 +106,26 @@ public class Player : Character
 
     public override void KillCharacter()
     {
-        base.KillCharacter();
-        Destroy(healthBar.gameObject);
-        ReloadScene();
+        gameObject.SetActive(false);
+        RespawnManager respawnManager = FindObjectOfType<RespawnManager>();
+        if (respawnManager != null)
+        {
+            respawnManager.StartRespawnCoroutine(gameObject, 2f);
+        }
     }
 
-    public void ReloadScene()
-    {
-        // Get the current scene index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Reload the scene with the same index
-        SceneManager.LoadScene(currentSceneIndex);
+    private IEnumerator ResetCharacterAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ResetCharacter();
     }
 
     public override void ResetCharacter()
     {
-        healthBar = Instantiate(healthBarPrefab);
-        inventory = Instantiate(inventoryPrefab);
-        healthBar.character = this;
+        transform.position = playerSpawnPoint.transform.position;
         hitPoints.value = startingHitPoints;
+        gameObject.SetActive(true);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class DDOL : MonoBehaviour
+public class SpawnpointsDDOL : MonoBehaviour
 {
-    public static DDOL Instance;
+    public static SpawnpointsDDOL Instance;
     private void Awake()
     {
         if (Instance == null)

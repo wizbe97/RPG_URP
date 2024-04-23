@@ -30,7 +30,11 @@ public class PlayerGun : MonoBehaviour
         gunSpriteRenderer = GetComponent<SpriteRenderer>();
 
         playerSortingOrder = playerTransform.GetComponent<SpriteRenderer>().sortingOrder;
+
+        // Adjust the Y position of the gun by 2 units
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 0.23f, transform.localPosition.z);
     }
+
 
     private void Update()
     {

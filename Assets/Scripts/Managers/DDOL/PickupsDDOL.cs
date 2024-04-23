@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class DDOL : MonoBehaviour
+public class PickupsDDOL : MonoBehaviour
 {
-    public static DDOL Instance;
+    public static PickupsDDOL Instance;
     private void Awake()
     {
         if (Instance == null)

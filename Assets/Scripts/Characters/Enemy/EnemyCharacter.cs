@@ -73,4 +73,13 @@ public class EnemyCharacter : Character
         base.KillCharacter();
     }
 
+    public void OnDestroy()
+    {
+        if (GameObject.FindGameObjectWithTag("WaveSpawner") != null)
+        {
+            GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>().spawnedEnemies.Remove(gameObject);
+        }
+
+    }
+
 }

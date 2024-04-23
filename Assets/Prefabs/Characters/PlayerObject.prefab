@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8337505242898327057}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0.003, y: -0.413, z: 0}
   m_LocalScale: {x: 1.2576, y: 1.0736, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 8373722517027224052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 8801228689619027253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -27.544142, y: 12.103606, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -275,6 +275,7 @@ MonoBehaviour:
   maxHitPoints: 100
   characterCategory: 0
   hitPoints: {fileID: 11400000, guid: f5c7593b0aae9a14abeaf3588725f746, type: 2}
+  playerSpawnPoint: {fileID: 5375191969508314728, guid: ea4e7c2eb61067846976b0151479e857, type: 3}
   healthBarPrefab: {fileID: 7422304651374352738, guid: f502ccf4bbf154b45b2fb5ac4721cdd8, type: 3}
   inventoryPrefab: {fileID: -3428646450097662223, guid: f6f1f1de18f6c134dab26a41d82691fd, type: 3}
 --- !u!114 &1045256185546379943
@@ -356,11 +357,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008140564, y: 0.00040340424}
+  m_Offset: {x: -0.01, y: 0.39}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.8125}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 1.125, y: 1.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
