@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBuildIndex: 0
-  spawnPoint: {fileID: 8351631977301406632, guid: a5755e270eb9e6b48a94ba22a90447f3, type: 3}
+  spawnPoint: {fileID: 7090651124571513291, guid: 18c33757af8a125419d0f0f003bdc543, type: 3}
 --- !u!61 &651890304
 BoxCollider2D:
   m_ObjectHideFlags: 0
