@@ -9,6 +9,7 @@ TagManager:
   - CanBePickedUp
   - MapCollisions
   - WaveSpawner
+  - PlayerCollisions
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class NewScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerCollisions"))
         {
             // Send a message to PlayerManager with spawn point information
             PlayerManager.Instance.SendMessage("SetSpawnPoint", spawnPoint.position);
