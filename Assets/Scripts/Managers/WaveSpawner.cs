@@ -30,14 +30,11 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnedEnemies.Count <= 0 && startNextWave == true)
+        if (spawnedEnemies.Count <= 0 && waveTimer <= 0)
         {
-            if (waveTimer <= 0)
-            {
-                // Increment the wave number to start the next wave
-                currWave++;
-                GenerateWave();
-            }
+            // Increment the wave number to start the next wave
+            currWave++;
+            GenerateWave();
         }
 
     }
