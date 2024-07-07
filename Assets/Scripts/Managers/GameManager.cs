@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     //THIS WILL BE THE INITIAL POSITION WHERE THE PLAYER WILL SPAWN WHEN YOU FIRST START THE SCENE
     public Transform playerSpawnPosition;
+    public Vector3 scenePlayerSpawnPosition;
 
 
     //THESE WILL HOLD REFERENCES FOR THE OTHER MANAGERS WHICH YOU CAN CALL FROM ANY SCRIPT USING GameManager.Instance....
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            scenePlayerSpawnPosition = playerSpawnPosition.position;
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(this.gameObject);
         }
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
             inventoryManager = Instantiate(inventoryManagerPrefab);
 
         if (playerManager == null)
-            playerManager = Instantiate(playerManagerPrefab, playerSpawnPosition.position, Quaternion.identity);
+            playerManager = Instantiate(playerManagerPrefab, scenePlayerSpawnPosition, Quaternion.identity);
 
         if (healthBarManager == null)
             healthBarManager = Instantiate(healthBarManagerPrefab);
@@ -133,7 +135,7 @@ public class GameManager : MonoBehaviour
 
         if (!isOnMenu)
         {
-            playerManager.transform.position = playerSpawnPosition.position;
+            playerManager.transform.position = scenePlayerSpawnPosition;
         }
         else
         {

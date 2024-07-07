@@ -10,7 +10,8 @@ public class NewScene : MonoBehaviour
     {
         if (other.CompareTag("PlayerCollisions"))
         {
-            GameManager.Instance.playerSpawnPosition.position = spawnPoint.position;
+            GameManager.Instance.scenePlayerSpawnPosition = spawnPoint.position;
+            GameManager.Instance.SaveAllData();
             // // Send a message to PlayerManager with spawn point information
             // PlayerManager.Instance.SendMessage("SetSpawnPoint", spawnPoint.position);
 
