@@ -5,17 +5,27 @@ using UnityEngine.UI;
 
 public class GameplayUI : MonoBehaviour
 {
+    [Header("PAUSE")]
     public GameObject pausePanel;
     public Button resumeButton;
     public Button saveButton;
     public Button menuButton;
     public TextMeshProUGUI slotButtonLabel;
 
+    [Header("CONFIRM")]
+    public GameObject confirmPanel;
+    public Button backButton;
+    public Button saveAndQuitButton;
+    public Button menuConfirmButton;
+
     void Start()
     {
         resumeButton.onClick.AddListener(ResumeGame);
         saveButton.onClick.AddListener(Save);
         menuButton.onClick.AddListener(MenuClick);
+        menuConfirmButton.onClick.AddListener(MenuConfirmClick);
+        backButton.onClick.AddListener(ConfirmBackClick);
+        saveAndQuitButton.onClick.AddListener(SaveAndQuit);
 
         UpdateSlotButton(false);
     }
@@ -62,6 +72,32 @@ public class GameplayUI : MonoBehaviour
 
     private void MenuClick()
     {
+        if (saveButton.interactable)
+        {
+            pausePanel.SetActive(false);
+            confirmPanel.SetActive(true);
+            return;
+        }
+
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    private void MenuConfirmClick()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    private void ConfirmBackClick()
+    {
+        confirmPanel.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+
+    private void SaveAndQuit()
+    {
+        GameManager.Instance.SaveAllData(isLocal: false);
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
