@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public int currentSlot;
     private bool isOnMenu = false;
+    private bool isLocal = false;
 
 
     private void Awake()
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            if(currentSlot == 0) currentSlot = 1;
             scenePlayerSpawnPosition = playerSpawnPosition.position;
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(this.gameObject);
@@ -122,16 +124,27 @@ public class GameManager : MonoBehaviour
 
     //HERE YOU WILL PUT OTHER THINGS THAT YOU WANT TO SAVE IN THE FUTURE
     //CURRENTLY ONLY HAS INVENTORY AND PLAYER STATS
-    public void SaveAllData()
+    public void SaveAllData(bool isLocal)
     {
-        playerManager.SavePlayerData(currentSlot);
-        inventoryManager.SaveInventoryData(currentSlot);
+        this.isLocal = isLocal;
+
+        int slotToSave = isLocal ? 0 : currentSlot;
+        playerManager.SavePlayerData(slotToSave);
+        inventoryManager.SaveInventoryData(slotToSave);
     }
+
 
     public void LoadAllData()
     {
-        playerManager.LoadPlayerData(currentSlot);
-        inventoryManager.LoadInventoryData(currentSlot);
+        if(isOnMenu)
+        {
+            isLocal = false;
+        }
+        
+        int slotToSave = isLocal ? 0 : currentSlot;
+
+        playerManager.LoadPlayerData(slotToSave);
+        inventoryManager.LoadInventoryData(slotToSave);
 
         if (!isOnMenu)
         {

@@ -56,7 +56,7 @@ public class GameplayUI : MonoBehaviour
 
     private void Save()
     {
-        GameManager.Instance.SaveAllData();
+        GameManager.Instance.SaveAllData(isLocal: false);
         UpdateSlotButton(true);
     }
 
