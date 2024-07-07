@@ -38,6 +38,8 @@ public class Inventory : MonoBehaviour
             inventorySlots[i].Index = i;
 
         SaveManager.Instance.LoadInventory(inventorySlots, slot);
+
+        ChangeSelectedSlot(0);
     }
 
     public void SaveInventoryData(int slot)
