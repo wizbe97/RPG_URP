@@ -1,33 +1,51 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
     public HitPoints hitPoints;
     public GameObject playerSpawnPoint;
-    public HealthBar healthBarPrefab;
     private HealthBar healthBar;
-
-    public Inventory inventoryPrefab;
     private Inventory inventory;
     private Action action;
 
     private void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
         action = GetComponent<Action>();
         SetupCharacter();
     }
 
     private void SetupCharacter()
     {
-        healthBar = Instantiate(healthBarPrefab);
-        inventory = Instantiate(inventoryPrefab);
+        healthBar = GameManager.Instance.healthBarManager;
+        inventory = GameManager.Instance.inventoryManager;
         healthBar.character = this;
         hitPoints.value = startingHitPoints;
     }
 
+    public void SavePlayerData(int slot)
+    {
+        PlayerData playerStats = new PlayerData
+        {
+            health = hitPoints.value,
+            position = transform.position
+        };
+
+        SaveManager.Instance.SavePlayerStats(playerStats, slot);
+    }
+
+    public void LoadPlayerData(int slot)
+    {
+        SetupCharacter();
+
+        PlayerData loadedData = SaveManager.Instance.LoadPlayerStats(slot);
+        if (loadedData != null)
+        {
+            // Apply the loaded stats to your player
+            hitPoints.value = loadedData.health;
+            transform.position = loadedData.position;
+        }
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CanBePickedUp"))
@@ -46,6 +64,7 @@ public class Player : Character
                     case Item.ItemType.COIN:
                     case Item.ItemType.BULLET:
                     case Item.ItemType.GUN:
+                        inventory.CollectItem(collision.gameObject);
                         shouldDisappear = AddItemToInventory(hitObject, hitObject.quantity);
                         action.CurrentItem();
                         break;

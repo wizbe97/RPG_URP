@@ -1,3 +1,5 @@
+
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -10,20 +12,18 @@ public class Inventory : MonoBehaviour
 
     int selectedSlot = -1;
 
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        for (int i = 0; i < inventorySlots.Length; i++)
-            inventorySlots[i].Index = i;
+        // else
+        // {
+        //     Destroy(this.gameObject);
+        // }
     }
 
     private void Start()
@@ -31,6 +31,22 @@ public class Inventory : MonoBehaviour
         action = FindAnyObjectByType<Action>();
         ChangeSelectedSlot(0);
     }
+
+    public void LoadInventoryData(int slot)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+            inventorySlots[i].Index = i;
+
+        SaveManager.Instance.LoadInventory(inventorySlots, slot);
+
+        ChangeSelectedSlot(0);
+    }
+
+    public void SaveInventoryData(int slot)
+    {
+        SaveManager.Instance.SaveInventory(inventorySlots, slot);
+    }
+
 
     private void Update()
     {
@@ -149,6 +165,7 @@ public class Inventory : MonoBehaviour
             {
                 // Spawn a new item in the slot
                 SpawnNewItem(item, slotIndex, quantity); // Pass the quantity here
+                // SaveManager.Instance.SaveInventory(inventorySlots);
                 return true;
             }
             else if (itemInSlot != null && itemInSlot.item == item && itemInSlot.count < maxStackedItems && itemInSlot.item.stackable == true)
@@ -160,6 +177,7 @@ public class Inventory : MonoBehaviour
                     // If there's enough space in the stack to accommodate the entire quantity
                     itemInSlot.count += quantity;
                     itemInSlot.RefreshCount();
+                    // SaveManager.Instance.SaveInventory(inventorySlots);
                     return true;
                 }
                 else
@@ -175,7 +193,6 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-
     void SpawnNewItem(Item item, int slotIndex, int quantity)
     {
         InventorySlot slot = inventorySlots[slotIndex];
@@ -184,7 +201,6 @@ public class Inventory : MonoBehaviour
         slot.Item.InitialiseItem(item, quantity); // Pass the quantity here
         slot.Item.InventorySlotIndex = slotIndex;
     }
-
 
     public void ChangeItemSlot(InventoryItem item, int slotIndex, bool emptyOriginalSlot = true)
     {
@@ -202,5 +218,20 @@ public class Inventory : MonoBehaviour
         int item1Slot = items[1].InventorySlotIndex;
         ChangeItemSlot(items[0], item1Slot, false);
         ChangeItemSlot(items[1], item0Slot, false);
+    }
+
+
+    // Store collected item IDs in a list
+    public List<string> collectedItems = new List<string>();
+
+    // Call this method when an item is collected
+    public void CollectItem(GameObject item)
+    {
+        Consumable uniqueID = item.GetComponent<Consumable>();
+        if (uniqueID != null)
+        {
+            collectedItems.Add(uniqueID.ID);
+            item.SetActive(false);
+        }
     }
 }

@@ -101,7 +101,18 @@ public class MeleeEnemyController : EnemyController
             case 4:
                 SetAnimationDirection();
                 CurrentState = EnemyStates.ATTACK;
+                Invoke(nameof(ResetAttack), 1f);
                 break;
+        }
+    }
+
+    private void ResetAttack()
+    {
+        if (damageCoroutine != null)
+        {
+            StopCoroutine(damageCoroutine);
+            damageCoroutine = null;
+            isAttacking = false;
         }
     }
 }
