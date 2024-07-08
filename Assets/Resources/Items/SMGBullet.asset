@@ -18,7 +18,7 @@ MonoBehaviour:
   inventoryImage: {fileID: 21300000, guid: 0dedb13903ad42448ab2b91172870657, type: 3}
   quantity: 10
   stackable: 1
-  dropChance: 35
+  dropChance: 1
   bullet: {fileID: 0}
   holdable: 0
   itemType: 3
