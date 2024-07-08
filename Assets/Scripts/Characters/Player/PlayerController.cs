@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     }
     private UpdateAnimationState animationState;
     private Rigidbody2D rb;
-
     [SerializeField] private float moveDrag = 15f;
     [SerializeField] private float stopDrag = 25f;
     [SerializeField] private float dashForce = 10f;
@@ -34,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public float movementSpeed = 1250f;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
+    [HideInInspector] public bool isDashing;
 
     private void Awake()
     {
@@ -71,7 +71,12 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 dashDirection = moveInput.normalized;
             rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+            isDashing = true;
         }
+    }
+
+    public void OnDashEnd() {
+        isDashing = false;
     }
 
     private void OnOpenInventory()
