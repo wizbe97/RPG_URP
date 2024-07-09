@@ -629,8 +629,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: mouseX
-  m_BlendParameterY: mouseY
+  m_BlendParameter: xMove
+  m_BlendParameterY: yMove
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1

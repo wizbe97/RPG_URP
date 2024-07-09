@@ -278,6 +278,7 @@ MonoBehaviour:
   moveDrag: 15
   stopDrag: 25
   dashForce: 50
+  dashCooldown: 3
   isMoving: 0
   movementSpeed: 3500
   moveInput: {x: 0, y: 0}

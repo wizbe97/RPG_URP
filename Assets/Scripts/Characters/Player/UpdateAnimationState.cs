@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UpdateAnimationState : MonoBehaviour
 {
-
     [HideInInspector] public bool stateLock = false;
     public Animator animator;
     private PlayerController playerController;
@@ -31,6 +30,7 @@ public class UpdateAnimationState : MonoBehaviour
         action = GetComponent<Action>();
         player = GetComponent<Player>();
     }
+
     public PlayerStates currentState
     {
         set
@@ -93,68 +93,57 @@ public class UpdateAnimationState : MonoBehaviour
     public void UpdateCharacterAnimationState(Vector2 moveInput)
     {
         int stateIdentifier;
-        if (playerController.isDashing != true)
+        if (playerController.isDashing)
         {
-            if (playerController.isMoving)
+            stateIdentifier = 7;
+        }
+        else if (playerController.isMoving)
+        {
+            if (action.isHoldingGun)
             {
-                if (action.isHoldingGun == true) // Check if the player is holding a gun
-                {
-                    // If holding a gun, check if the movement speed is greater than or equal to 3
-                    stateIdentifier = playerController.movementSpeed >= 2000 ? 1 : 2;
-                }
-                else
-                {
-                    // If not holding a gun, check if the movement speed is greater than or equal to 3
-                    stateIdentifier = playerController.movementSpeed >= 2000 ? 3 : 4;
-                }
+                stateIdentifier = playerController.movementSpeed >= 2000 ? 1 : 2;
             }
             else
             {
-                // If not moving, check if holding a gun
-                stateIdentifier = action.isHoldingGun ? 5 : 6;
+                stateIdentifier = playerController.movementSpeed >= 2000 ? 3 : 4;
             }
         }
-        else {
-            stateIdentifier = 7;
+        else
+        {
+            stateIdentifier = action.isHoldingGun ? 5 : 6;
         }
-
 
         switch (stateIdentifier)
         {
-            case 1: // PLAYER IS MOVING AND HOLDING A GUN, MOVE SPEED IS GREATER THAN 3
+            case 1:
                 PlayerFollowMouse();
                 currentState = PlayerStates.RUN_HOLDING_GUN;
                 break;
-
-            case 2: // PLAYER IS MOVING AND HOLDING A GUN, MOVE SPEED IS LESS THAN 3
+            case 2:
                 PlayerFollowMouse();
                 currentState = PlayerStates.WALK_HOLDING_GUN;
                 break;
-
-            case 3: // PLAYER IS MOVING, NOT HOLDING A GUN, MOVE SPEED IS GREATER THAN 3
+            case 3:
                 PlayerFaceMovementDirection();
                 currentState = PlayerStates.RUN;
                 break;
-
-            case 4: // PLAYER IS MOVING, NOT HOLDING A GUN, MOVE SPEED IS LESS THAN 3
+            case 4:
                 PlayerFaceMovementDirection();
                 currentState = PlayerStates.WALK;
                 break;
-
-            case 5: // PLAYER IS IDLE AND HOLDING A GUN
+            case 5:
                 PlayerFollowMouse();
                 currentState = PlayerStates.IDLE_HOLDING_GUN;
                 break;
-
-            case 6: // PLAYER IS IDLE AND NOT HOLDING A GUN
+            case 6:
                 currentState = PlayerStates.IDLE;
                 break;
-            case 7: // PLAYER IS IDLE AND NOT HOLDING A GUN
+            case 7:
                 PlayerFaceMovementDirection();
                 currentState = PlayerStates.DASH;
                 break;
-
         }
+
         void PlayerFollowMouse()
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
