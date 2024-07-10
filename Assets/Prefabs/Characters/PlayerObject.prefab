@@ -278,9 +278,11 @@ MonoBehaviour:
   moveDrag: 15
   stopDrag: 25
   dashForce: 50
+  dashCooldown: 3
   isMoving: 0
   movementSpeed: 3500
   moveInput: {x: 0, y: 0}
+  isDashing: 0
 --- !u!114 &-3604236888178394875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateLock: 0
+  animator: {fileID: 0}
   currentStateValue: 0
 --- !u!61 &2256841804960756383
 BoxCollider2D:

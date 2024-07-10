@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class PlayerController : MonoBehaviour
 {
     bool IsMoving
@@ -24,21 +23,25 @@ public class PlayerController : MonoBehaviour
         }
     }
     private UpdateAnimationState animationState;
+    private Action action;
     private Rigidbody2D rb;
-
     [SerializeField] private float moveDrag = 15f;
     [SerializeField] private float stopDrag = 25f;
     [SerializeField] private float dashForce = 10f;
+    [SerializeField] private float dashCooldown = 3f;
+    private bool dashOnCooldown = false; 
     public bool isMoving = false;
     private readonly bool canMove = true;
 
     public float movementSpeed = 1250f;
     [HideInInspector] public Vector2 moveInput = Vector2.zero;
+    [HideInInspector] public bool isDashing;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animationState = GetComponent<UpdateAnimationState>();
+        action = GetComponent<Action>();
     }
 
     private void FixedUpdate()
@@ -57,7 +60,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(movementSpeed * Time.fixedDeltaTime * moveInput, ForceMode2D.Force);
             IsMoving = true;
-
         }
         else
         {
@@ -67,11 +69,30 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash()
     {
-        if (moveInput.magnitude > 0)
+        if (!dashOnCooldown && moveInput.magnitude > 0)
         {
             Vector2 dashDirection = moveInput.normalized;
             rb.AddForce(dashDirection * dashForce, ForceMode2D.Impulse);
+            isDashing = true;
+            dashOnCooldown = true;
+            animationState.UpdateCharacterAnimationState(moveInput);
+            action.DeactivateCurrentItem();
+            StartCoroutine(DashCooldown()); 
         }
+    }
+
+    public void OnDashEnd()
+    {
+        isDashing = false;
+        animationState.stateLock = false; 
+        animationState.UpdateCharacterAnimationState(moveInput);
+        action.CurrentItem();
+    }
+
+    private IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        dashOnCooldown = false;
     }
 
     private void OnOpenInventory()

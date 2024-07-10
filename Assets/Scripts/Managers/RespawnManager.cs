@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
+    private UpdateAnimationState animationState;
     public void StartRespawnCoroutine(GameObject playerObject, float delay)
     {
         StartCoroutine(RespawnPlayerAfterDelay(playerObject, delay));
@@ -15,7 +16,9 @@ public class RespawnManager : MonoBehaviour
         Player player = playerObject.GetComponent<Player>();
         if (player != null)
         {
+            animationState = FindObjectOfType<UpdateAnimationState>();
             player.ResetCharacter();
+            animationState.stateLock = false;
         }
     }
 }
